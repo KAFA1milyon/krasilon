@@ -18,7 +18,7 @@ namespace balaban.Models
         public virtual bool? IsDeleted
         {
             get { return _isDeleted; }
-            set { _isDeleted = value == null ? true : (Boolean)value; }
+            set { _isDeleted = value == null ? false : (Boolean)value; }
         }
     }
 }
