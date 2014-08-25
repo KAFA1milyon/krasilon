@@ -29,7 +29,21 @@
         </div>
     </div>*@
 
-
+@using balaban.Models
+@{
+    List<Urun> urunler = ViewBag.Urunler;
+}
+<div class="jumbotron">
+    <h1>Ürünler</h1>
+    <ul>
+        @foreach (Urun urun in urunler)
+        {
+            <li>
+                @urun.UrunAdi
+            </li>
+        }
+    </ul>
+</div>
 
 
 <div class="banners">
