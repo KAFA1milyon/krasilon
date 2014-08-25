@@ -12,10 +12,11 @@ namespace balaban
 {
     public class MvcApplication : System.Web.HttpApplication
     {
-        protected void Application_Start()    
+        protected void Application_Start()
         {
-            Database.SetInitializer<bContext>(new bInitializer());
-            //Database.SetInitializer<bContext>(null);
+            //Database.SetInitializer<bContext>(new bInitializer()); //db yi re-generate eder
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<bContext>()); //sadece model değişikliği varsa db yi re-generate eder
+            //Database.SetInitializer<bContext>(null); //db ye dokunmadan sadece kullanır
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
