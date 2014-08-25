@@ -1,0 +1,112 @@
+﻿@model balaban.Models.Musteri
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Musteri</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriTip.TipTanim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriTip.TipTanim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MusteriKod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MusteriKod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KullaniciAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KullaniciAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VergiNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VergiNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TCKimlikNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TCKimlikNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VergiDairesi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VergiDairesi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IrtibatIsim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IrtibatIsim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IrtibatNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IrtibatNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

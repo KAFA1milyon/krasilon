@@ -1,0 +1,58 @@
+﻿@model balaban.Models.UrunResim
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UrunResim</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Urun.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Urun.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResimYol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResimYol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnaResim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnaResim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model balaban.Models.OdemeTip
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>OdemeTip</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OdemeTipAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdemeTipAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

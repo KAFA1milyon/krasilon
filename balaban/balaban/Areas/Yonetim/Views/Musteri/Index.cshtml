@@ -1,0 +1,93 @@
+﻿@model IEnumerable<balaban.Models.Musteri>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MusteriTip.TipTanim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MusteriKod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KullaniciAdi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sifre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VergiNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TCKimlikNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VergiDairesi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IrtibatIsim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IrtibatNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsLive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusteriTip.TipTanim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MusteriKod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KullaniciAdi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sifre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VergiNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TCKimlikNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VergiDairesi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IrtibatIsim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IrtibatNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsLive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

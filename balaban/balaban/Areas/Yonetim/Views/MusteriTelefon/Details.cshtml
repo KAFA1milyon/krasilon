@@ -1,0 +1,66 @@
+﻿@model balaban.Models.MusteriTelefon
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MusteriTelefon</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Musteri.MusteriKod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Musteri.MusteriKod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonTip.TipTanim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonTip.TipTanim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelOncelik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelOncelik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

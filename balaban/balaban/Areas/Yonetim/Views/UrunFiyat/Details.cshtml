@@ -1,0 +1,66 @@
+﻿@model balaban.Models.UrunFiyat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UrunFiyat</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OdemeTip.OdemeTipAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OdemeTip.OdemeTipAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SatisKanal.KanalAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SatisKanal.KanalAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Urun.UrunAdi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Urun.UrunAdi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsLive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsLive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDeleted)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsDeleted)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
