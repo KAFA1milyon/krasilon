@@ -1,44 +1,430 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @*@Styles.Render("~/Content/css")*@
+    <link rel="stylesheet" type="text/css" href="~/Content/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/cssstylesheet_boxes.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/stylesheet_css_buttons.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/stylesheet_darkbox.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/stylesheet_main.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/css/stylesheet_tm.css">
+    <link rel="stylesheet" type="text/css" media="print" href="~/Content/css/print_stylesheet.css">
 
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jscript_xdarkbox.js"></script>
+    <script src="~/Scripts/jscript_zcoin-slider.js"></script>
+
+    <!--[if lt IE 7]>
+        <div style=' clear: both; text-align:center; position: relative;'>
+            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://www.theie6countdown.com/images/upgrade.jpg" border="0"  alt="" /></a>
+        </div>
+    <![endif]-->
+
+    <style type="text/css">
+        .class { behavior: url(includes/templates/theme505/PIE.php); }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#coin-slider").coinslider();
+        });
+    </script>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7078796-5']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+        (function (b) { (function (a) { "__CF" in b && "DJS" in b.__CF ? b.__CF.DJS.push(a) : "addEventListener" in b ? b.addEventListener("load", a, !1) : b.attachEvent("onload", a) })(function () { "FB" in b && "Event" in FB && "subscribe" in FB.Event && (FB.Event.subscribe("edge.create", function (a) { _gaq.push(["_trackSocial", "facebook", "like", a]) }), FB.Event.subscribe("edge.remove", function (a) { _gaq.push(["_trackSocial", "facebook", "unlike", a]) }), FB.Event.subscribe("message.send", function (a) { _gaq.push(["_trackSocial", "facebook", "send", a]) })); "twttr" in b && "events" in twttr && "bind" in twttr.events && twttr.events.bind("tweet", function (a) { if (a) { var b; if (a.target && a.target.nodeName == "IFRAME") a: { if (a = a.target.src) { a = a.split("#")[0].match(/[^?=&]+=([^&]*)?/g); b = 0; for (var c; c = a[b]; ++b) if (c.indexOf("url") === 0) { b = unescape(c.split("=")[1]); break a } } b = void 0 } _gaq.push(["_trackSocial", "twitter", "tweet", b]) } }) }) })(window);
+        /* ]]> */
+    </script>
 </head>
+
+
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+
+    <!-- ========== IMAGE BORDER TOP ========== -->
+    <!-- ====================================== -->
+    <!-- ========== HEADER ========== -->
+
+
+
+    <div id="header">
+        <div class="main-width">
+            <div class="wrapper">
+                <div class="logo">
+                    <!-- ========== LOGO ========== -->
+                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=index&amp;zenid=3ghopb02ouhtuj1ue240ud6o03"><img src="includes/templates/theme505/images/logo.png" alt="" width="197" height="85"></a>
+                    <!-- ========================== -->
+                </div>
+                <div class="cart">
+                    <!-- ========== SHOPPING CART ========== -->
+                    <a class="st1" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=shopping_cart&amp;zenid=3ghopb02ouhtuj1ue240ud6o03"><span>Shopping cart</span></a><span class="one"> <span class="st3">now in your cart</span>  <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=shopping_cart&amp;zenid=3ghopb02ouhtuj1ue240ud6o03"><span class="st2">0 items</span></a></span>
+                    <!-- =================================== -->
+                </div>
+                <div class="right-head">
+                    <div class="lang">
+                        <!-- ========== LANGUAGES ========== -->
+                        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=index&amp;language=en&amp;zenid=3ghopb02ouhtuj1ue240ud6o03"><img src="includes/languages/english/images/icon.gif" alt="English" title=" English " width="24" height="15" style="vertical-align:middle;"></a>						<!-- =============================== -->
+                    </div>
+                    <div class="search">
+                        <!-- ========== SEARCH ========== -->
+                        <form name="quick_find_header" action="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=advanced_search_result" method="get">
+                            <div>
+                                <input type="hidden" name="main_page" value="advanced_search_result"><input type="hidden" name="search_in_description" value="1"><input type="hidden" name="zenid" value="3ghopb02ouhtuj1ue240ud6o03">
+                                <span class="corner"></span>
+                                <input type="text" name="keyword" class="input1">							<input type="image" src="includes/templates/theme505/buttons/english/search.gif" alt="Search" title=" Search " class="input2">
+
+                            </div>
+                        </form>
+                        <!-- ============================ -->
+                    </div>
+                    <div class="navigation">
+                        <!-- ========== NAVIGATION LINKS ========== -->
+                        <a href="http://livedemo00.template-help.com/zencart_34200/zencart_34200.html">Home</a>
+
+                        &nbsp; | &nbsp; <a href="index_50.htm">Log In</a>
+
+
+                        <!-- ====================================== -->
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="wrapper box2">
+                <div class="menu">
+                    <!-- ========== MENU ========== -->
+                    <div id="navEZPagesTop">
+                        <ul>
+
+                            <li class="selected  first">
+                                <a href="index_48.htm">
+                                    <span>
+                                        <span>Home</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="  ">
+                                <a href="index_52.htm">
+                                    <span>
+                                        <span>New Products</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="  ">
+                                <a href="index_53.htm">
+                                    <span>
+                                        <span>Specials</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="  ">
+                                <a href="index_54.htm">
+                                    <span>
+                                        <span>Products All</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="  ">
+                                <a href="index_55.htm">
+                                    <span>
+                                        <span>Reviews</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="  ">
+                                <a href="index_56.htm">
+                                    <span>
+                                        <span>Contact Us</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class=" last ">
+                                <a href="index_57.htm">
+                                    <span>
+                                        <span>FAQs</span>
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <!-- ========================== -->
+                </div>
+                <div class="currencies">
+                    <!-- ========== CURRENCIES ========= -->
+                    <form name="currencies" action="http://livedemo00.template-help.com/zencart_34200/index_12.htm" method="get">
+                        <div>
+                            Currencies: &nbsp;
+
+                            <select name="currency" class="select" onchange="this.form.submit();">
+                                <option value="USD" selected="selected">US Dollar</option>
+                                <option value="EUR">Euro</option>
+                                <option value="GBP">GB Pound</option>
+                                <option value="CAD">Canadian Dollar</option>
+                                <option value="AUD">Australian Dollar</option>
+                            </select>
+                            <input type="hidden" name="main_page" value="index"><input type="hidden" name="zenid" value="3ghopb02ouhtuj1ue240ud6o03">
+                        </div>
+                    </form>
+                    <!-- ====================================== -->
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+
+
+
+
+
+
+
+
+
+    <!-- ============================ -->
+    <div class="wrapp">
+        <div class="main-width">
+
+
+            <table border="0" cellspacing="0" cellpadding="0" width="100%" id="contentMainWrapper">
+                <tbody>
+                    <tr>
+
+
+                        <td id="column-left" style="width:230px;">
+                            <div style="width:230px;">
+                                <!--// bof: categories //-->
+                                <div class="box" id="categories" style="width:230px;">
+
+                                    <div class="box-bottom">
+                                        <div class="box-top">
+                                            <div class="box-right">
+                                                <div class="box-left">
+                                                    <div class="box-bottom-right">
+                                                        <div class="box-bottom-left">
+                                                            <div class="box-top-right">
+                                                                <div class="box-top-left">
+
+                                                                    <div class="box-head">
+                                                                        Categories
+                                                                    </div>
+
+                                                                    <div class="box-body">
+                                                                        <div id="categoriesContent" class="sideBoxContent">
+                                                                            <ul>
+                                                                                <li class="category-top_un"><span class="top-span"><a class="category-top_un" href="index_58.htm">Boiled Sweets</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_59.htm"><span class="category-subs-parent">Candy Sweets-&gt;</span></a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_60.htm">Chewy Sweets</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_61.htm">Chocolate Bars</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_62.htm">Chocolate Sweets</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_64.htm">Coconut Sweets</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_63.htm">Easter</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_65.htm">Gifts</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_66.htm">Halal Sweets</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_67.htm">Jellies &amp; Gummies</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_68.htm">Liquorice</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_69.htm">Lovely Lollies</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_70.htm">Low Carbohydrate</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_71.htm">Mints</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_72.htm">Mother's day</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_73.htm">Nutties</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_74.htm">Sherbets &amp; Fizzies</a></span></li>
+                                                                                <li class="category-top"><span class="top-span"><a class="category-top" href="index_75.htm">Sugar Free</a></span></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--// eof: categories //-->
+                                <!--// bof: ezpages //-->
+                                <div class="box" id="ezpages" style="width:230px;">
+
+                                    <div class="box-bottom">
+                                        <div class="box-top">
+                                            <div class="box-right">
+                                                <div class="box-left">
+                                                    <div class="box-bottom-right">
+                                                        <div class="box-bottom-left">
+                                                            <div class="box-top-right">
+                                                                <div class="box-top-left">
+
+                                                                    <div class="box-head">
+                                                                        Important Links
+                                                                    </div>
+
+                                                                    <div class="box-body">
+                                                                        <div id="ezpagesContent" class="sideBoxContent">
+                                                                            <ul style="margin: 0; padding: 0; list-style-type: none;">
+                                                                                <li><a href="index_76.htm">My Link</a></li>
+                                                                                <li><a href="index_77.htm">Anything</a></li>
+                                                                                <li><a href="index_78.htm">Site Map</a></li>
+                                                                                <li><a href="index_79.htm">Shared</a></li>
+                                                                                <li><a href="index_80.htm">Gift Certificates</a></li>
+                                                                                <li><a href="http://www.google.com" target="_blank">Google</a></li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--// eof: ezpages //-->
+                                <!--// bof: specials //-->
+                                <div class="box" id="specials" style="width:230px;">
+
+                                    <div class="box-bottom">
+                                        <div class="box-top">
+                                            <div class="box-right">
+                                                <div class="box-left">
+                                                    <div class="box-bottom-right">
+                                                        <div class="box-bottom-left">
+                                                            <div class="box-top-right">
+                                                                <div class="box-top-left">
+
+                                                                    <div class="box-head">
+                                                                        <a href="index_53.htm">Specials</a>
+                                                                    </div>
+
+                                                                    <div class="box-body">
+                                                                        <div class="sideBoxContent centeredContent"><div class="img"><a href="index_81.htm"><img src="images/12.jpg" alt="Almond thins" title=" Almond thins " width="198" height="168"></a><br></div><a class="name" href="index_81.htm">Almond thins</a><div class="price"><span class="normalprice">$124.00 </span>&nbsp;<span class="productSpecialPrice">$105.40</span></div></div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!--// eof: specials //-->
+                            </div>
+                        </td>
+
+                        <td id="column-center" valign="top">
+                            @RenderBody()
+                            <hr />
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+    <!-- ========== FOOTER ========== -->
+    <!-- BOF- BANNER #5 display -->
+    <!-- EOF- BANNER #5 display -->
+
+
+
+
+
+
+    <div id="footer">
+        <div class="main-width">
+            <div class="wrapper">
+                <div class="copyright">
+                    <!-- ========== COPYRIGHT ========== -->
+                    Copyright © 2014 <a href="index_48.htm" target="_blank">Candy</a>. Powered by <a href="../www.zen-cart.com/www_zen-cart_default.html" target="_blank">Zen Cart</a> <a href="index_92.htm">Privacy Notice</a>
+
+                    <!-- =============================== -->
+                </div>
+                <div><!-- {%FOOTER_LINK} --></div>
+            </div>
+        </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+
+
+
+    <!-- ============================ -->
+    <!--bof- parse time display -->
+    <!--eof- parse time display -->
+    <!-- BOF- BANNER #6 display -->
+    <!-- EOF- BANNER #6 display -->
+    <!-- ========== IMAGE BORDER BOTTOM ========== -->
+    <!-- ========================================= -->
+
+
+
+
 </body>
 </html>

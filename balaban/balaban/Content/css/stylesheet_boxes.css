@@ -1,0 +1,347 @@
+
+/* ----------------------- BOXES ------------------------- */
+
+.box {margin-bottom:18px;}
+
+.box-head {
+	color:#565656;
+	font-size:15px;
+	line-height:15px;
+	background:url(../images/marker2.gif) no-repeat 0 18px;
+	padding:13px 0 18px 17px;
+	margin-left:17px;
+	border-bottom:1px solid #e0e0ce;
+	width:166px;
+}
+.box-head a {
+	color:#565656;
+	text-decoration:none;
+}
+.box-head a:hover {
+	text-decoration:underline;
+}
+
+.box-body {}
+
+.box-body ul {margin:0; padding:0px 0 0 0; list-style:none;}
+.box-body ul li {
+	padding-left:46px
+
+}
+.box-body ul li a {
+	color:#ef5811;
+	font-size:14px;
+	line-height:26px;
+}
+.box-body ul li a:hover {
+	
+}
+
+.box-body ol {margin:0; padding:0; list-style:none;}
+.box-body ol li {
+	padding:0 10px 0 30px;
+}
+.box-body ol li a {
+	color:#ef5811;
+	font-size:14px;
+	line-height:26px;
+}
+.box-body ol li a:hover {}
+
+
+/* ----------------------- LISTING BOXES ------------------------- */
+
+
+#categories {
+	background:url(../images/cat-bg.jpg) repeat left top;
+	padding:15px 0 27px 0; 
+}
+#categories .box-head{
+	color:#fffcd1;
+	background:url(../images/marker3.jpg) no-repeat 36px 16px;
+	padding:12px 0 13px 50px;
+	width:100%;
+	border:none;
+	margin:0;
+}
+#categories ul{ padding:0;}
+#categories ul li{
+	padding-left:41px;
+}
+#categories ul li a{
+	color:#daad72;
+	font-size:14px;
+	line-height:27px;
+	text-decoration:none;
+	padding-left:12px;
+}
+#categories ul li a:hover{
+	color:#eab36b;
+	text-decoration:underline;
+	background:url(../images/marker4.jpg) no-repeat 0 6px;
+}
+#categories ul li.category-products{
+	padding-left:61px!important;
+}
+#categories ul li.category-products a{
+	padding-left:0;
+	text-transform:uppercase;
+	font-size:11px;
+	line-height:18px;
+}
+#categories ul li.category-products a:hover{
+	color:#fffcd1;
+	text-decoration:none;
+	background:none;
+}
+#categories ul li .category-subs-parent-selected{
+	color:#eab36b;
+	text-decoration:underline;	
+}
+
+#categories ul li .category-subs-selected{
+	color:#fffcd1;
+}
+#moreinformation {}
+
+
+#information {}
+
+
+#bestsellers {}
+
+
+#ezpages {}
+#ezpages .box-body{
+	padding:22px 0 0 0px;
+}
+
+#orderhistory {}
+#orderhistory .box-body{ padding:10px 0;}
+#orderhistory .box-body img {background:#FFFFFF; padding:2px; border:1px solid #AAAAAA; vertical-align:middle; margin:2px 0px 2px 0px;}
+#orderhistory .no-bg{ background:none; padding:0;}
+#orderhistory a{ display:inline; }
+
+
+/* ----------------------- BANNER BOXES ------------------------- */
+
+#bannerbox {}
+
+#bannerbox2 {}
+
+#bannerboxall {}
+
+
+
+/* ----------------------- PRODUCT BOXES ------------------------- */
+
+#featured a img, 
+#whatsnew a img, 
+#specials a img, 
+#reviews a img, 
+#manufacturerinfo img, 
+#productnotifications img {margin:0 0 8px;}
+
+#reviews img {margin:5px 0 0;}
+
+
+
+
+#featured {
+	margin-top:40px;
+}
+
+#featured .box-body .img{
+	text-align:center;
+	padding:7px 0 6px 0;
+}
+#featured .box-body .img img{
+	width:170px;
+	height:145px;
+}
+#featured .box-body .name{
+	padding-left:40px;
+	float:left;
+	overflow:hidden;
+	color:#db1918;
+}
+#featured .box-body .name:hover{
+	color:#000;
+}
+#featured .box-body .price{
+	padding:10px 0 0 40px;
+	overflow:hidden;
+	width:190px;
+}
+#featured .box-body .normalprice {text-decoration:line-through; color:#968f78;
+	font-size:20px;
+	line-height:20px;
+	font-weight:normal;
+	padding-right:5px!important;
+	}
+#featured .box-body .productSpecialPrice, .productSalePrice, .productSpecialPriceSale {color:#ff4c00;
+	font-size:20px;
+	line-height:20px;
+	font-weight:normal;}
+	
+	
+#whatsnew {
+	margin-top:40px;
+}
+
+#whatsnew .box-body .img{
+	text-align:center;
+	padding:7px 0 6px 0;
+}
+#whatsnew .box-body .img img{
+	width:170px;
+	height:145px;
+}
+#whatsnew .box-body .name{
+	padding-left:40px;
+	float:left;
+	overflow:hidden;
+	color:#db1918;
+}
+#whatsnew .box-body .name:hover{
+	color:#000;
+}
+#whatsnew .box-body .price{
+	padding:10px 0 0 40px;
+	overflow:hidden;
+	width:190px;
+	font-size:20px;
+	line-height:20px;
+}
+#whatsnew .box-body .normalprice {text-decoration:line-through; color:#968f78;
+	font-size:20px;
+	line-height:20px;
+	font-weight:normal;
+	padding-right:5px!important;
+	}
+#whatsnew .box-body .productSpecialPrice, .productSalePrice, .productSpecialPriceSale {color:#ff4c00;
+	font-size:20px;
+	line-height:20px;
+	font-weight:normal;}
+
+
+#specials {
+	margin-top:40px;
+}
+
+#specials .box-body .img{
+	text-align:center;
+	padding:7px 0 6px 0;
+}
+#specials .box-body .img img{
+	width:170px;
+	height:145px;
+}
+#specials .box-body .name{
+	padding-left:40px;
+	float:left;
+	overflow:hidden;
+	color:#db1918;
+}
+#specials .box-body .name:hover{
+	color:#000;
+}
+#specials .box-body .price{
+	padding:10px 0 0 40px;
+	overflow:hidden;
+	width:190px;
+}
+#specials .box-body .normalprice {text-decoration:line-through; color:#968f78;
+	font-size:20px;
+	line-height:20px;
+	font-weight:normal;
+	padding-right:5px!important;
+	}
+#specials .box-body .productSpecialPrice, .productSalePrice, .productSpecialPriceSale {color:#ff4c00;
+	font-size:20px;
+	line-height:20px;
+	font-weight:normal;}
+
+
+#reviews {
+	margin-top:40px;
+}
+
+#reviews .box-body .img{
+	text-align:center;
+	padding:7px 0 6px 0;
+}
+#reviews .box-body .img img{
+	width:170px;
+	height:145px;
+}
+#reviews .box-body{ text-align:center; padding: 15px;}
+
+#manufacturerinfo {}
+
+
+#productnotifications {}
+#productnotifications .box-body{ text-align:center; padding:10px;}
+
+
+
+
+/* ----------------------- FORM BOXES ------------------------- */
+
+#search {}
+#search .box-body{
+	text-align:center;
+	overflow:hidden;
+	padding:10px;
+}
+#search input{ border:solid 0px; padding:0; background:none; vertical-align:middle; float:left;}
+#search .input1{ border:solid 1px #ee7906; padding:2px 2px 1px 2px; margin:0 5px 0 14px;}
+
+
+#manufacturers {}
+#manufacturers .box-body {text-align:center; padding:10px;}
+
+
+#currencies {}
+#currencies .box-body {text-align:center; padding:10px;}
+#currencies select{ width:90%;}
+
+#tellafriend {}
+#tellafriend .box-body{ padding:10px; text-align:center;}
+#tellafriend .no-border input{ border:solid 0px; padding:0;}
+
+#recordcompanies {}
+#recordcompanies .box-body {text-align:center;}
+
+
+#musicgenres {}
+#musicgenres .box-body {text-align:center;}
+
+
+
+/* ----------------------- TEXT BOXES ------------------------- */
+
+#languages {}
+#languages .box-body {text-align:center;  padding:10px;}
+
+
+#whosonline {}
+#whosonline .box-body {text-align:center;  padding:10px;}
+
+
+#documentcategories {}
+
+
+#shoppingcart {}
+#shoppingcart .cart_line {}
+#shoppingcart #cartBoxEmpty {text-align:center;  padding:10px;}
+#shoppingcart li{
+	padding-left:30px;
+}
+#shoppingcart li a{
+	padding:0;
+	text-decoration:none;
+}
+#shoppingcart li a:hover{
+	color:#000;
+}
