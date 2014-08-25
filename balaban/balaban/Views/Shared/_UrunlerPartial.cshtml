@@ -1,0 +1,8 @@
+﻿@using balaban.Models
+@{
+    List<Urun> urunler = new balaban.DAL.bContext().Urunler.ToList(); ;
+}
+@foreach (Urun urun in urunler)
+{
+    <li class="category-top_un"><span class="top-span"><a class="category-top_un" href="index_58.htm">@urun.UrunAdi</a></span></li>
+} 
