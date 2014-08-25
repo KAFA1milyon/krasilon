@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace balaban.Models
 {
-    public class SiparisOdemeDetay
+    public class SiparisOdemeDetay : Status
     {
         public int ID { get; set; }
         public decimal OdemeTutari { get; set; }

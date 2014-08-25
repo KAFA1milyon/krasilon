@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace balaban.Models
 {
-    public class Siparis
+    public class Siparis : Status
     {
         public int ID { get; set; }
         public DateTime SiparisTarihi { get; set; }

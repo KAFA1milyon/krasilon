@@ -5,7 +5,7 @@ using System.Text;
 
 namespace balaban.Models
 {
-    public class TelefonTip
+    public class TelefonTip : Status
     {
         public int ID { get; set; }
         public string TipTanim { get; set; }

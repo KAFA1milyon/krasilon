@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace balaban.Models
 {
-    public class UrunFiyatDetay
+    public class UrunFiyatDetay : Status
     {
         public int ID { get; set; }
         public decimal Fiyat { get; set; }

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace balaban.Models
 {
-    public class Urun
+    public class Urun : Status
     {
         public int ID { get; set; }
         public string UrunAdi{ get; set; }

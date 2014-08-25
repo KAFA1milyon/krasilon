@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace balaban.Models
 {
-    public class MusteriAdres
+    public class MusteriAdres : Status
     {
         public int ID { get; set; }
         public string Sehir{ get; set; }

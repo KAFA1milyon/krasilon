@@ -5,7 +5,7 @@ using System.Web;
 
 namespace balaban.Models
 {
-    public class SatisKanali
+    public class SatisKanali : Status
     {
         public int ID { get; set; }
         public string KanalAdi { get; set; }

@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace balaban.Models
 {
-    public class MusteriTelefon
+    public class MusteriTelefon : Status
     {
         public int ID { get; set; }
         public string TelNo { get; set; }

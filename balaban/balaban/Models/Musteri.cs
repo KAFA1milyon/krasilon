@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
 namespace balaban.Models
 {
-    public class Musteri
+    public class Musteri : Status
     {
         public int ID { get; set; }
         public string MusteriKod { get; set; }
@@ -21,7 +22,10 @@ namespace balaban.Models
         public string KullaniciAdi { get; set; }
         public string Sifre { get; set; }
         public string VergiNo { get; set; }
+
+        [StringLength(11,MinimumLength=0)]
         public string TCKimlikNo { get; set; }
+
         public string VergiDairesi { get; set; }        
         public string IrtibatIsim { get; set; }
         public string IrtibatNo { get; set; }
