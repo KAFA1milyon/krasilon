@@ -1,4 +1,5 @@
-﻿using System;
+﻿using balaban.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,11 @@ namespace balaban.Controllers
 {
     public class HomeController : Controller
     {
+        private bContext db = new bContext();
         public ActionResult Index()
         {
+            ViewBag.Title = db.Urunler.First().UrunAdi;
+
             return View();
         }
 
