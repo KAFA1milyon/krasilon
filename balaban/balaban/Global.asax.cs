@@ -12,6 +12,7 @@ namespace balaban
     {
         protected void Application_Start()
         {
+            //dcfsdfdfsd
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
