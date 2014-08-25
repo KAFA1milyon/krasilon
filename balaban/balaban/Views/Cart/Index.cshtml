@@ -1,0 +1,335 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<div class="column-center-padding">
+
+    <!--content_center-->
+    <!-- bof breadcrumb -->
+    <!-- eof breadcrumb -->
+    <!-- bof upload alerts -->
+    <!-- eof upload alerts -->
+
+
+    <div class="centerColumn" id="shoppingCartDefault">
+
+        <div class="help-cart"><a href="javascript:session_win();">[help (?)]</a></div>
+
+        <h1 id="cartDefaultHeading">Your Shopping Cart Contents</h1>
+
+        <div class="tie text2">
+            <div class="tie-indent">
+
+
+
+
+                <form name="cart_quantity" action="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=shopping_cart&amp;action=update_product" method="post">
+                    <div id="cartInstructionsDisplay" class="content">You may want to add some instructions for using the shopping cart here. (defined in includes/languages/english/shopping_cart.php)</div>
+
+                    <div class="cartTotalsDisplay important">Total Items: 1170&nbsp;&nbsp;Weight: 0lbs&nbsp;&nbsp;Amount: $570,167.21</div>
+                    <br class="clearBoth">
+
+
+                    <table border="0" width="100%" cellspacing="0" cellpadding="0" id="cartContentsDisplay">
+                        <tbody>
+                            <tr class="tableHeading">
+                                <th scope="col" id="scQuantityHeading">Quantity</th>
+                                <th scope="col" id="scUpdateQuantity">Refresh</th>
+                                <th scope="col" id="scProductsHeading">Item Name</th>
+                                <th scope="col" id="scUnitHeading">Unit</th>
+                                <th scope="col" id="scTotalHeading">Total</th>
+                                <th scope="col" id="scRemoveHeading">Delete</th>
+                            </tr>
+                            <!-- Loop through all products /-->
+                            <tr class="rowEven">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="41" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="7">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=7"><span id="cartProdTitle">20 Flavour Selection Tin<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/01.jpg" alt="20 Flavour Selection Tin" title=" 20 Flavour Selection Tin " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$503.00</td>
+                                <td class="cartTotalDisplay">$20,623.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="7">
+                                </td>
+                            </tr>
+                            <tr class="rowOdd">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="39" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="70">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=70"><span id="cartProdTitle">25 Handcrafted Pralines<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/02.jpg" alt="25 Handcrafted Pralines" title=" 25 Handcrafted Pralines " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$732.00</td>
+                                <td class="cartTotalDisplay">$28,548.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="70">
+                                </td>
+                            </tr>
+                            <tr class="rowEven">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="33" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="68">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=68"><span id="cartProdTitle">3 Handcrafted Dark<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/03.jpg" alt="3 Handcrafted Dark" title=" 3 Handcrafted Dark " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$104.00</td>
+                                <td class="cartTotalDisplay">$3,432.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="68">
+                                </td>
+                            </tr>
+                            <tr class="rowOdd">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="37" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="8">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=8"><span id="cartProdTitle">30 Assorted Flavours Pot<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/04.jpg" alt="30 Assorted Flavours Pot" title=" 30 Assorted Flavours Pot " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$104.00</td>
+                                <td class="cartTotalDisplay">$3,848.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="8">
+                                </td>
+                            </tr>
+                            <tr class="rowEven">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="37" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="69">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=69"><span id="cartProdTitle">9 Handcrafted <span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/05.jpg" alt="9 Handcrafted" title=" 9 Handcrafted " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$359.00</td>
+                                <td class="cartTotalDisplay">$13,283.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="69">
+                                </td>
+                            </tr>
+                            <tr class="rowOdd">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="37" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="1">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=1"><span id="cartProdTitle">Albanese Butterflies<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/06.jpg" alt="Albanese Butterflies" title=" Albanese Butterflies " width="198" height="169"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$550.00</td>
+                                <td class="cartTotalDisplay">$20,350.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="1">
+                                </td>
+                            </tr>
+                            <tr class="rowEven">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="34" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="3">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=3"><span id="cartProdTitle">Allsorts Licorice<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/01.jpg" alt="Allsorts Licorice" title=" Allsorts Licorice " width="198" height="169"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$241.00</td>
+                                <td class="cartTotalDisplay">$8,194.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="3">
+                                </td>
+                            </tr>
+                            <tr class="rowOdd">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="30" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="61">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=61"><span id="cartProdTitle">Almond sweets<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/02.jpg" alt="Almond sweets" title=" Almond sweets " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$550.00</td>
+                                <td class="cartTotalDisplay">$16,500.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="61">
+                                </td>
+                            </tr>
+                            <tr class="rowEven">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="36" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="12">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=12"><span id="cartProdTitle">Almond thins<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/03.jpg" alt="Almond thins" title=" Almond thins " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$105.40</td>
+                                <td class="cartTotalDisplay">$3,794.40</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="12">
+                                </td>
+                            </tr>
+                            <tr class="rowOdd">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="35" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="56">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=56"><span id="cartProdTitle">Art collection by Michel Cluizel<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/04.jpg" alt="Art collection by Michel Cluizel" title=" Art collection by Michel Cluizel " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$871.00</td>
+                                <td class="cartTotalDisplay">$30,485.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="56">
+                                </td>
+                            </tr>
+                            <tr class="rowEven">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="31" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="9">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=9"><span id="cartProdTitle">Balnagown Butterscotch Tin<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/05.jpg" alt="Balnagown Butterscotch Tin" title=" Balnagown Butterscotch Tin " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$359.00</td>
+                                <td class="cartTotalDisplay">$11,129.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="9">
+                                </td>
+                            </tr>
+                            <tr class="rowOdd">
+                                <td class="cartQuantity">
+                                    <input type="text" name="cart_quantity[]" value="21" size="4"><br><span class="alert bold"></span><br><br>
+                                </td>
+                                <td class="cartQuantityUpdate buttonRow">
+                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="10">
+                                </td>
+                                <td class="cartProductDisplay">
+                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=10"><span id="cartProdTitle">Belgian Chocolate Hearts<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/06.jpg" alt="Belgian Chocolate Hearts" title=" Belgian Chocolate Hearts " width="198" height="168"></span></a>
+                                    <br class="clearBoth">
+
+
+                                </td>
+                                <td class="cartUnitDisplay price">$732.00</td>
+                                <td class="cartTotalDisplay">$15,372.00</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <input type="checkbox" name="cart_delete[]" value="10">
+                                </td>
+                            </tr> 
+                            <!-- Finished loop through all products /-->
+                        </tbody>
+                    </table>
+
+                    <div id="cartSubTotal">Sub-Total: <span class="price">$570,167.21</span></div>
+                    <br class="clearBoth">
+
+                    <!--bof shopping cart buttons-->
+
+                    <div class="wrapper">
+
+                        <div class="buttonRow forward"><input type="image" src="~/Content/Img/buttons/english/small_delete.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "></div>
+
+                        <div class="buttonRow forward"><input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "></div>
+                        <!--eof shopping cart buttons-->
+
+
+
+                        <div class="shcart_btn">
+                            <div class="btn1"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=checkout_shipping"><img src="~/Content/Img/buttons/english/button_checkout.gif" alt="Checkout" title=" Checkout " width="127" height="22"></a></div>	<div class="btn1"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;products_id=49&amp;page=11"><img src="~/Content/Img/buttons/english/button_continue_shopping.gif" alt="Continue Shopping" title=" Continue Shopping " width="145" height="22"></a></div>
+
+
+                            <div class="btn1"><a href="javascript:popupWindow('http://livedemo00.template-help.com/zencart_34200/index.php?main_page=popup_shipping_estimator')"><img src="~/Content/Img/buttons/english/button_shipping_estimator.gif" alt="Shipping Estimator" title=" Shipping Estimator " width="149" height="22"></a></div>
+                        </div>
+
+                    </div>
+
+
+                </form>
+
+
+
+
+                <!-- ** BEGIN PAYPAL EXPRESS CHECKOUT ** -->
+                <!-- ** END PAYPAL EXPRESS CHECKOUT ** -->
+
+                <div class="clear"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="clear"></div>
+
+    <!--eof content_center-->
+    <div class="footer-menu">
+        <!-- ========== MENU ========== -->
+
+        <a href="http://livedemo00.template-help.com/zencart_34200/">Home</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_new">New Products</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=specials">Specials</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all">Products All</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=reviews">Reviews</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=contact_us">Contact Us</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=gv_faq">FAQs</a>
+
+        <!-- ========================== -->
+    </div>
+</div>
