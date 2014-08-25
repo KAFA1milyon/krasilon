@@ -20,7 +20,7 @@ namespace balaban.DAL
         public DbSet<SatisKanali> SatisKanallari { get; set; }
         public DbSet<Siparis> Siparisler { get; set; }
         public DbSet<SiparisOdemeDetay> SiparisOdemeDetaylari { get; set; }
-        public DbSet<SiprasiUrunDetay> SiprasiUrunDetaylari { get; set; }
+        public DbSet<SiparisUrunDetay> SiprasiUrunDetaylari { get; set; }
         public DbSet<TelefonTip> TelefonTipleri { get; set; }
         public DbSet<Urun> Urunler { get; set; }
         public DbSet<UrunDetay> UrunDetaylari { get; set; }
