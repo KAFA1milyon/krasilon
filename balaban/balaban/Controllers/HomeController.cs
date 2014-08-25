@@ -12,7 +12,7 @@ namespace balaban.Controllers
         private bContext db = new bContext();
         public ActionResult Index()
         {
-            ViewBag.Title = db.Urunler.First().UrunAdi;
+            ViewBag.Urunler = db.Urunler.ToList();
 
             return View();
         }
