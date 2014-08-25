@@ -33,6 +33,7 @@ namespace balaban.DAL
                 new Urun{ UrunAdi="Çıtır Leblebi"},
                 new Urun{ UrunAdi="Fındık"},
                 new Urun{ UrunAdi="Çiğ Badem"},
+                new Urun{ UrunAdi="Renkli Leblebi"}
 
 
             };
