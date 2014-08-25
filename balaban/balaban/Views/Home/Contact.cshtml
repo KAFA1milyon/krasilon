@@ -1,17 +1,83 @@
 ﻿@{
     ViewBag.Title = "Contact";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+@*<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>*@
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<div class="column-center-padding">
+
+    <!--content_center-->
+    <!-- bof breadcrumb -->
+    <!-- eof breadcrumb -->
+    <!-- bof upload alerts -->
+    <!-- eof upload alerts -->
+
+
+    <div class="centerColumn" id="contactUsDefault">
+
+        <h1 id="gvFaqDefaultHeading">Contact Us</h1>
+
+        <div class="tie text2">
+            <div class="tie-indent">
+
+
+                <form name="contact_us" action="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=contact_us&amp;action=send" method="post">
+                    <address>Customer Service: +1 800 559 6580<br>9870 St Vincent Place,<br>Glasgow, DC 45 Fr 45.<br></address>
+
+
+                    <div id="contactUsNoticeContent" class="content">
+                        <p><strong>Contact Us Sample Text&nbsp;...</strong></p>
+                        <p>This section of text is from the Define Pages Editor located under Tools in the Admin.</p>
+                        <p>To remove this section of the text, delete it from the Define Pages Editor.</p>
+                    </div>
+
+
+                    <fieldset id="contactUsForm">
+                        <legend>Contact Us</legend>
+                        <div class="alert alignright">* Required information</div>
+
+
+                        <label class="inputLabel" for="contactname">Full Name:<span class="alert">*</span></label>
+                        <input type="text" name="contactname" size="40" id="contactname"><br class="clearBoth">
+
+                        <label class="inputLabel" for="email-address">Email Address:<span class="alert">*</span></label>
+                        <input type="text" name="email" size="40" id="email-address"><br class="clearBoth">
+
+                        <label class="inputLabel" for="enquiry">Message:<span class="alert">*</span></label>
+                        <textarea name="enquiry" cols="20" rows="7" id="enquiry"></textarea>
+                    </fieldset>
+
+                    <div class="buttonRow forward"><input type="image" src="~/Content/Img/buttons/english/button_send.gif" alt="Send Now" title=" Send Now "></div>
+                    <div class="buttonRow back"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=index"><img src="~/Content/Img/buttons/english/button_back.gif" alt="Back" title=" Back " width="49" height="22"></a></div>
+                </form>
+
+                <div class="clear"></div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="clear"></div>
+
+    <!--eof content_center-->
+    <div class="footer-menu">
+        <!-- ========== MENU ========== -->
+
+        <a href="http://livedemo00.template-help.com/zencart_34200/">Home</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_new">New Products</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=specials">Specials</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all">Products All</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=reviews">Reviews</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=contact_us">Contact Us</a>
+        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=gv_faq">FAQs</a>
+
+        <!-- ========================== -->
+    </div>
+</div>
