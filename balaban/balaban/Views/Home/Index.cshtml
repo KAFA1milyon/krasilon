@@ -1,11 +1,11 @@
 ﻿﻿@{
     ViewBag.Title = "Home Page";
-} 
+}
 
 @using balaban.Models
 @{
     List<Urun> urunler = ViewBag.Urunler;
-} 
+}
 
 <div class="banners">
     <!-- ========== CATEGORIES TABS ========= -->
@@ -63,7 +63,7 @@
             <div class="jumbotron">
                 <h1>Ürünler</h1>
                 <ul>
-                    @foreach (Urun urun in urunler)
+                    @foreach (Urun urun in urunler.Take(9))
                     {
                         <div class="centerBoxContentsFeatured centeredContent back" style="width:33%;">
                             <div class="product-col">
@@ -78,7 +78,7 @@
                                     </div>
                                     <div class="wrapper">
                                         <div class="price">
-                                            <strong>$550.00</strong>
+                                            <strong>$ @urunler.IndexOf(urun)</strong>
                                         </div>
                                         <div class="button"><a href="index_86.htm"><img src="~/Content/Img/buttons/english/button_goto_prod_details.gif" alt="Go To This Product's Detailed Information" title=" Go To This Product's Detailed Information " width="67" height="22"></a></div>
 
@@ -86,12 +86,16 @@
                                 </div>
                             </div>
                         </div>
+                        if (urunler.IndexOf(urun)+1 % 3 == 0)
+                        {
+                            <br class="clearBoth">
+                        }
 
                     }
                 </ul>
             </div>
-             
-            <br class="clearBoth">
+
+
 
         </div>
         <!-- eof: featured products  -->
@@ -120,7 +124,7 @@
         <a href="index_56.htm">Contact Us</a>
         &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
         <a href="index_57.htm">FAQs</a>
-     
+
         <!-- ========================== -->
-    </div> s
+    </div> 
 </div>
