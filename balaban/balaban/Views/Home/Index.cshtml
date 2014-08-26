@@ -68,10 +68,10 @@
                         <div class="centerBoxContentsFeatured centeredContent back" style="width:33%;">
                             <div class="product-col">
                                 <div class="img">
-                                    <a href="index_86.htm"><img src="~/Content/Img/01.jpg" alt="Albanese Butterflies" title=" Albanese Butterflies " width="198" height="169"></a>
+                                    <a href="@Href("~/Detail/Index/" + (urun.ID))"><img src="~/Content/Img/01.jpg" alt="Albanese Butterflies" title=" Albanese Butterflies " width="198" height="169"></a>
                                 </div>
                                 <div class="prod-info">
-                                    <a class="name" href="index_86.htm">@urun.UrunAdi</a>
+                                    <a class="name" href="@Href("~/Detail/Index/" + (urun.ID))">@urun.UrunAdi</a>
 
                                     <div class="text">
                                         Lorem ipsum dol...
@@ -80,23 +80,19 @@
                                         <div class="price">
                                             <strong>$ @urunler.IndexOf(urun)</strong>
                                         </div>
-                                        <div class="button"><a href="index_86.htm"><img src="~/Content/Img/buttons/english/button_goto_prod_details.gif" alt="Go To This Product's Detailed Information" title=" Go To This Product's Detailed Information " width="67" height="22"></a></div>
+                                        <div class="button"><a href="@Href("~/Detail/Index/" + (urun.ID))"><img src="~/Content/Img/buttons/english/button_goto_prod_details.gif" alt="Go To This Product's Detailed Information" title=" Go To This Product's Detailed Information " width="67" height="22"></a></div>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        if (urunler.IndexOf(urun)+1 % 3 == 0)
+                        if (urunler.IndexOf(urun) + 1 % 3 == 0)
                         {
                             <br class="clearBoth">
                         }
-
                     }
                 </ul>
             </div>
-
-
-
         </div>
         <!-- eof: featured products  -->
 
@@ -126,5 +122,5 @@
         <a href="index_57.htm">FAQs</a>
 
         <!-- ========================== -->
-    </div> 
+    </div>
 </div>
