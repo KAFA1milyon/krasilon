@@ -40,6 +40,67 @@ namespace balaban.DAL
             urun.ForEach(b => context.Urunler.Add(b));
             context.SaveChanges();
             #endregion
+
+            #region MusteriTip
+            var MusteriTipList = new List<MusteriTip>
+            {
+                new MusteriTip { TipTanim="Bireysel"},
+                new MusteriTip { TipTanim="Kurumsal"},
+            };
+
+            MusteriTipList.ForEach(b => context.MusteriTipleri.Add(b));
+            context.SaveChanges();
+            #endregion
+
+            #region AdresTip
+            var AdresTipList = new List<AdresTip>
+            {
+                new AdresTip { TipTanim="İletişim"},
+                new AdresTip { TipTanim="Fatura"},
+            };
+
+            AdresTipList.ForEach(b => context.AresTipleri.Add(b));
+            context.SaveChanges();
+            #endregion
+
+            #region TelefonTip
+            var telefonTiplist = new List<TelefonTip>
+            {
+                new TelefonTip { TipTanim="İş"},
+                new TelefonTip { TipTanim="Ev"},
+                new TelefonTip { TipTanim="GSM"},
+            };
+
+            telefonTiplist.ForEach(b => context.TelefonTipleri.Add(b));
+            context.SaveChanges();
+            #endregion
+
+            #region OdemeTip
+            var OdemeTiplist = new List<OdemeTip>
+            {
+                new OdemeTip { OdemeTipAdi ="KK"},
+                new OdemeTip { OdemeTipAdi="Havale"},
+                new OdemeTip { OdemeTipAdi="Nakit"},
+                new OdemeTip { OdemeTipAdi="Kapıda Ödeme"},
+            };
+
+            OdemeTiplist.ForEach(b => context.OdemeTipleri.Add(b));
+            context.SaveChanges();
+            #endregion
+
+
+            #region SatisTip
+            var satisTipList = new List<SatisKanali>
+            {
+                new SatisKanali { KanalAdi="Web"},
+                new SatisKanali { KanalAdi="Bayi"},
+            };
+
+            satisTipList.ForEach(b => context.SatisKanallari.Add(b));
+            context.SaveChanges();
+            #endregion
+
+
         }
     }
 }
