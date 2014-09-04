@@ -15,9 +15,12 @@ namespace balaban
         protected void Application_Start()
         {
             //Database.SetInitializer<bContext>(new bInitializer()); //db yi re-generate eder
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<bContext>()); //sadece model değişikliği varsa db yi re-generate eder
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<bContext>()); //sadece model değişikliği varsa db yi re-generate eder
             //Database.SetInitializer<bContext>(null); //db ye dokunmadan sadece kullanır
+            Database.SetInitializer(new bInitializer());//krsln
 
+
+ 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

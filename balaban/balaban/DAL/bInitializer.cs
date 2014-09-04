@@ -11,6 +11,7 @@ namespace balaban.DAL
     {
         protected override void Seed(bContext context)
         {
+            base.Seed(context);//krlsln
             #region Ürünler
             var urun = new List<Urun>
             {
