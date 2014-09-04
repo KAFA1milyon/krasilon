@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using balaban.Models;
+using System.Net;
 
 namespace balaban.Controllers
 {
@@ -15,6 +17,19 @@ namespace balaban.Controllers
             ViewBag.Urunler = db.Urunler.ToList();
 
             return View();
+        }
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Urun urun = db.Urunler.Find(id);
+            if (urun == null)
+            {
+                return HttpNotFound();
+            }
+            return View(urun);
         }
 
         public ActionResult About()
