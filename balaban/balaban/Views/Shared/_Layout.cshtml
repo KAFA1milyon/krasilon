@@ -122,7 +122,7 @@
                         <!-- ========== NAVIGATION LINKS ========== -->
                        @Html.ActionLink("Admin", "Index", "Dashboard", new { area = "Yonetim" }, null)
 
-                        &nbsp; | &nbsp; <a href="index_50.htm">Log In</a>
+                        &nbsp; | &nbsp; <a href="@Href("~/Account/Login/")">Log In</a>
 
 
                         <!-- ====================================== -->
@@ -382,6 +382,6 @@
 
 
 
-
+    @RenderSection("scripts", required: false)
 </body>
 </html>
