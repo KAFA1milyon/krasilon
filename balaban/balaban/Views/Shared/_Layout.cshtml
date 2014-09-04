@@ -92,7 +92,8 @@
                 <div class="logo">
                     <!-- ========== LOGO ========== -->
                     <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=index&amp;zenid=3ghopb02ouhtuj1ue240ud6o03">
-                        <img src="http://www.prontotour.com/img/logo.png" alt=""></a>
+                        <img src="http://www.prontotour.com/img/logo.png" alt="">
+                    </a>
                     <!-- ========================== -->
                 </div>
                 <div class="cart">
@@ -103,7 +104,6 @@
                 <div class="right-head">
                     <div class="lang">
                         <!-- ========== LANGUAGES ========== -->
-                        <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=index&amp;language=en&amp;zenid=3ghopb02ouhtuj1ue240ud6o03"><img src="includes/languages/english/images/icon.gif" alt="English" title=" English " width="24" height="15" style="vertical-align:middle;"></a>						<!-- =============================== -->
                     </div>
                     <div class="search">
                         <!-- ========== SEARCH ========== -->
@@ -112,15 +112,14 @@
                                 <input type="hidden" name="main_page" value="advanced_search_result"><input type="hidden" name="search_in_description" value="1"><input type="hidden" name="zenid" value="3ghopb02ouhtuj1ue240ud6o03">
                                 <span class="corner"></span>
                                 <input type="text" name="keyword" class="input1">
-                                <input type="image" src="includes/templates/theme505/buttons/english/search.gif" alt="Search" title=" Search " class="input2">
-
+                                <input type="image" src="~/Content/Img/buttons/english/search.gif" alt="Search" title=" Search " class="input2"> 
                             </div>
                         </form>
                         <!-- ============================ -->
                     </div>
                     <div class="navigation">
                         <!-- ========== NAVIGATION LINKS ========== -->
-                       @Html.ActionLink("Admin", "Index", "Dashboard", new { area = "Yonetim" }, null)
+                        @Html.ActionLink("Admin", "Index", "Dashboard", new { area = "Yonetim" }, null)
 
                         &nbsp; | &nbsp; <a href="@Href("~/Account/Login/")">Log In</a>
 
@@ -181,7 +180,7 @@
                                         <span>Hakkımızda</span>
                                     </span>
                                 </a>
-                            </li> 
+                            </li>
 
                         </ul>
                     </div>
@@ -195,7 +194,7 @@
 
                             <select name="currency" class="select" onchange="this.form.submit();">
                                 <option value="USD" selected="selected">US Dollar</option>
-                                <option value="EUR">Euro</option> 
+                                <option value="EUR">Euro</option>
                             </select>
                             <input type="hidden" name="main_page" value="index"><input type="hidden" name="zenid" value="3ghopb02ouhtuj1ue240ud6o03">
                         </div>
@@ -283,7 +282,7 @@
                                                                             <ul style="margin: 0; padding: 0; list-style-type: none;">
                                                                                 <li><a href="http://gazete.netgazete.com/gazetebirincisayfalar.php" target="_blank">Gazeteler</a></li>
                                                                                 <li><a href="http://www.hurriyet.com.tr/anasayfa/" target="_blank">hurriyet.com</a></li>
-                                                                                <li><a href="http://www.ahaber.com.tr/" target="_blank">ahaber</a></li> 
+                                                                                <li><a href="http://www.ahaber.com.tr/" target="_blank">ahaber</a></li>
                                                                                 <li><a href="http://www.google.com" target="_blank">Google</a></li>
                                                                             </ul>
                                                                         </div>
@@ -379,9 +378,6 @@
     <!-- EOF- BANNER #6 display -->
     <!-- ========== IMAGE BORDER BOTTOM ========== -->
     <!-- ========================================= -->
-
-
-
     @RenderSection("scripts", required: false)
 </body>
 </html>
