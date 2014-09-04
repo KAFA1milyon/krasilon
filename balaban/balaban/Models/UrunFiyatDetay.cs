@@ -16,8 +16,9 @@ namespace balaban.Models
         public int UrunID { get; set; }
         public Urun Urun { get; set; }
 
-        [ForeignKey("Musteri")]
-        public int MusteriID { get; set; }
+
+        //[ForeignKey("Musteri")]
+        //public int? MusteriID { get; set; }
         public Musteri Musteri { get; set; }
 
         [ForeignKey("FiyatParametre")]

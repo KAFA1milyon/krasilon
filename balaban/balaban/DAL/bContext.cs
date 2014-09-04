@@ -10,7 +10,7 @@ namespace balaban.DAL
 {
     public class bContext : DbContext
     {
-        public DbSet<AdresTip> AresTipleri { get; set; }
+        public DbSet<AdresTip> AdresTipleri { get; set; }
         public DbSet<FiyatParametre> FiyatParametreleri { get; set; }
         public DbSet<Musteri> Musteriler { get; set; }
         public DbSet<MusteriAdres> MusteriAdresleri { get; set; }

@@ -12,6 +12,13 @@ namespace balaban.Models
         public int ID { get; set; }
         public string MusteriKod { get; set; }
 
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
+        public DateTime? DogumTarihi { get; set; }
+
+        public string Unvan { get; set; }
+        public int? Cinsiyet { get; set; }
+
         [ForeignKey("MusteriTip")]
         public int MusteriTipID { get; set; }
         public MusteriTip MusteriTip{ get; set; }

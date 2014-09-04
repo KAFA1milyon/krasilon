@@ -17,7 +17,7 @@ namespace balaban
             //Database.SetInitializer<bContext>(new bInitializer()); //db yi re-generate eder
             //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<bContext>()); //sadece model değişikliği varsa db yi re-generate eder
             //Database.SetInitializer<bContext>(null); //db ye dokunmadan sadece kullanır
-            Database.SetInitializer(new bInitializer());//krsln
+            //Database.SetInitializer(new bInitializer());//krsln
 
 
  

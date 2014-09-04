@@ -34,6 +34,7 @@ namespace balaban.DAL
                 new Urun{ UrunAdi="Çıtır Leblebi"},
                 new Urun{ UrunAdi="Fındık"},
                 new Urun{ UrunAdi="Çiğ Badem"},
+                new Urun{ UrunAdi="Deneme"},
                 new Urun{ UrunAdi="Renkli Leblebi"}
 
 
@@ -60,7 +61,7 @@ namespace balaban.DAL
                 new AdresTip { TipTanim="Fatura"},
             };
 
-            AdresTipList.ForEach(b => context.AresTipleri.Add(b));
+            AdresTipList.ForEach(b => context.AdresTipleri.Add(b));
             context.SaveChanges();
             #endregion
 

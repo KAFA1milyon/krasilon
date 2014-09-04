@@ -20,5 +20,18 @@ namespace balaban.Models
             get { return _isDeleted; }
             set { _isDeleted = value == null ? false : (Boolean)value; }
         }
+        private DateTime? _KayitTarihi;
+        public virtual DateTime? KayitTarihi
+        {
+            get { return _KayitTarihi; }
+            set {KayitTarihi= _KayitTarihi ?? DateTime.Now; }
+        }
+        private DateTime _GuncellemeTarihi;
+        public virtual DateTime? GuncellemeTarihi
+        {
+            get { return _GuncellemeTarihi; }
+            set { _GuncellemeTarihi = DateTime.Now; }
+        }
+
     }
 }

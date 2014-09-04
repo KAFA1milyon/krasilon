@@ -9,10 +9,11 @@ namespace balaban.Models
     public class FiyatParametre : Status
     {
         public int ID { get; set; }
+        
         [Required]
-        public string ParametreBaslangic { get; set; }
-        [Required]
-        public string ParametreBitis { get; set; }
+        public int ParametreBaslangic { get; set; }
+        
+        public int ParametreBitis { get; set; }
 
     }
 }

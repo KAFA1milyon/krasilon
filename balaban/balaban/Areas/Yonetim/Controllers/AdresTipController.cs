@@ -18,7 +18,7 @@ namespace balaban.Areas.Yonetim.Controllers
         // GET: /Yonetim/AdresTip/
         public ActionResult Index()
         {
-            return View(db.AresTipleri.ToList());
+            return View(db.AdresTipleri.ToList());
         }
 
         // GET: /Yonetim/AdresTip/Details/5
@@ -28,7 +28,7 @@ namespace balaban.Areas.Yonetim.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AdresTip adrestip = db.AresTipleri.Find(id);
+            AdresTip adrestip = db.AdresTipleri.Find(id);
             if (adrestip == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace balaban.Areas.Yonetim.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.AresTipleri.Add(adrestip);
+                db.AdresTipleri.Add(adrestip);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace balaban.Areas.Yonetim.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AdresTip adrestip = db.AresTipleri.Find(id);
+            AdresTip adrestip = db.AdresTipleri.Find(id);
             if (adrestip == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace balaban.Areas.Yonetim.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AdresTip adrestip = db.AresTipleri.Find(id);
+            AdresTip adrestip = db.AdresTipleri.Find(id);
             if (adrestip == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace balaban.Areas.Yonetim.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            AdresTip adrestip = db.AresTipleri.Find(id);
-            db.AresTipleri.Remove(adrestip);
+            AdresTip adrestip = db.AdresTipleri.Find(id);
+            db.AdresTipleri.Remove(adrestip);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

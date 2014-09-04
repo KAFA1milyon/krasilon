@@ -10,7 +10,7 @@ namespace balaban.Models
     {
         public int ID { get; set; }
         public string TelNo { get; set; }
-        public bool TelOncelik { get; set; }
+        public bool? TelOncelik { get; set; }
 
         [ForeignKey("Musteri")]
         public int MusteriID { get; set; }

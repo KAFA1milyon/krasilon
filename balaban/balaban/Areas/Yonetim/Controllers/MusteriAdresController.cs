@@ -40,7 +40,7 @@ namespace balaban.Areas.Yonetim.Controllers
         // GET: /Yonetim/MusteriAdres/Create
         public ActionResult Create()
         {
-            ViewBag.AdresTipID = new SelectList(db.AresTipleri, "ID", "TipTanim");
+            ViewBag.AdresTipID = new SelectList(db.AdresTipleri, "ID", "TipTanim");
             ViewBag.MusteriID = new SelectList(db.Musteriler, "ID", "MusteriKod");
             return View();
         }
@@ -59,7 +59,7 @@ namespace balaban.Areas.Yonetim.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.AdresTipID = new SelectList(db.AresTipleri, "ID", "TipTanim", musteriadres.AdresTipID);
+            ViewBag.AdresTipID = new SelectList(db.AdresTipleri, "ID", "TipTanim", musteriadres.AdresTipID);
             ViewBag.MusteriID = new SelectList(db.Musteriler, "ID", "MusteriKod", musteriadres.MusteriID);
             return View(musteriadres);
         }
@@ -76,7 +76,7 @@ namespace balaban.Areas.Yonetim.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AdresTipID = new SelectList(db.AresTipleri, "ID", "TipTanim", musteriadres.AdresTipID);
+            ViewBag.AdresTipID = new SelectList(db.AdresTipleri, "ID", "TipTanim", musteriadres.AdresTipID);
             ViewBag.MusteriID = new SelectList(db.Musteriler, "ID", "MusteriKod", musteriadres.MusteriID);
             return View(musteriadres);
         }
@@ -94,7 +94,7 @@ namespace balaban.Areas.Yonetim.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.AdresTipID = new SelectList(db.AresTipleri, "ID", "TipTanim", musteriadres.AdresTipID);
+            ViewBag.AdresTipID = new SelectList(db.AdresTipleri, "ID", "TipTanim", musteriadres.AdresTipID);
             ViewBag.MusteriID = new SelectList(db.Musteriler, "ID", "MusteriKod", musteriadres.MusteriID);
             return View(musteriadres);
         }

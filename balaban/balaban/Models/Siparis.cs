@@ -15,6 +15,12 @@ namespace balaban.Models
         public int MusteriID { get; set; }
         public Musteri Musteri { get; set; }
 
+        public virtual ICollection<SiparisUrunDetay> SiparisDetaylari{ get; set; }
+
+        public virtual ICollection<SiparisOdemeDetay> SiparisOdemeDetaylari { get; set; }
+
+
+
 
     }
 }

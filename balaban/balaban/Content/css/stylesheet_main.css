@@ -49,7 +49,7 @@ textarea#enquiry {width:70%; margin:1px 0;}
 
 .image{ display:inline-block; border:solid 1px #eceaea;  padding:2px; position:relative;}
 .image a{ position:relative; display:inline-block;}
-.zoom{ position:absolute; width:29px; height:28px; background:url(../images/icons/zoom-icon.png) no-repeat 0 0; bottom:3px; left:3px;}
+.zoom{ position:absolute; width:29px; height:28px; background:url(/Content/images/icons/zoom-icon.png) no-repeat 0 0; bottom:3px; left:3px;}
 
 .description a{ font-weight:bold;}
 .description strong{ color:#000; display:block;}

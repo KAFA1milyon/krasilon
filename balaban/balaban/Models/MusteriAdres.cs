@@ -12,7 +12,7 @@ namespace balaban.Models
         public string Sehir{ get; set; }
         public string Adres1 { get; set; }
         public string Adres2 { get; set; }
-        public bool AdresOncelik { get; set; }
+        public bool? AdresOncelik { get; set; }
 
         [ForeignKey("Musteri")]
         public int MusteriID { get; set; }
