@@ -12,15 +12,15 @@ namespace balaban.Models
         public int ID { get; set; }
         public decimal Fiyat { get; set; }
         
-        [ForeignKey("Urun")]
+        //[ForeignKey("Urun")]
         public int UrunID { get; set; }
         public Urun Urun { get; set; }
 
-        [ForeignKey("SatisKanal")]
+        //[ForeignKey("SatisKanal")]
         public int SatisKanalID { get; set; }
         public SatisKanali SatisKanal { get; set; }
 
-        [ForeignKey("OdemeTip")]
+        //[ForeignKey("OdemeTip")]
         public int OdemeTipID { get; set; }
         public OdemeTip OdemeTip{ get; set; }
 
