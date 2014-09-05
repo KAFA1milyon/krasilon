@@ -14,9 +14,12 @@ namespace balaban.Controllers
         private bContext db = new bContext();
         public ActionResult Index()
         {
-            ViewBag.Urunler = db.Urunler.ToList();
+            //ViewBag.Urunler = db.Urunler.ToList();
 
-            return View();
+            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar") 
+                        select s).ToList();
+
+            return View(urun);
         }
         public ActionResult Details(int? id)
         {
@@ -27,7 +30,7 @@ namespace balaban.Controllers
 
             //Urun urun = db.Urunler.Find(id);
 
-            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler")
+            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                        where s.ID == id
                        select s).FirstOrDefault<Urun>();
 

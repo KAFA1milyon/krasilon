@@ -39,7 +39,7 @@
 
                             <div id="productMainImage" class="centeredContent back">
                                 <span class="image">
-                                    <a href="~/Content/Img/Big/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol">
+                                    <a href="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol">
                                         <img src="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol" alt="@Model.UrunAdi" title="@Model.UrunAdi" width=" 198" height="169"><span class="zoom"></span>
                                     </a>
                                 </span>
@@ -61,7 +61,7 @@
                             <!--bof Product Price block -->
                             <h2 id="productPrices" class="productGeneral">
                                 <span class="price-text">Price: &nbsp;</span>
-                                $550.00
+                                $@Model.UrunFiyatlar.First().Fiyat
                             </h2>
                             <!--eof Product Price block -->
                             <!--bof Add to Cart Box -->
