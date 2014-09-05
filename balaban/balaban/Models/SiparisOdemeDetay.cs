@@ -21,7 +21,7 @@ namespace balaban.Models
         public SatisKanali SatisKanali{ get; set; }
 
 
-        [ForeignKey("siparis")]
+        [ForeignKey("Siparis")]
         public int SiparisID{ get; set; }
         public Siparis Siparis { get; set; }
 

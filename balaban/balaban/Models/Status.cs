@@ -24,7 +24,7 @@ namespace balaban.Models
         public virtual DateTime? KayitTarihi
         {
             get { return _KayitTarihi; }
-            set {KayitTarihi= _KayitTarihi ?? DateTime.Now; }
+            set {_KayitTarihi = _KayitTarihi ?? DateTime.Now; }
         }
         private DateTime _GuncellemeTarihi;
         public virtual DateTime? GuncellemeTarihi
