@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -14,7 +15,11 @@ namespace balaban.Models
         [Required]
         public string UrunAdi { get; set; }
         public bool Kampanya { get; set; }
-        public virtual ICollection<UrunDetay> UrunDetaylar { get; set; }
+
+        [ForeignKey("UrunDetay")]
+        public int UrunDetayID { get; set; }
+        public UrunDetay UrunDetay { get; set; }
+
         public virtual ICollection<UrunFiyat> UrunFiyatlar { get; set; }
         public virtual ICollection<UrunFiyatDetay> UrunFiyatDetaylar { get; set; }
         public virtual ICollection<UrunResim> UrunResimler { get; set; }

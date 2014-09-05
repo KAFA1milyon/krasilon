@@ -2,8 +2,8 @@
 @{
     ViewBag.Title = "Details";
 }
- 
- 
+
+
 <div class="column-center-padding">
 
     <!--content_center-->
@@ -16,7 +16,7 @@
     <div class="centerColumn" id="productGeneral">
 
         <!--bof Product Name-->
-        <h1 id="productName" class="productGeneral">Boiled Sweets</h1>
+        <h1 id="productName" class="productGeneral">@Model.UrunAdi</h1>
         <!--eof Product Name-->
 
         <div class="tie">
@@ -39,8 +39,8 @@
 
                             <div id="productMainImage" class="centeredContent back">
                                 <span class="image">
-                                    <a href="~/Content/Img/01.jpg">
-                                        <img src="~/Content/Img/01.jpg" alt="Albanese Butterflies" title=" Albanese Butterflies " width="198" height="169"><span class="zoom"></span>
+                                    <a href="~/Content/Img/Big/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol">
+                                        <img src="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol" alt="@Model.UrunAdi" title="@Model.UrunAdi" width=" 198" height="169"><span class="zoom"></span>
                                     </a>
                                 </span>
 
@@ -76,9 +76,8 @@
 
                     <!--bof Product description -->
                     <div id="productDescription" class="description biggerText">
-                        <strong>Details: </strong>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec mattis. Nulla sagittis tincidunt nibh. Ut non dui vitae enim tempor cursus. Nunc iaculis rutrum elit. Curabitur ligula. Proin sed turpis in metus blandit venenatis. Vivamus ultrices. Aenean at eros. Aliquam quis urna. Proin neque. Morbi pharetra erat. Sed ipsum velit, scelerisque et, iaculis eu, gravida quis, nulla. Mauris mi neque, bibendum eget, ullamcorper vel, pellentesque vel, lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse lacus.<br>
-                        <br>
-                        Morbi non libero sit amet nisi pretium fringilla. Nunc tempus dolor gravida tortor. Sed suscipit ullamcorper nibh. Duis feugiat augue. Donec rutrum diam in augue. Donec ornare, erat vel porta condimentum, justo lacus sodales mauris, sed ullamcorper orci leo eget lectus. Vestibulum vitae orci. Aenean tincidunt ullamcorper est. Aenean nec nulla. Suspendisse tortor nisi, consectetuer nec, rhoncus nec, faucibus eu, nisi. Aenean sed ligula.
+                        <strong>Details: </strong>
+                        @Model.UrunDetay.DetayText
                     </div>
                     <!--eof Product description -->
                     <!--bof Attributes Module -->

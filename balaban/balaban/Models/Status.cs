@@ -7,6 +7,11 @@ namespace balaban.Models
 {
     public abstract class Status
     {
+        public Status()
+        {
+            _KayitTarihi = DateTime.Now;
+            _GuncellemeTarihi = DateTime.Now;
+        }
         private bool _isLive;
         public bool? IsLive
         {
@@ -20,18 +25,17 @@ namespace balaban.Models
             get { return _isDeleted; }
             set { _isDeleted = value == null ? false : (Boolean)value; }
         }
+
         private DateTime? _KayitTarihi;
-        public virtual DateTime? KayitTarihi
-        {
-            get { return _KayitTarihi; }
-            set {_KayitTarihi = _KayitTarihi ?? DateTime.Now; }
+        public DateTime? KayitTarihi { get { return _KayitTarihi; }
+            private set { _KayitTarihi = value == null ? DateTime.Now : _KayitTarihi; }
         }
+
         private DateTime _GuncellemeTarihi;
-        public virtual DateTime? GuncellemeTarihi
+        public virtual DateTime GuncellemeTarihi
         {
             get { return _GuncellemeTarihi; }
             set { _GuncellemeTarihi = DateTime.Now; }
         }
-
     }
 }

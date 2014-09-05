@@ -11,8 +11,8 @@ namespace balaban.Models
         public int ID { get; set; }
         public string DetayText { get; set; }
 
-        [ForeignKey("Urun")]
-        public int UrunID{ get; set; }
-        public Urun Urun { get; set; }
+        //[ForeignKey("Urun")]
+        //public int UrunID{ get; set; }
+        //public Urun Urun { get; set; }
     }
 }

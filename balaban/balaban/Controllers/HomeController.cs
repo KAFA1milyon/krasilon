@@ -23,12 +23,18 @@ namespace balaban.Controllers
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Urun urun = db.Urunler.Find(id);
-            urun.UrunDetaylar = db.UrunDetaylari.Where(x => x.ID==id).ToList();
-            urun.UrunFiyatlar = db.UrunFiyatlari.Where(x => x.ID == id).ToList();
-            urun.UrunFiyatDetaylar = db.UrunFiyatDetaylari.Where(x => x.ID == id).ToList();
-            urun.UrunResimler = db.UrunResimleri.Where(x => x.ID == id).ToList();
+            } 
+
+            //Urun urun = db.Urunler.Find(id);
+
+            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler")
+                       where s.ID == id
+                       select s).FirstOrDefault<Urun>();
+
+            //urun.UrunDetay = db.UrunDetay.Where(x => x.ID == id).FirstOrDefault();
+            //urun.UrunFiyatlar = db.UrunFiyatlari.Where(x => x.ID == id).ToList();
+            //urun.UrunFiyatDetaylar = db.UrunFiyatDetaylari.Where(x => x.ID == id).ToList();
+            //urun.UrunResimler = db.UrunResimleri.Where(x => x.ID == id).ToList();
 
             if (urun == null)
             {
