@@ -1,5 +1,5 @@
 ﻿﻿@model IEnumerable<balaban.Models.Urun>
-    @{
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -106,7 +106,7 @@
                                     <a class="name" href="@Href("~/Home/Details/" + (urun.ID))">@urun.UrunAdi</a>
 
                                     <div class="text">
-                                        @urun.UrunDetay.DetayText.Substring(0,20)...
+                                        @urun.UrunDetay.DetayText.Substring(0, 20)...
                                     </div>
                                     <div class="wrapper">
                                         <div class="price">
@@ -141,17 +141,13 @@
         <!-- ========== MENU ========== -->
 
         <a href="http://livedemo00.template-help.com/zencart_34200/zencart_34200.html">Home</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-        <a href="index_52.htm">New Products</a>
+        <a href="@Href("~/Products/Index/")">New Products</a>
         &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-        <a href="index_53.htm">Specials</a>
+        <a href="@Href("~/Products/Index/")">Products All</a>
+        @*&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+            <a href="index_55.htm">Reviews</a>*@
         &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-        <a href="index_54.htm">Products All</a>
-        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-        <a href="index_55.htm">Reviews</a>
-        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-        <a href="index_56.htm">Contact Us</a>
-        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-        <a href="index_57.htm">FAQs</a>
+        <a href="@Href("~/Home/Contact/")">Contact Us</a>
 
         <!-- ========================== -->
     </div>
