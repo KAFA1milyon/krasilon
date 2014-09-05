@@ -25,6 +25,11 @@ namespace balaban.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Urun urun = db.Urunler.Find(id);
+            urun.UrunDetaylar = db.UrunDetaylari.Where(x => x.ID==id).ToList();
+            urun.UrunFiyatlar = db.UrunFiyatlari.Where(x => x.ID == id).ToList();
+            urun.UrunFiyatDetaylar = db.UrunFiyatDetaylari.Where(x => x.ID == id).ToList();
+            urun.UrunResimler = db.UrunResimleri.Where(x => x.ID == id).ToList();
+
             if (urun == null)
             {
                 return HttpNotFound();
