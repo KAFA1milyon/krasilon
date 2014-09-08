@@ -32,7 +32,7 @@ namespace balaban.Controllers
             var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                         select s).ToList();
  
-            return View(urun.OrderBy(x => x.UrunAdi).ToPagedList(sayfa, 2));
+            return View(urun.OrderBy(x => x.ID).ToPagedList(sayfa, 4));
         } 
 
         public ActionResult Details(int? id)
