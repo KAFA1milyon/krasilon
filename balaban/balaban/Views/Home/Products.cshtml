@@ -1,7 +1,7 @@
 ﻿﻿@model IEnumerable<balaban.Models.Urun>
 @{
     ViewBag.Title = "Products";
-} 
+}
 
 <div class="column-center-padding">
 
@@ -43,74 +43,29 @@
         <br class="clearBoth">
 
         <div class="wrapper">
-            <div class="tie tie-margin1">
-                <div class="tie-indent">
-                    <div class="wrapper">
-                        <div class="fleft" style="width:33%">
-                            <span class="image"><a class="name" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=7"><img src="~/Content/Img/01.jpg" alt="20 Flavour Selection Tin" title=" 20 Flavour Selection Tin " width="198" height="168"></a></span><br clear="all"><br clear="all"><span class="stock">In Stock: 998</span>
+            @foreach (balaban.Models.Urun i in Model)
+            {
+                <div class="tie tie-margin1">
+                    <div class="tie-indent">
+                        <div class="wrapper">
+                            <div class="fleft" style="width:33%">
+                                <span class="image">
+                                    <a class="name" href="@Href("~/Home/Details/" + (i.ID))"><img src="~/Content/Img/@i.UrunResimler.First(x=>x.AnaResim==true).ResimYol" alt="@i.UrunAdi" title="@i.UrunAdi" width="198" height="168"></a>
+                                </span><br clear="all"><br clear="all"><span class="stock">In Stock: 998</span>
+                            </div>
+                            <div class="fleft" style="width:66%">
+                                Date Added: Thursday 09 September, 2010<br clear="all"><br clear="all"><hr><br><a class="name" href="@Href("~/Home/Details/" + (i.ID))"><strong>@i.UrunAdi</strong></a><br clear="all"><br clear="all"><strong>Model: <br clear="all"></strong>Weight: 0lbs<br clear="all"><br clear="all"><span class="price-text">Price: &nbsp;</span>
+                                <span class="price">₺@i.UrunFiyatlar.First().Fiyat</span><br clear="all"><br clear="all"><div class="btn1"><a href="@Href("~/Home/Details/" + (i.ID))">
+                                <img src="~/Content/Img/buttons/english/button_buy_now.gif" alt="Buy Now" title=" Buy Now " width="78" height="22"></a></div>&nbsp;<br><br clear="all">
+                            </div>
                         </div>
-                        <div class="fleft" style="width:66%">
-                            Date Added: Thursday 09 September, 2010<br clear="all"><br clear="all"><hr><br><a class="name" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=7"><strong>20 Flavour Selection Tin</strong></a><br clear="all"><br clear="all"><strong>Model: <br clear="all"></strong>Weight: 0lbs<br clear="all"><br clear="all"><span class="price-text">Price: &nbsp;</span> <span class="price">$503.00</span><br clear="all"><br clear="all"><div class="btn1"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;action=buy_now&amp;products_id=7"><img src="~/Content/Img/buttons/english/button_buy_now.gif" alt="Buy Now" title=" Buy Now " width="78" height="22"></a></div>&nbsp;<br><br clear="all">
-                        </div>
-                    </div>
 
-                    <div class="wrapper">
-                        <br><div class="description"><strong>Details:</strong>Vestibulum nibh. Nunc non lectus. In metus velit, rhoncus at, tincidunt at, elementum ac, nisl. In faucibus. Nulla hendrerit fringilla nisl. Morbi dui mi, molestie sed, luctus vel, aliquam quis, turpis. Nulla condimentum lacus sed ipsum. Aliquam orci ipsum, tempus ac, volutpat et, scelerisque vel, urna. Curabitur fringilla, pede ut hendrerit ultricies, odio eros consectetuer turpis, quis facilisis nisl libero sit amet nisl. Etiam quis orci. Ut<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=7"> ... more info</a></div>
+                        <div class="wrapper">
+                            <br><div class="description"><strong>Details:</strong>@i.UrunDetay.DetayText.Substring(0, 100)<a href="@Href("~/Home/Details/" + (i.ID))"> .> ... more info</a></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="tie tie-margin1">
-                <div class="tie-indent">
-                    <div class="wrapper">
-                        <div class="fleft" style="width:33%">
-                            <span class="image"><a class="name" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=3&amp;products_id=70"><img src="~/Content/Img/02.jpg" alt="25 Handcrafted Pralines" title=" 25 Handcrafted Pralines " width="198" height="168"></a></span><br clear="all"><br clear="all"><span class="stock">In Stock: 998</span>
-                        </div>
-                        <div class="fleft" style="width:66%">
-                            Date Added: Thursday 09 September, 2010<br clear="all"><br clear="all"><hr><br><a class="name" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=3&amp;products_id=70"><strong>25 Handcrafted Pralines</strong></a><br clear="all"><br clear="all"><strong>Model: <br clear="all"></strong>Weight: 0lbs<br clear="all"><br clear="all"><span class="price-text">Price: &nbsp;</span> <span class="price">$732.00</span><br clear="all"><br clear="all"><div class="btn1"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;action=buy_now&amp;products_id=70"><img src="~/Content/Img/buttons/english/button_buy_now.gif" alt="Buy Now" title=" Buy Now " width="78" height="22"></a></div>&nbsp;<br><br clear="all">
-                        </div>
-                    </div>
-
-                    <div class="wrapper">
-                        <br><div class="description"><strong>Details:</strong>Sed id orci ut lacus luctus auctor. Suspendisse laoreet, eros in mollis auctor, leo metus interdum dui, a condimentum lectus ligula eu augue. Praesent consequat elit sit amet urna. Maecenas mollis porttitor erat. Pellentesque nec ante. Fusce feugiat urna sed quam. Nulla facilisi. Maecenas id mauris ac tellus luctus ornare. Quisque nec eros sit amet quam congue interdum. Duis dapibus leo ultrices quam. Suspendisse vitae sapien. Nunc turpis<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=3&amp;products_id=70"> ... more info</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tie tie-margin1">
-                <div class="tie-indent">
-                    <div class="wrapper">
-                        <div class="fleft" style="width:33%">
-                            <span class="image"><a class="name" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=68"><img src="~/Content/Img/03.jpg" alt="3 Handcrafted Dark" title=" 3 Handcrafted Dark " width="198" height="168"></a></span><br clear="all"><br clear="all"><span class="stock">In Stock: 999</span>
-                        </div>
-                        <div class="fleft" style="width:66%">
-                            Date Added: Thursday 09 September, 2010<br clear="all"><br clear="all"><hr><br><a class="name" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=68"><strong>3 Handcrafted Dark</strong></a><br clear="all"><br clear="all"><strong>Model: <br clear="all"></strong>Weight: 0lbs<br clear="all"><br clear="all"><span class="price-text">Price: &nbsp;</span> <span class="price">$104.00</span><br clear="all"><br clear="all"><div class="btn1"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;action=buy_now&amp;products_id=68"><img src="~/Content/Img/buttons/english/button_buy_now.gif" alt="Buy Now" title=" Buy Now " width="78" height="22"></a></div>&nbsp;<br><br clear="all">
-                        </div>
-                    </div>
-
-                    <div class="wrapper">
-                        <br><div class="description"><strong>Details:</strong>In vel quam. In sapien. Vestibulum viverra, eros a pharetra eleifend, libero leo ultricies neque, ut bibendum massa velit eget orci. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam at lectus. Nam a tortor sed nibh egestas dictum. Morbi vitae dolor. Vivamus faucibus quam sit amet est. Fusce dapibus pellentesque dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=68"> ... more info</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tie tie-margin1">
-                <div class="tie-indent">
-                    <div class="wrapper">
-                        <div class="fleft" style="width:33%">
-                            <span class="image"><a class="name" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=8"><img src="~/Content/Img/04.jpg" alt="30 Assorted Flavours Pot" title=" 30 Assorted Flavours Pot " width="198" height="168"></a></span><br clear="all"><br clear="all"><span class="stock">In Stock: 999</span>
-                        </div>
-                        <div class="fleft" style="width:66%">
-                            Date Added: Thursday 09 September, 2010<br clear="all"><br clear="all"><hr><br><a class="name" href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=8"><strong>30 Assorted Flavours Pot</strong></a><br clear="all"><br clear="all"><strong>Model: <br clear="all"></strong>Weight: 0lbs<br clear="all"><br clear="all"><span class="price-text">Price: &nbsp;</span> <span class="price">$104.00</span><br clear="all"><br clear="all"><div class="btn1"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;action=buy_now&amp;products_id=8"><img src="~/Content/Img/buttons/english/button_buy_now.gif" alt="Buy Now" title=" Buy Now " width="78" height="22"></a></div>&nbsp;<br><br clear="all">
-                        </div>
-                    </div>
-
-                    <div class="wrapper">
-                        <br><div class="description"><strong>Details:</strong>Suspendisse potenti. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Pellentesque laoreet, nisi ut porttitor commodo, purus sapien porttitor sapien, ac viverra mauris mauris eu quam. Morbi metus neque, pulvinar nec, auctor non, suscipit ut, tellus. Sed ut urna. Proin imperdiet molestie risus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi nulla. Etiam<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=2&amp;products_id=8"> ... more info</a></div>
-                    </div>
-                </div>
-            </div>
-
+            }
         </div>
 
         <div id="allProductsListingBottomNumber" class="navSplitPagesResult back"><span>Displaying</span> 1 to 4 (of <span>76</span> products)</div>
