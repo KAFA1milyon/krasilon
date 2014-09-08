@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using balaban.Models;
 using System.Net;
+using PagedList;
 
 namespace balaban.Controllers
 {
@@ -21,14 +22,18 @@ namespace balaban.Controllers
 
             return View(urun);
         }
-
         public ActionResult Products()
+        {
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Products(int sayfa = 1)
         {
             var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                         select s).ToList();
-
-            return View(urun);
-        }
+ 
+            return View(urun.OrderBy(x => x.UrunAdi).ToPagedList(sayfa, 2));
+        } 
 
         public ActionResult Details(int? id)
         {

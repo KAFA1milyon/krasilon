@@ -1,8 +1,10 @@
-﻿﻿@model IEnumerable<balaban.Models.Urun>
+﻿@using PagedList
+@using PagedList.Mvc
+@model IPagedList<balaban.Models.Urun>﻿
 @{
     ViewBag.Title = "Products";
 }
-
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 <div class="column-center-padding">
 
     <!--content_center-->
@@ -38,10 +40,11 @@
 
         <br class="clearBoth">
 
-        <div id="allProductsListingTopNumber" class="navSplitPagesResult back"><span>Displaying</span> 1 to 4 (of <span>76</span> products)</div>
-        <div id="allProductsListingTopLinks" class="navSplitPagesLinks forward"> &nbsp;<strong class="current">1</strong>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=2" title=" Page 2 ">2</a>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=3" title=" Page 3 ">3</a>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=4" title=" Page 4 ">4</a>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=5" title=" Page 5 ">5</a>&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=6" title=" Next Set of 5 Pages ">...</a>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=2" title=" Next Page ">Next&nbsp;&gt;&gt;</a>&nbsp;</div>
+        <div id="allProductsListingTopNumber" class="navSplitPagesResult back"><span>Displaying</span> 1 to 4 (of <span>@Model.Count()</span> products)</div>
+        <div class="pagedList">
+            @Html.PagedListPager(Model, sayfa => Url.Action("Products", new { sayfa }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </div>
         <br class="clearBoth">
-
         <div class="wrapper">
             @foreach (balaban.Models.Urun i in Model)
             {
@@ -74,7 +77,9 @@
         </div>
 
         <div id="allProductsListingBottomNumber" class="navSplitPagesResult back"><span>Displaying</span> 1 to 4 (of <span>76</span> products)</div>
-        <div id="allProductsListingBottomLinks" class="navSplitPagesLinks forward"> &nbsp;<strong class="current">1</strong>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=2" title=" Page 2 ">2</a>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=3" title=" Page 3 ">3</a>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=4" title=" Page 4 ">4</a>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=5" title=" Page 5 ">5</a>&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=6" title=" Next Set of 5 Pages ">...</a>&nbsp;&nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;page=2" title=" Next Page ">Next&nbsp;&gt;&gt;</a>&nbsp;</div>
+        <div class="pagedList">
+            @Html.PagedListPager(Model, sayfa => Url.Action("Products", new { sayfa }), PagedListRenderOptions.ClassicPlusFirstAndLast)
+        </div>
         <br class="clearBoth">
 
 
