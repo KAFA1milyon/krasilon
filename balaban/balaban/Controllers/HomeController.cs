@@ -23,7 +23,7 @@ namespace balaban.Controllers
         }
 
         public ActionResult Products()
-        { 
+        {
             var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                         select s).ToList();
 
