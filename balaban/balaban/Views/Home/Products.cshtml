@@ -40,7 +40,7 @@
 
         <br class="clearBoth">
 
-        <div id="allProductsListingTopNumber" class="navSplitPagesResult back"><span>Displaying</span> @Model.First().ID to @Model.Last().ID (of <span>@Model.Count()</span> products)</div>
+        @*<div id="allProductsListingTopNumber" class="navSplitPagesResult back"><span>Displaying</span> @Model.First().ID to @Model.Last().ID (of <span>@Model.Count()</span> products)</div>*@
         <div class="pagedList">
             @Html.PagedListPager(Model, sayfa => Url.Action("Products", new { sayfa }), PagedListRenderOptions.ClassicPlusFirstAndLast)
         </div>
@@ -76,7 +76,7 @@
             }
         </div>
 
-        <div id="allProductsListingBottomNumber" class="navSplitPagesResult back"><span>Displaying</span> 1 to 4 (of <span>76</span> products)</div>
+        @*<div id="allProductsListingBottomNumber" class="navSplitPagesResult back"><span>Displaying</span> @Model.First().ID to @Model.Last().ID (of <span>@Model.Count()</span> products)</div>*@
         <div class="pagedList">
             @Html.PagedListPager(Model, sayfa => Url.Action("Products", new { sayfa }), PagedListRenderOptions.ClassicPlusFirstAndLast)
         </div>
