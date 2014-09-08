@@ -90,12 +90,12 @@
 
                         <!--bof Prev/Next bottom position -->
                         <div class="navNextPrevWrapper centeredContent back">
-                            <span class="navNextPrevCounter">Product 1/4 &nbsp;</span>
-                            <div class="navNextPrevList"><a href="index_1852.htm"><img src="~/Content/Img/buttons/english/button_prev.gif" alt="Previous" title=" Previous " width="48" height="22"></a></div>
+                            @*<span class="navNextPrevCounter">Product 1/4 &nbsp;</span>*@
+                            <div class="navNextPrevList"><a href="@Href("~/Home/Details/" + (Model.ID-1))"><img src="~/Content/Img/buttons/english/button_prev.gif" alt="Previous" title=" Previous " width="48" height="22"></a></div>
 
-                            <div class="navNextPrevList"><a href="index_283.htm"><img src="~/Content/Img/buttons/english/button_return_to_product_list.gif" alt="Return to the Product List" title=" Return to the Product List " width="65" height="22"></a></div>
+                            <div class="navNextPrevList"><a href="@Href("~/Home/Products/")"><img src="~/Content/Img/buttons/english/button_return_to_product_list.gif" alt="Return to the Product List" title=" Return to the Product List " width="65" height="22"></a></div>
 
-                            <div class="navNextPrevList"><a href="index_1853.htm"><img src="~/Content/Img/buttons/english/button_next.gif" alt="Next" title=" Next " width="50" height="22"></a></div>
+                            <div class="navNextPrevList"><a href="@Href("~/Home/Details/" + (Model.ID+1))"><img src="~/Content/Img/buttons/english/button_next.gif" alt="Next" title=" Next " width="50" height="22"></a></div>
                         </div><!--eof Prev/Next bottom position -->
 
 
