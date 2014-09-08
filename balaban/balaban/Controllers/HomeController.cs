@@ -16,23 +16,32 @@ namespace balaban.Controllers
         {
             //ViewBag.Urunler = db.Urunler.ToList();
 
-            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar") 
+            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                         select s).ToList();
 
             return View(urun);
         }
+
+        public ActionResult Products()
+        { 
+            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
+                        select s).ToList();
+
+            return View(urun);
+        }
+
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            } 
+            }
 
             //Urun urun = db.Urunler.Find(id);
 
             var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
-                       where s.ID == id
-                       select s).FirstOrDefault<Urun>();
+                        where s.ID == id
+                        select s).FirstOrDefault<Urun>();
 
             //urun.UrunDetay = db.UrunDetay.Where(x => x.ID == id).FirstOrDefault();
             //urun.UrunFiyatlar = db.UrunFiyatlari.Where(x => x.ID == id).ToList();
