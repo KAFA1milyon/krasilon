@@ -40,6 +40,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -174,19 +180,17 @@
     <Compile Include="Areas\Yonetim\Controllers\UrunController.cs" />
     <Compile Include="Areas\Yonetim\Controllers\UrunDetayController.cs" />
     <Compile Include="Areas\Yonetim\Controllers\UrunFiyatController.cs" />
-    <Compile Include="Areas\Yonetim\Controllers\UrunFiyatDetayController.cs" />
     <Compile Include="Areas\Yonetim\Controllers\UrunResimController.cs" />
     <Compile Include="Areas\Yonetim\YonetimAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
-    <Compile Include="Controllers\DetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="DAL\bContext.cs" />
     <Compile Include="DAL\bInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdresTip.cs" />
     <Compile Include="Models\FiyatParametre.cs" />
@@ -224,6 +228,7 @@
     <Content Include="Content\images\cat-bg.jpg" />
     <Content Include="Content\images\footer-bg.jpg" />
     <Content Include="Content\images\icons\error.gif" />
+    <Content Include="Content\images\icons\zoom-icon.png" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\marker1.gif" />
     <Content Include="Content\images\marker2.gif" />
@@ -244,10 +249,14 @@
     <Content Include="Content\Img\04.jpg" />
     <Content Include="Content\Img\05.jpg" />
     <Content Include="Content\Img\06.jpg" />
+    <Content Include="Content\Img\antep_fistigi.jpg" />
+    <Content Include="Content\Img\aycekirdek.jpg" />
+    <Content Include="Content\Img\badem_ici.jpg" />
     <Content Include="Content\Img\banner1.jpg" />
     <Content Include="Content\Img\banner2.jpg" />
     <Content Include="Content\Img\banner3.jpg" />
     <Content Include="Content\Img\banner4.jpg" />
+    <Content Include="Content\Img\beyaz leblebi.jpg" />
     <Content Include="Content\Img\buttons\english\button_add_selected.gif" />
     <Content Include="Content\Img\buttons\english\button_back.gif" />
     <Content Include="Content\Img\buttons\english\button_buy_now.gif" />
@@ -272,6 +281,20 @@
     <Content Include="Content\Img\buttons\english\button_write_review.gif" />
     <Content Include="Content\Img\buttons\english\search.gif" />
     <Content Include="Content\Img\buttons\english\small_delete.gif" />
+    <Content Include="Content\Img\ceviz_ici.jpg" />
+    <Content Include="Content\Img\cig_badem.jpg" />
+    <Content Include="Content\Img\citir_leblebi.jpg" />
+    <Content Include="Content\Img\kabak_cekirdegi.jpeg" />
+    <Content Include="Content\Img\kaju.jpg" />
+    <Content Include="Content\Img\kan_uzumu.jpg" />
+    <Content Include="Content\Img\kavrulmus_findik.jpg" />
+    <Content Include="Content\Img\pestil.jpg" />
+    <Content Include="Content\Img\renkli_leblebi.JPG" />
+    <Content Include="Content\Img\sarı_leblebi.jpg" />
+    <Content Include="Content\Img\siirt_fistik.jpg" />
+    <Content Include="Content\Img\soslu_fistik.jpg" />
+    <Content Include="Content\Img\tuzlu_fistik.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -345,11 +368,6 @@
     <Content Include="Areas\Yonetim\Views\UrunDetay\Details.cshtml" />
     <Content Include="Areas\Yonetim\Views\UrunDetay\Edit.cshtml" />
     <Content Include="Areas\Yonetim\Views\UrunDetay\Index.cshtml" />
-    <Content Include="Areas\Yonetim\Views\UrunFiyatDetay\Create.cshtml" />
-    <Content Include="Areas\Yonetim\Views\UrunFiyatDetay\Delete.cshtml" />
-    <Content Include="Areas\Yonetim\Views\UrunFiyatDetay\Details.cshtml" />
-    <Content Include="Areas\Yonetim\Views\UrunFiyatDetay\Edit.cshtml" />
-    <Content Include="Areas\Yonetim\Views\UrunFiyatDetay\Index.cshtml" />
     <Content Include="Areas\Yonetim\Views\UrunFiyat\Create.cshtml" />
     <Content Include="Areas\Yonetim\Views\UrunFiyat\Delete.cshtml" />
     <Content Include="Areas\Yonetim\Views\UrunFiyat\Details.cshtml" />
@@ -375,6 +393,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jscript_xdarkbox.js" />
+    <Content Include="Scripts\jscript_zcoin-slider.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -405,8 +425,9 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Detail\Index.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Shared\_UrunlerPartial.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Home\Products.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
