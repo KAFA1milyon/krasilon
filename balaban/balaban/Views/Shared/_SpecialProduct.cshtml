@@ -1,0 +1,40 @@
+﻿@using balaban.Models
+@{
+    var urun = (from s in new balaban.DAL.bContext().Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
+                select s).First();
+}
+ 
+<div class="box" id="specials" style="width:230px;">
+
+    <div class="box-bottom">
+        <div class="box-top">
+            <div class="box-right">
+                <div class="box-left">
+                    <div class="box-bottom-right">
+                        <div class="box-bottom-left">
+                            <div class="box-top-right">
+                                <div class="box-top-left">
+
+                                    <div class="box-head">
+                                        <a href="index_53.htm">Özel</a>
+                                    </div>
+
+                                    <div class="box-body">
+                                        <div class="sideBoxContent centeredContent">
+                                            <div class="img">
+                                                <a href="@Href("~/Home/Details/" + (urun.ID))">
+                                                    <img src="~/Content/Img/@urun.UrunResimler.First(x => x.AnaResim == true).ResimYol" alt="@urun.UrunAdi" title="@urun.UrunAdi" width="198" height="168">
+                                                </a><br>
+                                            </div><a class="name" href="@Href("~/Home/Details/" + (urun.ID))">@urun.UrunAdi</a><div class="price"><span class="normalprice"> ₺@urun.UrunFiyatlar.First().Fiyat</span>&nbsp;<span class="productSpecialPrice">₺@urun.UrunFiyatlar.First().Fiyat</span></div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
