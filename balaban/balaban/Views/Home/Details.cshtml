@@ -28,7 +28,7 @@
                     <div class="wrapper">
 
                         <!--bof Form start-->
-                        <form name="cart_quantity" action="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;cPath=1&amp;products_id=1&amp;action=add_product" method="post" enctype="multipart/form-data">
+                        <form name="cart_quantity" action="@Href("~/Cart/Index/")" method="post" enctype="multipart/form-data">
                             <!--eof Form start-->
                             <!--bof Category Icon -->
                             <!--bof Prev/Next top position -->
@@ -51,19 +51,19 @@
 
 
                             <!--bof Product details list  -->
-                            @*<ul> 
-                                <li>997 Units in Stock</li> 
-                            </ul>*@
+                            @*<ul>
+                <li>997 Units in Stock</li>
+            </ul>*@
                             <!--eof Product details list -->
                             <!--bof Product Price block -->
                             <h2 id="productPrices" class="productGeneral">
-                                <span class="price-text">Price: &nbsp;</span>
+                                <span class="price-text">Fiyat: &nbsp;</span>
                                 ₺@Model.UrunFiyatlar.First().Fiyat
                             </h2>
                             <!--eof Product Price block -->
                             <!--bof Add to Cart Box -->
                             <div id="cartAdd">
-                                <strong class="fleft text2">Add to Cart: &nbsp; &nbsp;<input type="text" class="qty" name="cart_quantity" value="1" maxlength="6" size="8"><input type="hidden" name="products_id" value="1"></strong>&nbsp; &nbsp; &nbsp; <span class="buttonRow"><input type="image" src="~/Content/Img/buttons/english/button_in_cart.gif" alt="Add to Cart" title=" Add to Cart "></span>
+                                <strong class="fleft text2">Sepete Ekle: &nbsp; &nbsp;<input type="text" class="qty" name="cart_quantity" value="1" maxlength="6" size="8"><input type="hidden" name="products_id" value="1"></strong>&nbsp; &nbsp; &nbsp; <span class="buttonRow"><input type="image" src="~/Content/Img/buttons/english/button_in_cart.gif" alt="Add to Cart" title="Sepete Ekle"></span>
                             </div>
                             <!--eof Add to Cart Box-->
 
@@ -73,7 +73,7 @@
 
                     <!--bof Product description -->
                     <div id="productDescription" class="description biggerText">
-                        <strong>Details: </strong>
+                        <strong>Detaylar: </strong>
                         @Model.UrunDetay.DetayText
                     </div>
                     <!--eof Product description -->
@@ -110,22 +110,11 @@
                         </div>
 
                     </div>
-
-                    <div class="text2">
-
-                        <p class="reviewCount"><strong>Current Reviews: 0</strong></p>
-
-                        <!--bof Product date added/available-->
-                        <p id="productDateAdded" class="productGeneral centeredContent">This product was added to our catalog on Thursday 09 September, 2010.</p>
-                        <!--eof Product date added/available -->
-                        <!--bof Product URL -->
-                        <!--eof Product URL -->
-
-                    </div>
+                     
 
                     <!--bof also purchased products module-->
 
-                    <div class="centerBoxWrapper" id="alsoPurchased">
+                    @*<div class="centerBoxWrapper" id="alsoPurchased">
                         <h2 class="centerBoxHeading">Customers who bought this product also purchased...</h2>
                         <div class="centerBoxContentsAlsoPurch" style="width:100%;">
 
@@ -138,7 +127,7 @@
                         </div>
                         <br class="clearBoth">
 
-                    </div>
+                    </div>*@
                     <!--eof also purchased products module-->
                     <!--bof Form close-->
                     <!--bof Form close-->
