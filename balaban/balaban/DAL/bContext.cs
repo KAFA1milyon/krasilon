@@ -10,6 +10,10 @@ namespace balaban.DAL
 {
     public class bContext : DbContext
     {
+        public bContext()
+        {
+            //this.Configuration.LazyLoadingEnabled = false; 
+        }
         public DbSet<AdresTip> AdresTipleri { get; set; }
         public DbSet<FiyatParametre> FiyatParametreleri { get; set; }
         public DbSet<Musteri> Musteriler { get; set; }
@@ -23,7 +27,7 @@ namespace balaban.DAL
         public DbSet<SiparisUrunDetay> SiprasiUrunDetaylari { get; set; }
         public DbSet<TelefonTip> TelefonTipleri { get; set; }
         public DbSet<Urun> Urunler { get; set; }
-        public DbSet<UrunDetay> UrunDetaylari { get; set; }
+        public DbSet<UrunDetay> UrunDetay { get; set; }
         public DbSet<UrunFiyat> UrunFiyatlari { get; set; }
         public DbSet<UrunFiyatDetay> UrunFiyatDetaylari { get; set; }
         public DbSet<UrunResim> UrunResimleri { get; set; }
