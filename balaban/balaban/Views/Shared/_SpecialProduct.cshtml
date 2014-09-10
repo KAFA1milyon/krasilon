@@ -1,9 +1,14 @@
 ﻿@using balaban.Models
-@{
-    var urun = (from s in new balaban.DAL.bContext().Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
-                select s).First();
-}
+@using balaban.DAL
+@{ 
+    Urun urun;
+    using (var db = new balaban.DAL.bContext())
+    { 
+        urun = (from s in new balaban.DAL.bContext().Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
+                select s).Randomize().First();
+    }
 
+} 
 <div class="box" id="specials" style="width:230px;">
     <div class="box-bottom">
         <div class="box-top">
@@ -24,7 +29,7 @@
                                                 <a href="@Href("~/Home/Details/" + (urun.ID))">
                                                     <img src="~/Content/Img/@urun.UrunResimler.First(x => x.AnaResim == true).ResimYol" alt="@urun.UrunAdi" title="@urun.UrunAdi" width="198" height="168">
                                                 </a><br>
-                                            </div><a class="name" href="@Href("~/Home/Details/" + (urun.ID))">@urun.UrunAdi</a><div class="price"><span class="normalprice"> ₺@(urun.UrunFiyatlar.First().Fiyat+5)</span>&nbsp;<span class="productSpecialPrice">₺@urun.UrunFiyatlar.First().Fiyat</span></div>
+                                            </div><a class="name" href="@Href("~/Home/Details/" + (urun.ID))">@urun.UrunAdi</a><div class="price"><span class="normalprice"> ₺@(urun.UrunFiyatlar.First().Fiyat + 5)</span>&nbsp;<span class="productSpecialPrice">₺@urun.UrunFiyatlar.First().Fiyat</span></div>
                                         </div>
 
                                     </div>

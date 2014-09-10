@@ -1,7 +1,13 @@
 ﻿@using balaban.Models
 @{
-    List<Urun> urunler = new balaban.DAL.bContext().Urunler.ToList(); 
+    List<Urun> urunler;
+    using (var db = new balaban.DAL.bContext())
+    {
+        urunler = db.Urunler.ToList();
+    }
+
 }
+
 @foreach (Urun urun in urunler)
 {
     <li class="category-top_un"><span class="top-span"><a class="category-top_un" href="@Href("~/Home/Details/" + (urun.ID))">@urun.UrunAdi</a></span></li>
