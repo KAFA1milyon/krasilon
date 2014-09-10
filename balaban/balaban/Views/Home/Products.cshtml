@@ -7,7 +7,7 @@
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 <div class="column-center-padding">
     <div class="centerColumn" id="allProductsDefault">
-        <h1 id="allProductsDefaultHeading">All Products</h1>
+        <h1 id="allProductsDefaultHeading">@ViewBag.Title</h1>
         <div id="sorter" class="tie2">
             <div class="tie2-indent">
                 <form name="sorter_form" action="@Href("~/Home/Products/")" method= method="get">
@@ -46,14 +46,14 @@
                                 <strong>@i.UrunAdi</strong>
                             </a><br clear="all"><br clear="all"><strong>Model: <br clear="all"></strong>Weight: 0lbs<br clear="all"><br clear="all">
                             <span class="price-text">Price: &nbsp;</span><span class="price">₺@i.UrunFiyatlar.First().Fiyat</span><br clear="all"><br clear="all"><div class="btn1">
-                                <a href="@Href("~/Home/Details/" + (i.ID))">
-                                    <img src="~/Content/Img/buttons/english/button_buy_now.gif" alt="Buy Now" title=" Buy Now " width="78" height="22">
+                                <a href="@Href("~/Home/Details/" + (i.ID))"> 
+                                    <strong title="Satın Al">Satın Al</strong> 
                                 </a>
                             </div>&nbsp;<br><br clear="all">
                         </div>
                     </div>
                     <div class="wrapper">
-                        <br><div class="description"><strong>Details:</strong>@i.UrunDetay.DetayText.Substring(0, 100)<a href="@Href("~/Home/Details/" + (i.ID))"> .> ... more info</a></div>
+                        <br><div class="description"><strong>Detaylar:</strong>@i.UrunDetay.DetayText.Substring(0, 100)<a href="@Href("~/Home/Details/" + (i.ID))">... fazlası</a></div>
                     </div>
                 </div>
             </div>
