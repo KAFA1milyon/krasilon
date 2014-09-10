@@ -1,64 +1,59 @@
 ﻿@model balaban.Models.LoginViewModel
-
 @{
     ViewBag.Title = "Log in";
 }
-
 @*<h2>@ViewBag.Title.</h2>
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true)
-                <div class="form-group">
-                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.UserName)
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password)
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
+    <div class="row">
+        <div class="col-md-8">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <h4>Use a local account to log in.</h4>
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName)
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password)
+                        </div>
                     </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register", "Register") if you don't have a local account.
-                </p>
-            }
-        </section>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Log in" class="btn btn-default" />
+                        </div>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Register", "Register") if you don't have a local account.
+                    </p>
+                }
+            </section>
+        </div>
+        <div class="col-md-4">
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>
     </div>
-    <div class="col-md-4">
-        <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
-        </section>
-    </div>
-</div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
-
-
-
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
 
 <div class="column-center-padding">
 
@@ -69,377 +64,32 @@
     <!-- eof upload alerts -->
 
 
-    <div class="centerColumn" id="loginDefault">
+    <div class="centerColumn" id="timeoutDefault">
+        <h1 id="timeoutDefaultHeading">@ViewBag.Title</h1>
 
-        <h1 id="loginDefaultHeading">Welcome, Please Sign In</h1>
+        <div id="timeoutDefaultContent" class="content"><p>If you were placing an order, please login and your shopping cart will be restored. You may then go back to the checkout and complete your final purchases.</p><p>If you had completed an order and wish to review it, or had a download and wish to retrieve it, please go to your <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=account">My Account</a> page to view your order.</p></div>
+        <form name="login" action="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=login&amp;action=process" method="post">
+            <fieldset>
+                <legend>Login</legend>
 
-        <div class="tie">
-            <div class="tie-indent">
+                <label class="inputLabel" for="login-email-address">Email Address:</label>
+                <input type="text" name="email_address" size="41" maxlength="96" id="login-email-address"><br class="clearBoth">
 
+                <label class="inputLabel" for="login-password">Password:</label>
+                <input type="password" name="password" size="41" maxlength="40" id="login-password"><br class="clearBoth">
+                <input type="hidden" name="securityToken" value="145490578cd30c6e35c3b1bc2198e820">
+            </fieldset>
 
-
-
-                <!--BOF normal login-->
-                <div class="advisory"><strong>Note:</strong> If you have shopped with us before and left something in your cart, for your convenience, the contents will be merged if you log back in. <a href="javascript:session_win();">[More Info]</a></div>
-                <form name="login" action="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=login&amp;action=process" method="post">
-                    <fieldset>
-                        <legend>Returning Customers: Please Log In</legend>
-
-                        <label class="inputLabel" for="login-email-address">Email Address:</label>
-                        <input type="text" name="email_address" size="41" maxlength="96" id="login-email-address"><br class="clearBoth">
-
-                        <label class="inputLabel" for="login-password">Password:</label>
-                        <input type="password" name="password" size="41" maxlength="40" id="login-password"><br class="clearBoth">
-                        <input type="hidden" name="securityToken" value="96139a6bfa6b9c7fea64f494e0213b71">
-                    </fieldset>
-
-                    <div class="buttonRow back"><input type="image" src="includes/templates/theme505/buttons/english/button_login.gif" alt="Sign In" title=" Sign In "></div>
-                    <div class="buttonRow back">&nbsp; &nbsp; &nbsp;<a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=password_forgotten">Forgot your password?</a></div>
-                </form>
-                <br class="clearBoth">
-
-                <form name="create_account" action="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=create_account" method="post" onsubmit="return check_form(create_account);">
-                    <input type="hidden" name="action" value="process"><input type="hidden" name="email_pref_html" value="email_format"><fieldset>
-                        <legend>New? Please Provide Your Billing Information</legend>
-
-                        <div class="information">Create a customer profile with <strong>Candy</strong> which allows you to shop faster, track the status of your current orders and review your previous orders.</div>
-
-
-                        <div class="alert forward">* Required information</div>
-                        <br class="clearBoth">
-
-
-                        <fieldset>
-                            <legend>Company Details</legend>
-                            <label class="inputLabel" for="company">Company Name:</label>
-                            <input type="text" name="company" size="41" maxlength="64" id="company">
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Address Details</legend>
-                            <input type="radio" name="gender" value="m" id="gender-male"><label class="radioButtonLabel" for="gender-male">Mr.</label><input type="radio" name="gender" value="f" id="gender-female"><label class="radioButtonLabel" for="gender-female">Ms.</label><span class="alert">*</span><br class="clearBoth">
-
-                            <label class="inputLabel" for="firstname">First Name:</label>
-                            <input type="text" name="firstname" size="33" maxlength="32" id="firstname"><span class="alert">*</span><br class="clearBoth">
-
-                            <label class="inputLabel" for="lastname">Last Name:</label>
-                            <input type="text" name="lastname" size="33" maxlength="32" id="lastname"><span class="alert">*</span><br class="clearBoth">
-
-                            <label class="inputLabel" for="street-address">Street Address:</label>
-                            <input type="text" name="street_address" size="41" maxlength="64" id="street-address"><span class="alert">*</span><br class="clearBoth">
-
-                            <label class="inputLabel" for="suburb">Address Line 2:</label>
-                            <input type="text" name="suburb" size="33" maxlength="32" id="suburb"><br class="clearBoth">
-
-                            <label class="inputLabel" for="city">City:</label>
-                            <input type="text" name="city" size="33" maxlength="32" id="city"><span class="alert">*</span><br class="clearBoth">
-
-
-                            <label class="inputLabel" for="state" id="stateLabel">State/Province:</label>
-                            <input type="text" name="state" value="" size="33" maxlength="32" id="state">&nbsp;<span class="alert" id="stText">*</span><input type="hidden" name="zone_id"><br class="clearBoth">
-
-                            <label class="inputLabel" for="postcode">Post/Zip Code:</label>
-                            <input type="text" name="postcode" size="11" maxlength="10" id="postcode"><span class="alert">*</span><br class="clearBoth">
-
-                            <label class="inputLabel" for="country">Country:</label>
-                            <select name="zone_country_id" id="country">
-                                <option value="">Please Choose Your Country</option>
-                                <option value="223" selected="selected">United States</option>
-                                <option value="240">Aaland Islands</option>
-                                <option value="1">Afghanistan</option>
-                                <option value="2">Albania</option>
-                                <option value="3">Algeria</option>
-                                <option value="4">American Samoa</option>
-                                <option value="5">Andorra</option>
-                                <option value="6">Angola</option>
-                                <option value="7">Anguilla</option>
-                                <option value="8">Antarctica</option>
-                                <option value="9">Antigua and Barbuda</option>
-                                <option value="10">Argentina</option>
-                                <option value="11">Armenia</option>
-                                <option value="12">Aruba</option>
-                                <option value="13">Australia</option>
-                                <option value="14">Austria</option>
-                                <option value="15">Azerbaijan</option>
-                                <option value="16">Bahamas</option>
-                                <option value="17">Bahrain</option>
-                                <option value="18">Bangladesh</option>
-                                <option value="19">Barbados</option>
-                                <option value="20">Belarus</option>
-                                <option value="21">Belgium</option>
-                                <option value="22">Belize</option>
-                                <option value="23">Benin</option>
-                                <option value="24">Bermuda</option>
-                                <option value="25">Bhutan</option>
-                                <option value="26">Bolivia</option>
-                                <option value="27">Bosnia and Herzegowina</option>
-                                <option value="28">Botswana</option>
-                                <option value="29">Bouvet Island</option>
-                                <option value="30">Brazil</option>
-                                <option value="31">British Indian Ocean Territory</option>
-                                <option value="32">Brunei Darussalam</option>
-                                <option value="33">Bulgaria</option>
-                                <option value="34">Burkina Faso</option>
-                                <option value="35">Burundi</option>
-                                <option value="36">Cambodia</option>
-                                <option value="37">Cameroon</option>
-                                <option value="38">Canada</option>
-                                <option value="39">Cape Verde</option>
-                                <option value="40">Cayman Islands</option>
-                                <option value="41">Central African Republic</option>
-                                <option value="42">Chad</option>
-                                <option value="43">Chile</option>
-                                <option value="44">China</option>
-                                <option value="45">Christmas Island</option>
-                                <option value="46">Cocos (Keeling) Islands</option>
-                                <option value="47">Colombia</option>
-                                <option value="48">Comoros</option>
-                                <option value="49">Congo</option>
-                                <option value="50">Cook Islands</option>
-                                <option value="51">Costa Rica</option>
-                                <option value="52">Cote D'Ivoire</option>
-                                <option value="53">Croatia</option>
-                                <option value="54">Cuba</option>
-                                <option value="55">Cyprus</option>
-                                <option value="56">Czech Republic</option>
-                                <option value="57">Denmark</option>
-                                <option value="58">Djibouti</option>
-                                <option value="59">Dominica</option>
-                                <option value="60">Dominican Republic</option>
-                                <option value="62">Ecuador</option>
-                                <option value="63">Egypt</option>
-                                <option value="64">El Salvador</option>
-                                <option value="65">Equatorial Guinea</option>
-                                <option value="66">Eritrea</option>
-                                <option value="67">Estonia</option>
-                                <option value="68">Ethiopia</option>
-                                <option value="69">Falkland Islands (Malvinas)</option>
-                                <option value="70">Faroe Islands</option>
-                                <option value="71">Fiji</option>
-                                <option value="72">Finland</option>
-                                <option value="73">France</option>
-                                <option value="75">French Guiana</option>
-                                <option value="76">French Polynesia</option>
-                                <option value="77">French Southern Territories</option>
-                                <option value="78">Gabon</option>
-                                <option value="79">Gambia</option>
-                                <option value="80">Georgia</option>
-                                <option value="81">Germany</option>
-                                <option value="82">Ghana</option>
-                                <option value="83">Gibraltar</option>
-                                <option value="84">Greece</option>
-                                <option value="85">Greenland</option>
-                                <option value="86">Grenada</option>
-                                <option value="87">Guadeloupe</option>
-                                <option value="88">Guam</option>
-                                <option value="89">Guatemala</option>
-                                <option value="90">Guinea</option>
-                                <option value="91">Guinea-bissau</option>
-                                <option value="92">Guyana</option>
-                                <option value="93">Haiti</option>
-                                <option value="94">Heard and Mc Donald Islands</option>
-                                <option value="95">Honduras</option>
-                                <option value="96">Hong Kong</option>
-                                <option value="97">Hungary</option>
-                                <option value="98">Iceland</option>
-                                <option value="99">India</option>
-                                <option value="100">Indonesia</option>
-                                <option value="101">Iran (Islamic Republic of)</option>
-                                <option value="102">Iraq</option>
-                                <option value="103">Ireland</option>
-                                <option value="104">Israel</option>
-                                <option value="105">Italy</option>
-                                <option value="106">Jamaica</option>
-                                <option value="107">Japan</option>
-                                <option value="108">Jordan</option>
-                                <option value="109">Kazakhstan</option>
-                                <option value="110">Kenya</option>
-                                <option value="111">Kiribati</option>
-                                <option value="112">Korea, Democratic People's Republic of</option>
-                                <option value="113">Korea, Republic of</option>
-                                <option value="114">Kuwait</option>
-                                <option value="115">Kyrgyzstan</option>
-                                <option value="116">Lao People's Democratic Republic</option>
-                                <option value="117">Latvia</option>
-                                <option value="118">Lebanon</option>
-                                <option value="119">Lesotho</option>
-                                <option value="120">Liberia</option>
-                                <option value="121">Libyan Arab Jamahiriya</option>
-                                <option value="122">Liechtenstein</option>
-                                <option value="123">Lithuania</option>
-                                <option value="124">Luxembourg</option>
-                                <option value="125">Macao</option>
-                                <option value="126">Macedonia, The Former Yugoslav Republic of</option>
-                                <option value="127">Madagascar</option>
-                                <option value="128">Malawi</option>
-                                <option value="129">Malaysia</option>
-                                <option value="130">Maldives</option>
-                                <option value="131">Mali</option>
-                                <option value="132">Malta</option>
-                                <option value="133">Marshall Islands</option>
-                                <option value="134">Martinique</option>
-                                <option value="135">Mauritania</option>
-                                <option value="136">Mauritius</option>
-                                <option value="137">Mayotte</option>
-                                <option value="138">Mexico</option>
-                                <option value="139">Micronesia, Federated States of</option>
-                                <option value="140">Moldova</option>
-                                <option value="141">Monaco</option>
-                                <option value="142">Mongolia</option>
-                                <option value="143">Montserrat</option>
-                                <option value="144">Morocco</option>
-                                <option value="145">Mozambique</option>
-                                <option value="146">Myanmar</option>
-                                <option value="147">Namibia</option>
-                                <option value="148">Nauru</option>
-                                <option value="149">Nepal</option>
-                                <option value="150">Netherlands</option>
-                                <option value="151">Netherlands Antilles</option>
-                                <option value="152">New Caledonia</option>
-                                <option value="153">New Zealand</option>
-                                <option value="154">Nicaragua</option>
-                                <option value="155">Niger</option>
-                                <option value="156">Nigeria</option>
-                                <option value="157">Niue</option>
-                                <option value="158">Norfolk Island</option>
-                                <option value="159">Northern Mariana Islands</option>
-                                <option value="160">Norway</option>
-                                <option value="161">Oman</option>
-                                <option value="162">Pakistan</option>
-                                <option value="163">Palau</option>
-                                <option value="164">Panama</option>
-                                <option value="165">Papua New Guinea</option>
-                                <option value="166">Paraguay</option>
-                                <option value="167">Peru</option>
-                                <option value="168">Philippines</option>
-                                <option value="169">Pitcairn</option>
-                                <option value="170">Poland</option>
-                                <option value="171">Portugal</option>
-                                <option value="172">Puerto Rico</option>
-                                <option value="173">Qatar</option>
-                                <option value="174">Reunion</option>
-                                <option value="175">Romania</option>
-                                <option value="176">Russian Federation</option>
-                                <option value="177">Rwanda</option>
-                                <option value="178">Saint Kitts and Nevis</option>
-                                <option value="179">Saint Lucia</option>
-                                <option value="180">Saint Vincent and the Grenadines</option>
-                                <option value="181">Samoa</option>
-                                <option value="182">San Marino</option>
-                                <option value="183">Sao Tome and Principe</option>
-                                <option value="184">Saudi Arabia</option>
-                                <option value="185">Senegal</option>
-                                <option value="236">Serbia</option>
-                                <option value="186">Seychelles</option>
-                                <option value="187">Sierra Leone</option>
-                                <option value="188">Singapore</option>
-                                <option value="189">Slovakia (Slovak Republic)</option>
-                                <option value="190">Slovenia</option>
-                                <option value="191">Solomon Islands</option>
-                                <option value="192">Somalia</option>
-                                <option value="193">South Africa</option>
-                                <option value="194">South Georgia and the South Sandwich Islands</option>
-                                <option value="195">Spain</option>
-                                <option value="196">Sri Lanka</option>
-                                <option value="197">St. Helena</option>
-                                <option value="198">St. Pierre and Miquelon</option>
-                                <option value="199">Sudan</option>
-                                <option value="200">Suriname</option>
-                                <option value="201">Svalbard and Jan Mayen Islands</option>
-                                <option value="202">Swaziland</option>
-                                <option value="203">Sweden</option>
-                                <option value="204">Switzerland</option>
-                                <option value="205">Syrian Arab Republic</option>
-                                <option value="206">Taiwan</option>
-                                <option value="207">Tajikistan</option>
-                                <option value="208">Tanzania, United Republic of</option>
-                                <option value="209">Thailand</option>
-                                <option value="61">Timor-Leste</option>
-                                <option value="210">Togo</option>
-                                <option value="211">Tokelau</option>
-                                <option value="212">Tonga</option>
-                                <option value="213">Trinidad and Tobago</option>
-                                <option value="214">Tunisia</option>
-                                <option value="215">Turkey</option>
-                                <option value="216">Turkmenistan</option>
-                                <option value="217">Turks and Caicos Islands</option>
-                                <option value="218">Tuvalu</option>
-                                <option value="219">Uganda</option>
-                                <option value="220">Ukraine</option>
-                                <option value="221">United Arab Emirates</option>
-                                <option value="222">United Kingdom</option>
-                                <option value="224">United States Minor Outlying Islands</option>
-                                <option value="225">Uruguay</option>
-                                <option value="226">Uzbekistan</option>
-                                <option value="227">Vanuatu</option>
-                                <option value="228">Vatican City State (Holy See)</option>
-                                <option value="229">Venezuela</option>
-                                <option value="230">Viet Nam</option>
-                                <option value="231">Virgin Islands (British)</option>
-                                <option value="232">Virgin Islands (U.S.)</option>
-                                <option value="233">Wallis and Futuna Islands</option>
-                                <option value="234">Western Sahara</option>
-                                <option value="235">Yemen</option>
-                                <option value="238">Zambia</option>
-                                <option value="239">Zimbabwe</option>
-                            </select>
-                            <span class="alert">*</span><br class="clearBoth">
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Additional Contact Details</legend>
-                            <label class="inputLabel" for="telephone">Telephone:</label>
-                            <input type="text" name="telephone" size="33" maxlength="32" id="telephone"><span class="alert">*</span>
-                            <br class="clearBoth">
-                            <label class="inputLabel" for="fax">Fax Number:</label>
-                            <input type="text" name="fax" id="fax">
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Verify Your Age</legend>
-                            <label class="inputLabel" for="dob">Date of Birth:</label>
-                            <input type="text" name="dob" id="dob"><span class="alert">* (eg. 05/21/1970)</span><br class="clearBoth">
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Login Details</legend>
-                            <label class="inputLabel" for="email-address">Email Address:</label>
-                            <input type="text" name="email_address" size="41" maxlength="96" id="email-address"><span class="alert">*</span><br class="clearBoth">
-
-
-                            <label class="inputLabel" for="password-new">Password:</label>
-                            <input type="password" name="password" size="21" maxlength="40" id="password-new"><span class="alert">* (at least 7 characters)</span><br class="clearBoth">
-
-                            <label class="inputLabel" for="password-confirm">Confirm Password:</label>
-                            <input type="password" name="confirmation" size="21" maxlength="40" id="password-confirm"><span class="alert">*</span><br class="clearBoth">
-                        </fieldset>
-
-                        <fieldset>
-                            <legend>Newsletter and Email Details</legend>
-                            <input type="checkbox" name="newsletter" value="1" id="newsletter-checkbox"><label class="checkboxLabel" for="newsletter-checkbox">Subscribe to Our Newsletter.</label><br class="clearBoth">
-                            <br class="clearBoth">
-
-                            <input type="radio" name="email_format" value="HTML" id="email-format-html"><label class="radioButtonLabel" for="email-format-html">HTML</label><input type="radio" name="email_format" value="TEXT" checked="checked" id="email-format-text"><label class="radioButtonLabel" for="email-format-text">TEXT-Only</label><br class="clearBoth">
-                        </fieldset>
-
-
-                    </fieldset>
-
-                    <div class="buttonRow"><input type="image" src="includes/templates/theme505/buttons/english/button_submit.gif" alt="Submit the Information" title=" Submit the Information "></div>
-                </form>
-                <!--EOF normal login-->
-                <div class="clear"></div>
-            </div>
-        </div>
-
+            <div class="buttonRow forward"><input type="image" src="~/Content/Img/buttons/english/button_login.gif" alt="Sign In" title=" Sign In "></div>
+            <div class="buttonRow back important"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=password_forgotten">Forgot Your Password?</a></div>
+        </form>
+        <br class="clearBoth">
     </div>
-
     <div class="clear"></div>
-
-     <div class="footer-menu">
+    <div class="footer-menu">
         <a href="@Href("~/Home/Index/")">Anasayfa</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
         @*<a href="@Href("~/Home/Products/")">Yeni Ürünler</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;*@
         <a href="@Href("~/Home/Products/")">Tüm Ürünler</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
         <a href="@Href("~/Home/Contact/")">Hakkımızda</a>
     </div>
- </div>
+</div> 
