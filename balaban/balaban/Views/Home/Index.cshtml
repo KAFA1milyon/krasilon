@@ -84,7 +84,11 @@
                                         <div class="price">
                                             <strong>₺@urun.UrunFiyatlar.First().Fiyat</strong>
                                         </div>
-                                        <div class="button"><a href="@Href("~/Home/Details/" + (urun.ID))"><img src="~/Content/Img/buttons/english/button_goto_prod_details.gif" alt="Go To This Product's Detailed Information" title=" Go To This Product's Detailed Information " width="67" height="22"></a></div>
+                                        <div class="button">
+                                            <a href="@Href("~/Home/Details/" + (urun.ID))">
+                                                <strong title="Go To This Product's Detailed Information">Detay</strong>
+                                            </a>
+                                        </div>
 
                                     </div>
                                 </div>
@@ -100,7 +104,7 @@
         </div>
     </div>
     <div class="clear"></div>
-     <div class="footer-menu">
+    <div class="footer-menu">
         <a href="@Href("~/Home/Index/")">Anasayfa</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
         @*<a href="@Href("~/Home/Products/")">Yeni Ürünler</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;*@
         <a href="@Href("~/Home/Products/")">Tüm Ürünler</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
