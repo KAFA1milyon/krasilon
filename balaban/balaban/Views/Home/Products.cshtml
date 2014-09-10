@@ -39,13 +39,15 @@
                         <div class="fleft" style="width:33%">
                             <span class="image">
                                 <a class="name" href="@Href("~/Home/Details/" + (i.ID))"><img src="~/Content/Img/@i.UrunResimler.First(x=>x.AnaResim==true).ResimYol" alt="@i.UrunAdi" title="@i.UrunAdi" width="198" height="168"></a>
-                            </span><br clear="all"><br clear="all"><span class="stock">In Stock: @i.ID</span>
+                            </span><br clear="all"><br clear="all"><span class="stock">Stok: @i.ID</span>
                         </div>
                         <div class="fleft" style="width:66%">
-                            Date Added: @i.KayitTarihi.Value.ToLongDateString()<br clear="all"><br clear="all"><hr><br><a class="name" href="@Href("~/Home/Details/" + (i.ID))">
+                            Eklenme Tarihi: @i.KayitTarihi.Value.ToLongDateString()<br clear="all"><br clear="all"><hr><br><a class="name" href="@Href("~/Home/Details/" + (i.ID))">
                                 <strong>@i.UrunAdi</strong>
-                            </a><br clear="all"><br clear="all"><strong>Model: <br clear="all"></strong>Weight: 0lbs<br clear="all"><br clear="all">
-                            <span class="price-text">Price: &nbsp;</span><span class="price">₺@i.UrunFiyatlar.First().Fiyat</span><br clear="all"><br clear="all"><div class="btn1">
+                            </a>
+                            <br clear="all">
+                            <br clear="all"> 
+                            <span class="price-text">Fiyat: &nbsp;</span><span class="price">₺@i.UrunFiyatlar.First().Fiyat</span><br clear="all"><br clear="all"><div class="btn1">
                                 <a href="@Href("~/Home/Details/" + (i.ID))"> 
                                     <strong title="Satın Al">Satın Al</strong> 
                                 </a>
