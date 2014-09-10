@@ -4,11 +4,9 @@
     Urun urun;
     using (var db = new balaban.DAL.bContext())
     {
-        urun = (from s in new balaban.DAL.bContext().Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
-                select s).Randomize().First();
+        urun = db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar").Randomize().First();
     }
-
-} 
+}
 <div class="box" id="specials" style="width:230px;">
     <div class="box-bottom">
         <div class="box-top">
