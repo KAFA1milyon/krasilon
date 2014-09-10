@@ -32,30 +32,21 @@
     </script>
 </head>
 <body>
-    <!-- ========== IMAGE BORDER TOP ========== -->
-    <!-- ====================================== -->
-    <!-- ========== HEADER ========== -->
     <div id="header">
         <div class="main-width">
             <div class="wrapper">
                 <div class="logo">
-                    <!-- ========== LOGO ========== -->
                     <a href="@Href("~/Home/Index/")">
                         <img src="http://www.prontotour.com/img/logo.png" alt="">
                     </a>
-                    <!-- ========================== -->
                 </div>
                 <div class="cart">
-                    <!-- ========== SHOPPING CART ========== -->
                     <a class="st1" href="@Href("~/Cart/Index/")"><span>Sepet</span></a><span class="one"> <span class="st3">Şu anda Sepette</span>  <a href="@Href("~/Cart/Index/")"><span class="st2">0 items</span></a></span>
-                    <!-- =================================== -->
                 </div>
                 <div class="right-head">
                     <div class="lang">
-                        <!-- ========== LANGUAGES ========== -->
                     </div>
                     <div class="search">
-                        <!-- ========== SEARCH ========== -->
                         <form name="quick_find_header" action="@Href("~/Home/Index/")" method="get">
                             <div>
                                 <input type="hidden" name="main_page" value="advanced_search_result"><input type="hidden" name="search_in_description" value="1"><input type="hidden" name="zenid" value="3ghopb02ouhtuj1ue240ud6o03">
@@ -64,25 +55,17 @@
                                 <input type="image" src="~/Content/Img/buttons/english/search.gif" alt="Search" title=" Search " class="input2">
                             </div>
                         </form>
-                        <!-- ============================ -->
                     </div>
                     <div class="navigation">
-                        <!-- ========== NAVIGATION LINKS ========== -->
                         @Html.ActionLink("Admin", "Index", "Dashboard", new { area = "Yonetim" }, null)
-
                         &nbsp; | &nbsp; <a href="@Href("~/Account/Login/")">Log In</a>
-
-
-                        <!-- ====================================== -->
                     </div>
                 </div>
             </div>
             <div class="wrapper box2">
                 <div class="menu">
-                    <!-- ========== MENU ========== -->
                     <div id="navEZPagesTop">
                         <ul>
-
                             <li class="selected  first">
                                 <a href="@Href("~/Home/Index/")">
                                     <span>
@@ -90,15 +73,13 @@
                                     </span>
                                 </a>
                             </li>
-
-                            <li class="  ">
-                                <a href="@Href("~/Home/Products/")">
-                                    <span>
-                                        <span>Yeni Ürünler</span>
-                                    </span>
-                                </a>
-                            </li>
-
+                            @*<li class="  ">
+                                    <a href="@Href("~/Home/Products/")">
+                                        <span>
+                                            <span>Yeni Ürünler</span>
+                                        </span>
+                                    </a>
+                                </li>*@
                             <li class="  ">
                                 <a href="@Href("~/Home/Index/")">
                                     <span>
@@ -106,7 +87,6 @@
                                     </span>
                                 </a>
                             </li>
-
                             <li class="  ">
                                 <a href="@Href("~/Home/Products/")">
                                     <span>
@@ -114,15 +94,13 @@
                                     </span>
                                 </a>
                             </li>
-
                             @*<li class="  ">
-                                <a href="@Href("~/Home/Index/")">
-                                    <span>
-                                        <span>Yorumlar</span>
-                                    </span>
-                                </a>
-                            </li>*@
-
+                                    <a href="@Href("~/Home/Index/")">
+                                        <span>
+                                            <span>Yorumlar</span>
+                                        </span>
+                                    </a>
+                                </li>*@
                             <li class="  ">
                                 <a href="@Href("~/Home/Contact/")">
                                     <span>
@@ -130,15 +108,12 @@
                                     </span>
                                 </a>
                             </li>
-
                         </ul>
                     </div>
-                    <!-- ========================== -->
-                </div> 
+                </div>
             </div>
         </div>
     </div>
-    <!-- ============================ -->
     <div class="wrapp">
         <div class="main-width">
             <table border="0" cellspacing="0" cellpadding="0" width="100%" id="contentMainWrapper">
@@ -146,9 +121,7 @@
                     <tr>
                         <td id="column-left" style="width:230px;">
                             <div style="width:230px;">
-                                <!--// bof: categories //-->
                                 <div class="box" id="categories" style="width:230px;">
-
                                     <div class="box-bottom">
                                         <div class="box-top">
                                             <div class="box-right">
@@ -157,11 +130,9 @@
                                                         <div class="box-bottom-left">
                                                             <div class="box-top-right">
                                                                 <div class="box-top-left">
-
                                                                     <div class="box-head">
                                                                         Ürünler
                                                                     </div>
-
                                                                     <div class="box-body">
                                                                         <div id="categoriesContent" class="sideBoxContent">
                                                                             <ul>
@@ -169,7 +140,6 @@
                                                                             </ul>
                                                                         </div>
                                                                     </div>
-
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -178,36 +148,34 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
-                                <!--// eof: categories //-->
-                                <!--// bof: ezpages //-->
                                 @*<div class="box" id="ezpages" style="width:230px;">
 
-                                    <div class="box-bottom">
-                                        <div class="box-top">
-                                            <div class="box-right">
-                                                <div class="box-left">
-                                                    <div class="box-bottom-right">
-                                                        <div class="box-bottom-left">
-                                                            <div class="box-top-right">
-                                                                <div class="box-top-left">
+                                        <div class="box-bottom">
+                                            <div class="box-top">
+                                                <div class="box-right">
+                                                    <div class="box-left">
+                                                        <div class="box-bottom-right">
+                                                            <div class="box-bottom-left">
+                                                                <div class="box-top-right">
+                                                                    <div class="box-top-left">
 
-                                                                    <div class="box-head">
-                                                                        Important Links
-                                                                    </div>
-
-                                                                    <div class="box-body">
-                                                                        <div id="ezpagesContent" class="sideBoxContent">
-                                                                            <ul style="margin: 0; padding: 0; list-style-type: none;">
-                                                                                <li><a href="http://gazete.netgazete.com/gazetebirincisayfalar.php" target="_blank">Gazeteler</a></li>
-                                                                                <li><a href="http://www.hurriyet.com.tr/anasayfa/" target="_blank">hurriyet.com</a></li>
-                                                                                <li><a href="http://www.ahaber.com.tr/" target="_blank">ahaber</a></li>
-                                                                                <li><a href="http://www.google.com" target="_blank">Google</a></li>
-                                                                            </ul>
+                                                                        <div class="box-head">
+                                                                            Important Links
                                                                         </div>
-                                                                    </div>
 
+                                                                        <div class="box-body">
+                                                                            <div id="ezpagesContent" class="sideBoxContent">
+                                                                                <ul style="margin: 0; padding: 0; list-style-type: none;">
+                                                                                    <li><a href="http://gazete.netgazete.com/gazetebirincisayfalar.php" target="_blank">Gazeteler</a></li>
+                                                                                    <li><a href="http://www.hurriyet.com.tr/anasayfa/" target="_blank">hurriyet.com</a></li>
+                                                                                    <li><a href="http://www.ahaber.com.tr/" target="_blank">ahaber</a></li>
+                                                                                    <li><a href="http://www.google.com" target="_blank">Google</a></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -215,51 +183,30 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                </div>*@
-                                <!--// eof: ezpages //-->
-                                <!--// bof: specials //-->
-                                @Html.Partial("_SpecialProduct") 
-                                <!--// eof: specials //-->
+                                    </div>*@
+                                @Html.Partial("_SpecialProduct")
                             </div>
                         </td>
-
                         <td id="column-center" valign="top">
                             @RenderBody()
                             <hr />
                         </td>
-
                     </tr>
                 </tbody>
             </table>
-
-
         </div>
     </div>
-    <!-- ========== FOOTER ========== -->
-    <!-- BOF- BANNER #5 display -->
-    <!-- EOF- BANNER #5 display -->
     <div id="footer">
         <div class="main-width">
             <div class="wrapper">
                 <div class="copyright">
-                    <!-- ========== COPYRIGHT ========== -->
-                    Copyright © 2014 <a href="index_48.htm" target="_blank">Candy</a>. Powered by <a href="../www.zen-cart.com/www_zen-cart_default.html" target="_blank">Zen Cart</a> <a href="index_92.htm">Privacy Notice</a>
-
-                    <!-- =============================== -->
+                    Copyright © 2014 <a href="@Href("~/Home/Index/")" target="_blank">Burak Çerez</a>. Powered by <a href="@Href("~/Home/Index/")" target="_blank">Krasilon</a> <a href="@Href("~/Home/Index/")">Privacy Notice</a>
                 </div>
                 <div><!-- {%FOOTER_LINK} --></div>
             </div>
         </div>
     </div>
-    <!-- ============================ -->
-    <!--bof- parse time display -->
-    <!--eof- parse time display -->
-    <!-- BOF- BANNER #6 display -->
-    <!-- EOF- BANNER #6 display -->
-    <!-- ========== IMAGE BORDER BOTTOM ========== -->
-    <!-- ========================================= -->
     @RenderSection("scripts", required: false)
 </body>
 </html>

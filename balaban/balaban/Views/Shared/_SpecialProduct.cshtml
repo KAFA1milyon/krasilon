@@ -3,9 +3,8 @@
     var urun = (from s in new balaban.DAL.bContext().Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                 select s).First();
 }
- 
-<div class="box" id="specials" style="width:230px;">
 
+<div class="box" id="specials" style="width:230px;">
     <div class="box-bottom">
         <div class="box-top">
             <div class="box-right">
@@ -36,5 +35,5 @@
                 </div>
             </div>
         </div>
-
     </div>
+</div>

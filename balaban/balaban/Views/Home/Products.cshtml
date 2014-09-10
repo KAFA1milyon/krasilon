@@ -6,19 +6,8 @@
 }
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 <div class="column-center-padding">
-
-    <!--content_center-->
-    <!-- bof breadcrumb -->
-    <!-- eof breadcrumb -->
-    <!-- bof upload alerts -->
-    <!-- eof upload alerts -->
-
-
     <div class="centerColumn" id="allProductsDefault">
-
         <h1 id="allProductsDefaultHeading">All Products</h1>
-
-
         <div id="sorter" class="tie2">
             <div class="tie2-indent">
                 <form name="sorter_form" action="@Href("~/Home/Products/")" method= method="get">
@@ -28,7 +17,6 @@
                         <option value="2">Product Name - desc</option>
                         <option value="3">Price - low to high</option>
                         <option value="4">Price - high to low</option>
-                        <option value="5">Model</option>
                         <option value="6">Date Added - New to Old</option>
                         <option value="7">Date Added - Old to New</option>
                     </select>
@@ -64,7 +52,6 @@
                             </div>&nbsp;<br><br clear="all">
                         </div>
                     </div>
-
                     <div class="wrapper">
                         <br><div class="description"><strong>Details:</strong>@i.UrunDetay.DetayText.Substring(0, 100)<a href="@Href("~/Home/Details/" + (i.ID))"> .> ... more info</a></div>
                     </div>
