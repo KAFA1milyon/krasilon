@@ -2,160 +2,75 @@
 @{
     ViewBag.Title = "Details";
 }
-
-
 <div class="column-center-padding">
-
-    <!--content_center-->
-    <!-- bof breadcrumb -->
-    <!-- eof breadcrumb -->
-    <!-- bof upload alerts -->
-    <!-- eof upload alerts -->
-
-
     <div class="centerColumn" id="productGeneral">
-
-        <!--bof Product Name-->
         <h1 id="productName" class="productGeneral">@Model.UrunAdi</h1>
-        <!--eof Product Name-->
-
         <div class="tie">
             <div class="tie-indent">
-
-
                 <div class="page-content">
-
                     <div class="wrapper">
-
-                        <!--bof Form start-->
                         <form name="cart_quantity" action="@Href("~/Cart/Index/")" method="post" enctype="multipart/form-data">
-                            <!--eof Form start-->
-                            <!--bof Category Icon -->
-                            <!--bof Prev/Next top position -->
-                            <!--eof Prev/Next top position-->
-                            <!--bof Main Product Image -->
-
-
-
                             <div id="productMainImage" class="centeredContent back">
                                 <span class="image">
                                     <a href="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol">
                                         <img src="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol" alt="@Model.UrunAdi" title="@Model.UrunAdi" width=" 198" height="169"><span class="zoom"></span>
                                     </a>
                                 </span>
-
-                            </div><!--eof Main Product Image-->
-                            <!--bof free ship icon  -->
-                            <!--eof free ship icon  -->
+                            </div>
                             <div class="name-type bot-border">@Model.UrunAdi</div>
-
-
-                            <!--bof Product details list  -->
-                            @*<ul>
-                <li>997 Units in Stock</li>
-            </ul>*@
-                            <!--eof Product details list -->
-                            <!--bof Product Price block -->
                             <h2 id="productPrices" class="productGeneral">
                                 <span class="price-text">Fiyat: &nbsp;</span>
                                 ₺@Model.UrunFiyatlar.First().Fiyat
                             </h2>
-                            <!--eof Product Price block -->
-                            <!--bof Add to Cart Box -->
                             <div id="cartAdd">
-                                <strong class="fleft text2">Sepete Ekle: &nbsp; &nbsp;<input type="text" class="qty" name="cart_quantity" value="1" maxlength="6" size="8"><input type="hidden" name="products_id" value="1"></strong>&nbsp; &nbsp; &nbsp; <span class="buttonRow"><input type="image" src="~/Content/Img/buttons/english/button_in_cart.gif" alt="Add to Cart" title="Sepete Ekle"></span>
+                                <strong class="fleft text2">
+                                    Sepete Ekle: &nbsp; &nbsp;<input type="text" class="qty" name="cart_quantity" value="1" maxlength="6" size="8">
+                                    <input type="hidden" name="products_id" value="1">
+                                </strong>&nbsp; &nbsp; &nbsp; <span class="buttonRow">
+                                                                  <input type="image" src="~/Content/Img/buttons/sepeteekle1.png" alt="Add to Cart" title="Sepete Ekle">
+                                </span>
                             </div>
-                            <!--eof Add to Cart Box-->
-
                         </form>
                     </div>
-
-
-                    <!--bof Product description -->
                     <div id="productDescription" class="description biggerText">
                         <strong>Detaylar: </strong>
                         @Model.UrunDetay.DetayText
                     </div>
-                    <!--eof Product description -->
-                    <!--bof Attributes Module -->
-                    <!--eof Attributes Module -->
-                    <!--bof Quantity Discounts table -->
-                    <!--eof Quantity Discounts table -->
-                    <!--bof Additional Product Images -->
-                    <!--eof Additional Product Images -->
-
                     <div class="wrapper bot-border">
-
-
-
-                        <!--bof Prev/Next bottom position -->
                         <div class="navNextPrevWrapper centeredContent back">
                             @*<span class="navNextPrevCounter">Product 1/4 &nbsp;</span>*@
                             @*<div class="navNextPrevList"><a href="@Href("~/Home/Details/" + (Model.ID-1))"><img src="~/Content/Img/buttons/english/button_prev.gif" alt="Previous" title=" Previous " width="48" height="22"></a></div>*@
-
                             <div class="navNextPrevList"><a href="@Href("~/Home/Products/")">Tüm Liste</a></div>
-
                             @*<div class="navNextPrevList"><a href="@Href("~/Home/Details/" + (Model.ID+1))"><img src="~/Content/Img/buttons/english/button_next.gif" alt="Next" title=" Next " width="50" height="22"></a></div>*@
-                        </div><!--eof Prev/Next bottom position -->
-
-
-                        <div class="prod-buttons">
-                            <!--bof Tell a Friend button -->
-                            @*<div id="productTellFriendLink" class="buttonRow forward"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=tell_a_friend&amp;products_id=1"><img src="~/Content/Img/buttons/english/button_TellAFriend.gif" alt="Tell a Friend" title=" Tell a Friend " width="168" height="22"></a></div>*@
-                            <!--eof Tell a Friend button -->
-                            <!--bof Reviews button and count-->
-                            <div id="productReviewLink" class="buttonRow forward"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_reviews_write&amp;cPath=1&amp;products_id=1"><img src="~/Content/Img/buttons/english/button_write_review.gif" alt="Write Review" title=" Write Review " width="118" height="22"></a>&nbsp; &nbsp;</div>
-
-                            <!--eof Reviews button and count -->
                         </div>
-
+                        @*<div class="prod-buttons">
+                                <div id="productTellFriendLink" class="buttonRow forward"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=tell_a_friend&amp;products_id=1"><img src="~/Content/Img/buttons/english/button_TellAFriend.gif" alt="Tell a Friend" title=" Tell a Friend " width="168" height="22"></a></div>
+                                <div id="productReviewLink" class="buttonRow forward"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_reviews_write&amp;cPath=1&amp;products_id=1"><img src="~/Content/Img/buttons/english/button_write_review.gif" alt="Write Review" title=" Write Review " width="118" height="22"></a>&nbsp; &nbsp;</div>
+                            </div>*@
                     </div>
-                     
-
-                    <!--bof also purchased products module-->
-
                     @*<div class="centerBoxWrapper" id="alsoPurchased">
-                        <h2 class="centerBoxHeading">Customers who bought this product also purchased...</h2>
-                        <div class="centerBoxContentsAlsoPurch" style="width:100%;">
+                            <h2 class="centerBoxHeading">Customers who bought this product also purchased...</h2>
+                            <div class="centerBoxContentsAlsoPurch" style="width:100%;">
 
-                            <div class="product" align="center">
-                                <div class="margin_col">
-                                    <span class="image"><a href="index_1915.htm"><img src="~/Content/Img/02.jpg" alt="Box of 25 Handcrafted Pralines" title=" Box of 25 Handcrafted Pralines " width="198" height="168"></a></span><br><a href="index_1915.htm">Box of 25 Handcrafted Pralines</a>
-                                </div>
-                            </div><br>
+                                <div class="product" align="center">
+                                    <div class="margin_col">
+                                        <span class="image"><a href="index_1915.htm"><img src="~/Content/Img/02.jpg" alt="Box of 25 Handcrafted Pralines" title=" Box of 25 Handcrafted Pralines " width="198" height="168"></a></span><br><a href="index_1915.htm">Box of 25 Handcrafted Pralines</a>
+                                    </div>
+                                </div><br>
 
-                        </div>
-                        <br class="clearBoth">
+                            </div>
+                            <br class="clearBoth">
 
-                    </div>*@
-                    <!--eof also purchased products module-->
-                    <!--bof Form close-->
-                    <!--bof Form close-->
-
+                        </div>*@
                 </div>
-
             </div>
         </div>
-
     </div>
-
     <div class="clear"></div>
-
-    <!--eof content_center-->
     <div class="footer-menu">
-        <!-- ========== MENU ========== -->
-
         <a href="@Href("~/Home/Index/")">Anasayfa</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-        <a href="@Href("~/Home/Products/")">Yeni Ürünler</a>
-        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-        <a href="@Href("~/Home/Products/")">Tüm Ürünler</a>
-        @*&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
-            <a href="index_55.htm">Reviews</a>*@
-        &nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
+        @*<a href="@Href("~/Home/Products/")">Yeni Ürünler</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;*@
+        <a href="@Href("~/Home/Products/")">Tüm Ürünler</a>&nbsp;&nbsp;&nbsp;::&nbsp;&nbsp;&nbsp;
         <a href="@Href("~/Home/Contact/")">Hakkımızda</a>
-
-        <!-- ========================== -->
     </div>
-
 </div>
-
