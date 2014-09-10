@@ -1,9 +1,9 @@
 ﻿@using balaban.Models
 @using balaban.DAL
-@{ 
+@{
     Urun urun;
     using (var db = new balaban.DAL.bContext())
-    { 
+    {
         urun = (from s in new balaban.DAL.bContext().Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                 select s).Randomize().First();
     }
@@ -18,20 +18,11 @@
                         <div class="box-bottom-left">
                             <div class="box-top-right">
                                 <div class="box-top-left">
-
                                     <div class="box-head">
-                                        <a href="index_53.htm">Özel</a>
+                                        <a href="@Href("~/Home/Products/")">Specials</a>
                                     </div>
-
                                     <div class="box-body">
-                                        <div class="sideBoxContent centeredContent">
-                                            <div class="img">
-                                                <a href="@Href("~/Home/Details/" + (urun.ID))">
-                                                    <img src="~/Content/Img/@urun.UrunResimler.First(x => x.AnaResim == true).ResimYol" alt="@urun.UrunAdi" title="@urun.UrunAdi" width="198" height="168">
-                                                </a><br>
-                                            </div><a class="name" href="@Href("~/Home/Details/" + (urun.ID))">@urun.UrunAdi</a><div class="price"><span class="normalprice"> ₺@(urun.UrunFiyatlar.First().Fiyat + 5)</span>&nbsp;<span class="productSpecialPrice">₺@urun.UrunFiyatlar.First().Fiyat</span></div>
-                                        </div>
-
+                                        <div class="sideBoxContent centeredContent"><div class="img"><a href="@Href("~/Home/Details/" + (urun.ID))"><img src="~/Content/Img/@urun.UrunResimler.First(x => x.AnaResim == true).ResimYol" alt="@urun.UrunAdi" title="@urun.UrunAdi" width="198" height="168"></a><br></div><a class="name" href="@Href("~/Home/Details/" + (urun.ID))">@urun.UrunAdi</a><div class="price"><span class="normalprice">₺@(urun.UrunFiyatlar.First().Fiyat + 5) </span>&nbsp;<span class="productSpecialPrice">₺@urun.UrunFiyatlar.First().Fiyat</span></div></div>
                                     </div>
                                 </div>
                             </div>
