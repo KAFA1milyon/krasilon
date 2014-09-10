@@ -15,12 +15,11 @@ namespace balaban.Controllers
         private bContext db = new bContext();
         public ActionResult Index()
         {
-            //ViewBag.Urunler = db.Urunler.ToList();
-
-            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
-                        select s).ToList();
-
-            return View(urun);
+            using (var db = new bContext())
+            {
+                List<Urun> u = db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar").Randomize().ToList();
+                return View(u);
+            }
         }
         public ActionResult Products()
         {
@@ -31,9 +30,9 @@ namespace balaban.Controllers
         {
             var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                         select s).ToList();
- 
+
             return View(urun.OrderBy(x => x.ID).ToPagedList(sayfa, 4));
-        } 
+        }
 
         public ActionResult Details(int? id)
         {
@@ -41,17 +40,9 @@ namespace balaban.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            //Urun urun = db.Urunler.Find(id);
-
             var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
                         where s.ID == id
                         select s).FirstOrDefault<Urun>();
-
-            //urun.UrunDetay = db.UrunDetay.Where(x => x.ID == id).FirstOrDefault();
-            //urun.UrunFiyatlar = db.UrunFiyatlari.Where(x => x.ID == id).ToList();
-            //urun.UrunFiyatDetaylar = db.UrunFiyatDetaylari.Where(x => x.ID == id).ToList();
-            //urun.UrunResimler = db.UrunResimleri.Where(x => x.ID == id).ToList();
 
             if (urun == null)
             {
