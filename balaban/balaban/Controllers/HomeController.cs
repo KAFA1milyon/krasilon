@@ -25,13 +25,74 @@ namespace balaban.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ActionResult Products(int sayfa = 1)
-        {
-            var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
-                        select s).ToList();
+        //[HttpGet]
+        //public ActionResult Products(int page = 1)
+        //{
+        //    var urun = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
+        //                select s).ToList();
 
-            return View(urun.OrderBy(x => x.ID).ToPagedList(sayfa, 4));
+        //    return View(urun.OrderBy(x => x.ID).ToPagedList(page, 4));
+        //}
+         
+        [HttpGet]
+        public ViewResult Products(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            ViewBag.CurrentSort = sortOrder;
+ 
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewBag.CurrentFilter = searchString;
+
+            IEnumerable<Urun>  uruns = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")select s).ToList();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                uruns = uruns.Where(s => s.UrunAdi.ToUpper().Contains(searchString.ToUpper()));
+            }
+            switch (sortOrder)
+            {
+                case "Name":
+                    uruns = uruns.OrderBy(s => s.UrunAdi);
+                    break;
+                case "Name_desc":
+                    uruns = uruns.OrderByDescending(s => s.UrunAdi);
+                    break;
+                case "Price":
+                    uruns = uruns.OrderBy(s => s.UrunFiyatlar.First().Fiyat);  
+                    //uruns = (from m in db.Urunler
+                    //         join ms in db.UrunFiyatlari on m.ID equals ms.ID
+                    //         orderby ms.Fiyat ascending
+                    //         select m);
+
+                    break;
+                case "Price_desc":
+                    uruns = uruns.OrderByDescending(s => s.UrunFiyatlar.First().Fiyat); 
+
+                    //uruns = (from m in db.Urunler
+                    //         join ms in db.UrunFiyatlari on m.ID equals ms.ID
+                    //         orderby ms.Fiyat descending
+                    //         select m);
+                    break;
+                case "Date":
+                    uruns = uruns.OrderBy(s => s.KayitTarihi);
+                    break;
+                case "Date_desc":
+                    uruns = uruns.OrderByDescending(s => s.KayitTarihi);
+                    break;
+                default:  // Name ascending 
+                    uruns = uruns.OrderBy(s => s.UrunAdi);
+                    break;
+            }
+
+            int pageSize = 3;
+            int pageNumber = (page ?? 1);
+            return View(uruns.ToPagedList(pageNumber, pageSize));
         }
 
         public ActionResult Details(int? id)
