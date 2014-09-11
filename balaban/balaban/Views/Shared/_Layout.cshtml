@@ -47,14 +47,14 @@
                     <div class="lang">
                     </div>
                     <div class="search">
-                        <form name="quick_find_header" action="@Href("~/Home/Index/")" method="get">
+                        @using (Html.BeginForm("Products", "Home", FormMethod.Get))
+                        {
                             <div>
-                                <input type="hidden" name="main_page" value="advanced_search_result"><input type="hidden" name="search_in_description" value="1"><input type="hidden" name="zenid" value="3ghopb02ouhtuj1ue240ud6o03">
                                 <span class="corner"></span>
-                                <input type="text" name="keyword" class="input1">
-                                <input type="image" src="~/Content/Img/buttons/english/search.gif" alt="Search" title=" Search " class="input2">
+                                @Html.TextBox("SearchString", ViewBag.CurrentFilter as string)
+                                <input type="submit" value="Search" />
                             </div>
-                        </form>
+                        }
                     </div>
                     <div class="navigation">
                         @*@Html.ActionLink("Admin", "Index", "Dashboard", new { area = "Yonetim" }, null)*@
@@ -81,12 +81,12 @@
                                     </a>
                                 </li>*@
                             @*<li class="  ">
-                                <a href="@Href("~/Home/Index/")">
-                                    <span>
-                                        <span>Kampanyalar</span>
-                                    </span>
-                                </a>
-                            </li>*@
+                                    <a href="@Href("~/Home/Index/")">
+                                        <span>
+                                            <span>Kampanyalar</span>
+                                        </span>
+                                    </a>
+                                </li>*@
                             <li class="  ">
                                 <a href="@Href("~/Home/Products/")">
                                     <span>
