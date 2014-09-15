@@ -2,10 +2,24 @@
 @using balaban.DAL
 @{
     Urun urun;
+    List<Urun> urunler;
     using (var db = new balaban.DAL.bContext())
     {
-        urun = db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar").Randomize().First();
+        urunler = db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar").Randomize().ToList();
+        urun = urunler.First();
     }
+
+    string tags = string.Empty;
+
+    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+    sb.Append("\"<tags>");
+    Random r = new Random();
+    foreach (var i in urunler)
+    {
+        sb.Append(string.Format("<a href='{0}' style='{1}'>{2}</a>", "/Home/Details/" + (i.ID), r.Next(8, 22), i.UrunAdi));
+    }
+    sb.Append("</tags>\""); 
+    tags = sb.ToString(); 
 }
 <div class="box" id="specials" style="width:230px;">
     <div class="box-bottom">
@@ -31,3 +45,20 @@
         </div>
     </div>
 </div>
+<!-- SWFObject embed by Geoff Stearns geoff@deconcept.com http://blog.deconcept.com/swfobject/ -->
+<script src="~/Content/TagCloud/swfobject.js"></script>
+<div id="flashcontent">This will be shown to users with no Flash or Javascript.</div>
+<script type="text/javascript">
+    var so = new SWFObject("/Content/TagCloud/tagcloud.swf", "tagcloud", "230", "230", "7", "#ffffff");
+    // uncomment next line to enable transparency
+    so.addParam("wmode", "transparent");
+    so.addVariable("tcolor", "0x333333");
+    so.addVariable("mode", "tags");
+    so.addVariable("distr", "true");
+    so.addVariable("tspeed", "100");
+    so.addVariable("tagcloud", @Html.Raw(tags));
+    so.write("flashcontent");
+</script>
+
+
+
