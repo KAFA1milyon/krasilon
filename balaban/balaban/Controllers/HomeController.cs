@@ -52,7 +52,10 @@ namespace balaban.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            IEnumerable<Urun>  uruns = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")select s).ToList();
+            IEnumerable<Urun> uruns = (from s in db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar")
+                                       where    s.UrunResimler.Count > 0 &
+                                                s.UrunFiyatlar.Count > 0
+                                       select s).ToList();
             if (!String.IsNullOrEmpty(searchString))
             {
                 uruns = uruns.Where(s => s.UrunAdi.ToUpper().Contains(searchString.ToUpper()));
