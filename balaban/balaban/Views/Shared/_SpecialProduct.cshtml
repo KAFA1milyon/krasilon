@@ -5,7 +5,9 @@
     List<Urun> urunler;
     using (var db = new balaban.DAL.bContext())
     {
-        urunler = db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar").Randomize().ToList();
+        urunler = db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar").Where(x => 
+                                                x.UrunResimler.Count > 0 &
+                                                x.UrunFiyatlar.Count > 0).Randomize().ToList();
         urun = urunler.First();
     }
 

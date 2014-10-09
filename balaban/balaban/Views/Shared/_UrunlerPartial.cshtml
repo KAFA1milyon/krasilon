@@ -3,7 +3,8 @@
     List<Urun> urunler;
     using (var db = new balaban.DAL.bContext())
     {
-        urunler = db.Urunler.ToList();
+        urunler = db.Urunler.Where(x => x.UrunResimler.Count > 0 &
+                                        x.UrunFiyatlar.Count > 0).ToList();
     }
 
 }
