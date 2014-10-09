@@ -17,7 +17,9 @@ namespace balaban.Controllers
         {
             using (var db = new bContext())
             {
-                List<Urun> u = db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar").Randomize().ToList();
+                List<Urun> u = db.Urunler.Include("UrunDetay").Include("UrunResimler").Include("UrunFiyatlar").Where(x =>
+                    x.UrunResimler.Count > 0 &
+                    x.UrunFiyatlar.Count > 0).Randomize().ToList();
                 return View(u);
             }
         }
