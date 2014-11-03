@@ -56,7 +56,7 @@ p { margin: 0; padding: 0; }
 /* ============================= header ====================== */
 #header { background: url(../images/top_background.png) no-repeat center top #fff; }
     #header .logo { padding: 32px 93px 0 8px; float: left; overflow: hidden; }
-    #header .cart { float: left; font-size: 12px; line-height: 14px; text-transform: uppercase; color: #fff; background: url(../images/cart.png) no-repeat left top; padding: 9px 0 10px 58px; margin-top: 80px; }
+    #header .cart { float: left; font-size: 12px; line-height: 14px; text-transform: uppercase; color: #fff; background: url(../images/cart.png) no-repeat left top;  padding: 9px 0 10px 58px; margin-top: 80px; }
         #header .cart a { text-decoration: none; }
         #header .cart .one { display: block; }
         #header .cart .st1 { color: #fff3b1; font-weight: bold; display: inline-block; padding-bottom: 2px; }
@@ -98,7 +98,7 @@ p { margin: 0; padding: 0; }
     .price strong { font-weight: normal; }
 .product-col .price { padding: 8px 0 11px 0; margin-left: -1px; }
 /* ============================= footer ====================== */
-#footer { background: url(../images/footer-bg.jpg) repeat-x left top #ea7b02; padding: 10px 0 7px 0; }
+#footer { background: url(../images/footer-bg.jpg) repeat-x left top #000; padding: 10px 0 7px 0; }
     #footer .copyright { float: right; padding-right: 35px; font-size: 14px; line-height: 40px; color: #fff; }
         #footer .copyright a { color: #fff; text-decoration: none; }
             #footer .copyright a:hover { color: #484848; }
