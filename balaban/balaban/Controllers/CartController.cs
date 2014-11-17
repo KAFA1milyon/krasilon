@@ -21,7 +21,7 @@ namespace balaban.Controllers
         public ActionResult Index()
         {
             var cart = ShoppingCart.GetCart(this.HttpContext);
-
+            Session["SepetAdet"] = cart.GetCartItems().Count;
             // Set up our ViewModel
             var viewModel = new ShoppingCartViewModel
             {
@@ -40,7 +40,7 @@ namespace balaban.Controllers
 
             // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
-
+            
             cart.AddToCart(addedAlbum);
 
             // Go back to the main store page for more shopping
@@ -60,6 +60,7 @@ namespace balaban.Controllers
 
             // Remove from cart
             int itemCount = cart.RemoveFromCart(id);
+            Session["SepetAdet"] = cart.GetCartItems().Count;
 
             // Display the confirmation message
             var results = new ShoppingCartRemoveViewModel
