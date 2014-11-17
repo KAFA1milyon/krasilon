@@ -187,12 +187,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\bContext.cs" />
     <Compile Include="DAL\bInitializer.cs" />
+    <Compile Include="DAL\Utility.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AdresTip.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\FiyatParametre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Musteri.cs" />
@@ -201,6 +203,7 @@
     <Compile Include="Models\MusteriTip.cs" />
     <Compile Include="Models\OdemeTip.cs" />
     <Compile Include="Models\SatisKanali.cs" />
+    <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Siparis.cs" />
     <Compile Include="Models\SiparisOdemeDetay.cs" />
     <Compile Include="Models\SiparisUrunDetay.cs" />
@@ -226,6 +229,8 @@
     <Content Include="Content\css\stylesheet_tm.css" />
     <Content Include="Content\images\cart.png" />
     <Content Include="Content\images\cat-bg.jpg" />
+    <Content Include="Content\images\darkbox\lightbox-btn-close.png" />
+    <Content Include="Content\images\darkbox\spinner.gif" />
     <Content Include="Content\images\footer-bg.jpg" />
     <Content Include="Content\images\icons\error.gif" />
     <Content Include="Content\images\icons\zoom-icon.png" />
@@ -242,13 +247,7 @@
     <Content Include="Content\images\stars_3.gif" />
     <Content Include="Content\images\stars_4.gif" />
     <Content Include="Content\images\stars_5.gif" />
-    <Content Include="Content\images\top-head.jpg" />
-    <Content Include="Content\Img\01.jpg" />
-    <Content Include="Content\Img\02.jpg" />
-    <Content Include="Content\Img\03.jpg" />
-    <Content Include="Content\Img\04.jpg" />
-    <Content Include="Content\Img\05.jpg" />
-    <Content Include="Content\Img\06.jpg" />
+    <Content Include="Content\images\top_background.png" />
     <Content Include="Content\Img\antep_fistigi.jpg" />
     <Content Include="Content\Img\aycekirdek.jpg" />
     <Content Include="Content\Img\badem_ici.jpg" />
@@ -281,6 +280,7 @@
     <Content Include="Content\Img\buttons\english\button_write_review.gif" />
     <Content Include="Content\Img\buttons\english\search.gif" />
     <Content Include="Content\Img\buttons\english\small_delete.gif" />
+    <Content Include="Content\Img\buttons\sepeteekle1.png" />
     <Content Include="Content\Img\ceviz_ici.jpg" />
     <Content Include="Content\Img\cig_badem.jpg" />
     <Content Include="Content\Img\citir_leblebi.jpg" />
@@ -295,6 +295,20 @@
     <Content Include="Content\Img\soslu_fistik.jpg" />
     <Content Include="Content\Img\tuzlu_fistik.jpg" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\social-master_assets\images\background.jpg" />
+    <Content Include="Content\social-master_assets\images\share.png" />
+    <Content Include="Content\social-master_assets\images\social-sprite.png" />
+    <Content Include="Content\social-master_assets\javascripts\socialProfiles.js" />
+    <Content Include="Content\social-master_assets\javascripts\socialProfiles.min.js" />
+    <Content Include="Content\social-master_assets\javascripts\socialShare.js" />
+    <Content Include="Content\social-master_assets\javascripts\socialShare.min.js" />
+    <Content Include="Content\social-master_assets\stylesheets\arthref.css" />
+    <Content Include="Content\social-master_assets\stylesheets\arthref.min.css" />
+    <Content Include="Content\social-master_assets\stylesheets\example.css" />
+    <Content Include="Content\social-master_assets\stylesheets\normalize.css" />
+    <Content Include="Content\TagCloud\example.html" />
+    <Content Include="Content\TagCloud\swfobject.js" />
+    <Content Include="Content\TagCloud\tagcloud.swf" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -428,6 +442,7 @@
     <Content Include="Views\Shared\_UrunlerPartial.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Products.cshtml" />
+    <Content Include="Views\Shared\_SpecialProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
