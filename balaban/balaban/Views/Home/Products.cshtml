@@ -2,7 +2,7 @@
 @using PagedList.Mvc
 @model IPagedList<balaban.Models.Urun>﻿
 @{
-    ViewBag.Title = "Products";
+    ViewBag.Title = "Ürünler";
 }
 <link href="~/Content/PagedList.css" rel="stylesheet" />
 <div class="column-center-padding">
@@ -13,12 +13,11 @@
                 <form name="sorter_form" action="@Href("~/Home/Products/")" method=method ="get">
                     <label for="disp-order-sorter">Sort by: </label>
                     <select name="sortOrder" onchange="this.form.submit();" id="disp-order-sorter">
-                        <option value="Name" selected="selected">Product Name</option>
-                        <option value="Name_desc">Product Name - desc</option>
-                        <option value="Price">Price - low to high</option>
-                        <option value="Price_desc">Price - high to low</option>
-                        <option value="Date">Date Added - New to Old</option>
-                        <option value="Date_desc">Date Added - Old to New</option>
+                        <option value="Name" selected="selected">Ürün Adı (A-Z)</option>
+                        <option value="Name_desc">Ürün Adı (Z-A)</option>
+                        <option value="Price">Fiyata göre (Düşükten Yükseğe)</option>
+                        <option value="Price_desc">Fiyata göre (Yüksekten Düşüğe)</option>
+                        
                     </select>
                 </form>
             </div>
