@@ -2,7 +2,7 @@
 @using balaban.Models
 @model balaban.Models.ShoppingCartViewModel
 @{
-    ViewBag.Title = "Shopping Cart";
+    ViewBag.Title = "Alışveriş Sepetim";
 }
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
@@ -33,7 +33,7 @@
 <style>
     .lnk { color: #f26522; text-decoration: none; font-size: 20px; }
 </style>
-@*<h3> <em>Review</em> your cart: </h3>
+@*<h3> <em>Review</em> Sepetiniz: </h3>
     <p class="button">
         @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
     </p>
@@ -42,13 +42,13 @@
     <table>
         <tr>
             <th>
-                Album Name
+                Ürün Adı
             </th>
             <th>
-                Price (each)
+                Birim Fiyat
             </th>
             <th>
-                Quantity
+                Miktar (Kg)
             </th>
             <th></th>
         </tr>
@@ -67,15 +67,14 @@
                 <td>
                     <a href="#" class="RemoveLink"
                        data-id="@item.RecordId">
-                        Remove
-                        from cart
+                        Sepetimden Çıkar
                     </a>
                 </td>
             </tr>
         }
         <tr>
             <td>
-                Total
+                Toplam
             </td>
             <td></td>
             <td></td>
@@ -88,11 +87,11 @@
 <div class="column-center-padding">
     <div class="centerColumn" id="shoppingCartDefault">
         <div class="help-cart"><a href="javascript:session_win();">[help (?)]</a></div>
-        <h1 id="cartDefaultHeading">Your Shopping Cart Contents</h1>
+        <h1 id="cartDefaultHeading">Sepet İçeriği</h1>
         <div class="tie text2">
             <div class="tie-indent"> 
                 <form name="cart_quantity" action="~/Cart/Index/" method="post">
-                    <div id="cartInstructionsDisplay" class="content">You may want to add some instructions for using the shopping cart here. </div>
+                    <div id="cartInstructionsDisplay" class="content">~Alışverişe Devam </div>
                     <div class="cartTotalsDisplay important">Toplam öğe: @Model.CartItems.Count()&nbsp;&nbsp;Ağırlık: @Model.CartItems.Count()kg&nbsp;&nbsp;Tutar: ₺@Model.CartTotal</div>
                     <br class="clearBoth">
                     <table border="0" width="100%" cellspacing="0" cellpadding="0" id="cartContentsDisplay">
@@ -100,7 +99,7 @@
                             <tr class="tableHeading">
                                 <th scope="col" id="scQuantityHeading">Adet</th>
                                 <th scope="col" id="scUpdateQuantity">Yenile</th>
-                                <th scope="col" id="scProductsHeading">Urun Adı</th>
+                                <th scope="col" id="scProductsHeading">Ürün Adı</th>
                                 <th scope="col" id="scUnitHeading">Birim Fiyat</th>
                                 <th scope="col" id="scTotalHeading">Toplam Fiyat</th>
                                 <th scope="col" id="scRemoveHeading">Sil</th>
