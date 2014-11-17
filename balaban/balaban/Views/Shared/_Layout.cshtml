@@ -40,9 +40,9 @@
                         <img src="~/Content/images/logo.png" alt="" width="100">
                     </a>
                 </div>
-                <div class="cart">
+                @*<div class="cart">
                     <a class="st1" href="@Href("~/Cart/Index/")"><span>Sepet</span></a><span class="one"> <span class="st3">Şu anda Sepette</span>  <a href="@Href("~/Cart/Index/")"><span class="st2">@(Session["SepetAdet"]==null?"0":Session["SepetAdet"] ) Ürün Mevcut</span></a></span>
-                </div>
+                </div>*@
                 <div class="right-head">
                     <div class="lang">
                     </div>
@@ -115,8 +115,11 @@
                                     </span>
                                 </a>
                             </li>
-                        </ul>
+                        </ul> 
                     </div>
+                </div>
+                <div class="cart">
+                    <a class="st1" href="@Href("~/Cart/Index/")"><span>Sepet</span></a><span class="one"> <span class="st3">Şu anda Sepette</span>  <a href="@Href("~/Cart/Index/")"><span class="st2">@(Session["SepetAdet"] == null ? "0" : Session["SepetAdet"]) Ürün Mevcut</span></a></span>
                 </div>
             </div>
         </div>
