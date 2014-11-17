@@ -11,7 +11,7 @@
         <div id="sorter" class="tie2">
             <div class="tie2-indent">
                 <form name="sorter_form" action="@Href("~/Home/Products/")" method=method ="get">
-                    <label for="disp-order-sorter">Sort by: </label>
+                    <label for="disp-order-sorter">Listele : </label>
                     <select name="sortOrder" onchange="this.form.submit();" id="disp-order-sorter">
                         <option value="Name" selected="selected">Ürün Adı (A-Z)</option>
                         <option value="Name_desc">Ürün Adı (Z-A)</option>
@@ -60,7 +60,7 @@
                 </div>
             }
         </div>
-        <div id="allProductsListingBottomNumber" class="navSplitPagesResult back"><span>Displaying</span> Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</div>
+       <!-- <div style="visibility:hidden" id="allProductsListingBottomNumber" class="navSplitPagesResult back"><span>Displaying</span> Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount</div>-->
         <div class="pagedList">
             @Html.PagedListPager(Model, page => Url.Action("Products", new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }), PagedListRenderOptions.ClassicPlusFirstAndLast)
         </div>
