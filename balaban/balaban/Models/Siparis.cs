@@ -10,6 +10,7 @@ namespace balaban.Models
     {
         public int ID { get; set; }
         public DateTime SiparisTarihi { get; set; }
+        public decimal Total { get; set; }
 
         [ForeignKey("Musteri")]
         public int MusteriID { get; set; }

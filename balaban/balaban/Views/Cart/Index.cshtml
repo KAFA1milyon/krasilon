@@ -1,76 +1,155 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@using balaban.DAL
+@using balaban.Models
+@model balaban.Models.ShoppingCartViewModel
+@{
+    ViewBag.Title = "Shopping Cart";
 }
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".RemoveLink").click(function () {
+            // Get the id from the link
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Perform the ajax post
+                $.post("/Cart/RemoveFromCart", { "id": recordToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        if (data.ItemCount == 0) {
+                            $('#row-' + data.DeleteId).fadeOut('slow');
+                        } else {
+                            $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                        }
+                        $('#cart-total').text(data.CartTotal);
+                        $('#update-message').text(data.Message);
+                        $('#cart-status').text('Cart (' + data.CartCount + ')');
+                    });
+            }
+        });
+    });
+</script>
+<style>
+    .lnk { color: #f26522; text-decoration: none; font-size: 20px; }
+</style>
+@*<h3> <em>Review</em> your cart: </h3>
+    <p class="button">
+        @Html.ActionLink("Checkout", "AddressAndPayment", "Checkout")
+    </p>
+    <div id="update-message">
+    </div>
+    <table>
+        <tr>
+            <th>
+                Album Name
+            </th>
+            <th>
+                Price (each)
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.CartItems)
+        {
+            <tr id="row-@item.RecordId">
+                <td>
+                    @Html.ActionLink(item.Urun.UrunAdi, "Details", "Home", new { id = item.UrunId }, null)
+                </td>
+                <td>
+                    @item.UrunFiyat.Fiyat
+                </td>
+                <td id="item-count-@item.RecordId">
+                    @item.Count
+                </td>
+                <td>
+                    <a href="#" class="RemoveLink"
+                       data-id="@item.RecordId">
+                        Remove
+                        from cart
+                    </a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                Total
+            </td>
+            <td></td>
+            <td></td>
+            <td id="cart-total">
+                @Model.CartTotal
+            </td>
+        </tr>
+    </table>*@
+
 <div class="column-center-padding">
     <div class="centerColumn" id="shoppingCartDefault">
         <div class="help-cart"><a href="javascript:session_win();">[help (?)]</a></div>
         <h1 id="cartDefaultHeading">Your Shopping Cart Contents</h1>
         <div class="tie text2">
-            <div class="tie-indent">
-                <form name="cart_quantity" action="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=shopping_cart&amp;action=update_product" method="post">
-                    <div id="cartInstructionsDisplay" class="content">You may want to add some instructions for using the shopping cart here. (defined in includes/languages/english/shopping_cart.php)</div>
-                    <div class="cartTotalsDisplay important">Total Items: 1170&nbsp;&nbsp;Weight: 0lbs&nbsp;&nbsp;Amount: $570,167.21</div>
+            <div class="tie-indent"> 
+                <form name="cart_quantity" action="~/Cart/Index/" method="post">
+                    <div id="cartInstructionsDisplay" class="content">You may want to add some instructions for using the shopping cart here. </div>
+                    <div class="cartTotalsDisplay important">Toplam öğe: @Model.CartItems.Count()&nbsp;&nbsp;Ağırlık: @Model.CartItems.Count()kg&nbsp;&nbsp;Tutar: ₺@Model.CartTotal</div>
                     <br class="clearBoth">
                     <table border="0" width="100%" cellspacing="0" cellpadding="0" id="cartContentsDisplay">
                         <tbody>
                             <tr class="tableHeading">
-                                <th scope="col" id="scQuantityHeading">Quantity</th>
-                                <th scope="col" id="scUpdateQuantity">Refresh</th>
-                                <th scope="col" id="scProductsHeading">Item Name</th>
-                                <th scope="col" id="scUnitHeading">Unit</th>
-                                <th scope="col" id="scTotalHeading">Total</th>
-                                <th scope="col" id="scRemoveHeading">Delete</th>
+                                <th scope="col" id="scQuantityHeading">Adet</th>
+                                <th scope="col" id="scUpdateQuantity">Yenile</th>
+                                <th scope="col" id="scProductsHeading">Urun Adı</th>
+                                <th scope="col" id="scUnitHeading">Birim Fiyat</th>
+                                <th scope="col" id="scTotalHeading">Toplam Fiyat</th>
+                                <th scope="col" id="scRemoveHeading">Sil</th>
                             </tr>
                             <!-- Loop through all products /-->
-                            <tr class="rowEven">
-                                <td class="cartQuantity">
-                                    <input type="text" name="cart_quantity[]" value="41" size="4"><br><span class="alert bold"></span><br><br>
-                                </td>
-                                <td class="cartQuantityUpdate buttonRow">
-                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="7">
-                                </td>
-                                <td class="cartProductDisplay">
-                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=7"><span id="cartProdTitle">20 Flavour Selection Tin<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/01.jpg" alt="20 Flavour Selection Tin" title=" 20 Flavour Selection Tin " width="198" height="168"></span></a>
-                                    <br class="clearBoth">
+                            @foreach (var item in Model.CartItems)
+                            {
+                                <tr @(Model.CartItems.IndexOf(item) % 2 == 0 ? "class=rowEven" : "class=rowOdd") id="row-@item.RecordId">
+                                    <td class="cartQuantity" id="item-count-@item.RecordId">
+                                        <input type="text" name="cart_quantity[]" value="@item.Count" size="4"><br><span class="alert bold"></span><br><br>
+                                    </td>
+                                    <td class="cartQuantityUpdate buttonRow">
+                                        <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. ">
+                                        <input type="hidden" name="products_id[]" value="7">
+                                    </td>
+                                    <td class="cartProductDisplay">
+                                        <a href="@Href("~/Home/Details/" + item.UrunId)">
+                                            <span id="cartProdTitle">@item.Urun.UrunAdi<span class="alert bold"></span></span><span id="cartImage" class="back">
+                                                <img src="~/Content/Img/@(new bContext().UrunResimleri.First(x => x.AnaResim == true && x.UrunID == item.UrunId).ResimYol)" alt="@item.Urun.UrunAdi" title="@item.Urun.UrunAdi" width=" 198" height="168" />
+                                            </span>
+                                        </a>
+                                        <br class="clearBoth">
 
 
-                                </td>
-                                <td class="cartUnitDisplay price">$503.00</td>
-                                <td class="cartTotalDisplay">$20,623.00</td>
-                                <td class="cartRemoveItemDisplay">
-                                    <input type="checkbox" name="cart_delete[]" value="7">
-                                </td>
-                            </tr>
-                            <tr class="rowOdd">
-                                <td class="cartQuantity">
-                                    <input type="text" name="cart_quantity[]" value="39" size="4"><br><span class="alert bold"></span><br><br>
-                                </td>
-                                <td class="cartQuantityUpdate buttonRow">
-                                    <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "><input type="hidden" name="products_id[]" value="70">
-                                </td>
-                                <td class="cartProductDisplay">
-                                    <a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=product_info&amp;products_id=70"><span id="cartProdTitle">25 Handcrafted Pralines<span class="alert bold"></span></span><span id="cartImage" class="back"><img src="~/Content/Img/02.jpg" alt="25 Handcrafted Pralines" title=" 25 Handcrafted Pralines " width="198" height="168"></span></a>
-                                    <br class="clearBoth">
+                                    </td>
+                                    <td class="cartUnitDisplay price">₺@item.UrunFiyat.Fiyat</td>
+                                    <td class="cartTotalDisplay">₺@(item.UrunFiyat.Fiyat * item.Count)</td>
+                                    <td class="cartRemoveItemDisplay">
+                                        <a href="#" class="RemoveLink" data-id="@item.RecordId">Sepetten Kaldır</a>
+                                    </td>
+                                </tr>
+                            }
 
-
-                                </td>
-                                <td class="cartUnitDisplay price">$732.00</td>
-                                <td class="cartTotalDisplay">$28,548.00</td>
-                                <td class="cartRemoveItemDisplay">
-                                    <input type="checkbox" name="cart_delete[]" value="70">
-                                </td>
-                            </tr>
                             <!-- Finished loop through all products /-->
                         </tbody>
                     </table>
-                    <div id="cartSubTotal">Sub-Total: <span class="price">$570,167.21</span></div>
+                    <div id="cartSubTotal">Alt-Toplam: <span class="price">₺@Model.CartTotal</span></div>
                     <br class="clearBoth">
                     <div class="wrapper">
-                        <div class="buttonRow forward"><input type="image" src="~/Content/Img/buttons/english/small_delete.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "></div>
-                        <div class="buttonRow forward"><input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. "></div>
+                        <div class="buttonRow forward">
+                            <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. ">
+                        </div>
                         <div class="shcart_btn">
-                            <div class="btn1"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=checkout_shipping"><img src="~/Content/Img/buttons/english/button_checkout.gif" alt="Checkout" title=" Checkout " width="127" height="22"></a></div>	<div class="btn1"><a href="http://livedemo00.template-help.com/zencart_34200/index.php?main_page=products_all&amp;disp_order=1&amp;products_id=49&amp;page=11"><img src="~/Content/Img/buttons/english/button_continue_shopping.gif" alt="Continue Shopping" title=" Continue Shopping " width="145" height="22"></a></div>
-                            <div class="btn1"><a href="javascript:popupWindow('http://livedemo00.template-help.com/zencart_34200/index.php?main_page=popup_shipping_estimator')"><img src="~/Content/Img/buttons/english/button_shipping_estimator.gif" alt="Shipping Estimator" title=" Shipping Estimator " width="149" height="22"></a></div>
+                            <div class="btn1">
+                                @Html.ActionLink("~Checkout", "AddressAndPayment", "Checkout", new { @class = "lnk" })
+                            </div>
+                            <div class="btn1">
+                                <a class="lnk" href="@Href("~/Home/Products/")">~Alışverişe Devam</a>
+                            </div>
                         </div>
                     </div>
                 </form>

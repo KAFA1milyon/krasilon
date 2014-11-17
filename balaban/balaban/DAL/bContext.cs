@@ -14,6 +14,7 @@ namespace balaban.DAL
         {
             //this.Configuration.LazyLoadingEnabled = false; 
         }
+        public DbSet<Cart> Carts { get; set; }
         public DbSet<AdresTip> AdresTipleri { get; set; }
         public DbSet<FiyatParametre> FiyatParametreleri { get; set; }
         public DbSet<Musteri> Musteriler { get; set; }
