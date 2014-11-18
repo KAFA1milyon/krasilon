@@ -23,14 +23,15 @@ font-size:12px; font-weight:normal; background:#fafafa; color:#000; { font-size:
 /* CSS Document */
 
 * { margin: 0; padding: 0; }
-body { background: #ea7b02; font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 17px; color: #2e2e2e; }
+body { /*background: #ea7b02;*/ font-family: Arial, Helvetica, sans-serif; font-size: 12px; line-height: 17px; color: #2e2e2e; }
 table, td { border-collapse: collapse; font-size: 100%; }
 table, td, img { border: 0; }
 form, td { margin: 0; padding: 0; }
 td { vertical-align: top; text-align: left; }
 
 .main-width { width: 950px; margin: 0 auto; text-align: left; }
-.wrapp { width: 100%; overflow: hidden; background: #fff; }
+/*.wrapp { width: 100%; overflow: auto; background: #fff; }*/
+.wrapp { width: 100%;  background: #fff; }
 
 input, textarea { font-family: Tahoma; font-size: 1em; }
 
@@ -46,7 +47,7 @@ ul { list-style: none; }
 .aligncenter { text-align: center; }
 
 .wrapper { width: 100%; overflow: hidden; }
-.container { width: 100%; }
+ .container { width: 100%; }
 .column-1, .column-2, .column-3 { float: left; }
 
 a { color: #000; outline: none; text-decoration: underline; }
@@ -54,7 +55,8 @@ a { color: #000; outline: none; text-decoration: underline; }
 p { margin: 0; padding: 0; }
 
 /* ============================= header ====================== */
-#header { background: url(../images/top_background.png) no-repeat center top #fff; }
+/*#header { background: url(../images/top_background.png) no-repeat center top #fff; }*/
+#header { background: url(../images/top_background.png) no-repeat center top #000; }
     #header .logo { padding: 32px 93px 0 8px; float: left; overflow: hidden; }
     #header .cart { float: right; font-size: 12px; line-height: 14px; text-transform: uppercase; color: #fff; background: url(../images/cart.png) no-repeat left top;  padding: 9px 10px 10px 58px; margin-top: 00px; }
         #header .cart a { text-decoration: none; }
