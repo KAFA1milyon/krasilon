@@ -1,0 +1,77 @@
+﻿@model balaban.Models.ShoppingCart
+@{
+    ViewBag.Title = "AddressAndPayment";
+}
+
+<h2>AddressAndPayment</h2>
+
+<table style="width: 100%;text-align:left;">
+    <tr>
+        <th width="20%">
+            Urun Adı
+        </th>
+        <th width="20%">
+            Fiyat
+        </th>
+        <th width="20%">
+            Adet
+        </th>
+        <th width="20%">
+        </th>
+    </tr>
+    @foreach (var item in Model.GetCartItems())
+    {
+        <tr id="row-@item.RecordId">
+            <td width="20%">
+                @Html.ActionLink(item.Urun.UrunAdi, "Details", "Home", new { id = item.UrunId }, null)
+            </td>
+            <td width="20%">
+                @item.UrunFiyat.Fiyat
+            </td>
+            <td width="20%">
+                @item.Count
+            </td>
+            <td width="20%"></td>
+        </tr>
+    }
+    <tr>
+        <td width="20%">
+
+            Total
+        </td>
+        <td width="20%"></td>
+        <td width="20%"></td>
+        <td width="20%" id="cart-total">
+            @Model.GetTotal()
+        </td>
+    </tr>
+</table>
+
+<div class="wpcf7" id="wpcf7-f291-p361-o1" lang="en-US" dir="ltr">
+    <div class="screen-reader-response"></div>
+    @Html.ValidationMessage("_HATA")
+    @using (Html.BeginForm("Send", "Cart"))
+    {
+        <p>
+            E-mail (Required)<br>
+            <span class="wpcf7-form-control-wrap mail"><input type="email" name="mail" value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false"></span>
+        </p>
+        <p>
+            Ad<br>
+            <span class="wpcf7-form-control-wrap konu"><input type="text" name="contactname" value="" size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false" ></span>
+        </p>
+ 
+        <p><input type="submit" value="Submit" class="wpcf7-form-control wpcf7-submit"></p>
+        <div class="wpcf7-response-output wpcf7-display-none"></div>
+
+    }
+
+</div>
+
+
+ <style>
+    button, input[type="submit"], input[type="reset"], input[type="button"] { font-family: 'Open Sans', sans-serif; font-size: 13px; margin: 0 0 20px 0; padding: 6px 12px; color: #fff; background-color: #2299dd; border: 1px solid #2299dd; text-decoration: none; border-radius: 2px; moz-border-radius: 2px; -webkit-border-radius: 2px; -ms-border-radius: 2px; outline: none; cursor: pointer; }
+    span.wpcf7-form-control-wrap { position: relative; }
+    p { line-height: 21px; margin: 10px 0 21px 0; padding: 0 0 0 0; margin-left: 10px; }
+    input[type="text"], input[type="password"], input[type="email"], textarea, select { font-family: 'Open Sans', sans-serif; font-size: 13px; color: #2f2f2f; background: #fff; border: 1px solid #e7e7e7; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; padding: 6px 4px; width: 95%; max-width: 100%; display: block; margin: 10px 0 20px 0; outline: none; }
+</style>
