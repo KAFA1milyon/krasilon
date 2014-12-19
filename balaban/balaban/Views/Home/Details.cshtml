@@ -14,6 +14,8 @@
             selectContainer: '.shareSelector'
         });
 
+
+
     });
 </script>
 <div class="column-center-padding">
@@ -23,30 +25,33 @@
             <div class="tie-indent">
                 <div class="page-content">
                     <div class="wrapper">
-                             <div id="productMainImage" class="centeredContent back">
-                                <span class="image">
-                                    <a href="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol">
-                                        <img src="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol" alt="@Model.UrunAdi" title="@Model.UrunAdi" width=" 198" height="169"><span class="zoom"></span>
-                                    </a>
-                                </span>
-                            </div>
-                            <div class="name-type bot-border">@Model.UrunAdi</div>
-                            <h2 id="productPrices" class="productGeneral">
-                                <span class="price-text">Fiyat: &nbsp;</span>
-                                ₺@Model.UrunFiyatlar.First().Fiyat
-                            </h2>
+                        <div id="productMainImage" class="centeredContent back">
+                            <span class="image">
+                                <a href="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol">
+                                    <img src="~/Content/Img/@Model.UrunResimler.First(x=>x.AnaResim==true).ResimYol" alt="@Model.UrunAdi" title="@Model.UrunAdi" width=" 198" height="169"><span class="zoom"></span>
+                                </a>
+                            </span>
+                        </div>
+                        <div class="name-type bot-border">@Model.UrunAdi</div>
+                        <h2 id="productPrices" class="productGeneral">
+                            <span class="price-text">Fiyat: &nbsp;</span>
+                            ₺@Model.UrunFiyatlar.First().Fiyat
+                        </h2>
+                        @using (Html.BeginForm("AddToCart", "Cart", new { id = Model.ID }))
+                        {
                             <div id="cartAdd">
                                 <strong class="fleft text2">
-                                    Sepete Ekle: &nbsp; &nbsp;<input type="text" class="qty" name="cart_quantity" value="1" maxlength="6" size="8">
-                                    <input type="hidden" name="products_id" value="1">
+                                    Sepete Ekle: &nbsp; &nbsp;<input type="text" id="count" class="qty" name="count" value="1" maxlength="6" size="8">
                                 </strong>&nbsp; &nbsp; &nbsp; <span class="buttonRow">
-                                    @Html.ActionLink("Sepete Ekle", "AddToCart", "Cart", new { id = Model.ID }, "")
-                                    <a href="@Href("~/Cart/AddToCart/" + Model.ID)">
-                                        <input type="image" src="~/Content/Img/buttons/sepeteekle1.png" alt="Add to Cart" title="Sepete Ekle" style="margin-top: -12px;">
-                                    </a>
+                                    <input type="submit" value="Sepete Ekle">
+                                    <input type="image" src="~/Content/Img/buttons/sepeteekle1.png" alt="Add to Cart" title="Sepete Ekle" style="margin-top: -12px;">
+                                    @*@Html.ActionLink("Sepete Ekle", "AddToCart", "Cart", new { id = Model.ID }, "")
+                                        <a href="@Href("~/Cart/AddToCart/" + Model.ID)">
+                                            <input type="image" src="~/Content/Img/buttons/sepeteekle1.png" alt="Add to Cart" title="Sepete Ekle" style="margin-top: -12px;">
+                                        </a>*@
                                 </span>
                             </div>
-                      
+                        }
                     </div>
                     <div id="productDescription" class="description biggerText">
                         <strong>Detaylar: </strong>

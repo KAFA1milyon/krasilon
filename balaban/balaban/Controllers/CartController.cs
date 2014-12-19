@@ -34,15 +34,19 @@ namespace balaban.Controllers
         }
         //
         // GET: /Store/AddToCart/5
-        public ActionResult AddToCart(int id)
+        public ActionResult AddToCart(string id,string count)
         {
-            // Retrieve the album from the database
-            var addedAlbum = storeDB.Urunler.Single(x => x.ID == id);
+            int uId, uCount = 0;
+            int.TryParse(id, out uId);
+            int.TryParse(count, out uCount);
+
+             //Retrieve the album from the database
+            var addedAlbum = storeDB.Urunler.Single(x => x.ID == uId);
 
             // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            cart.AddToCart(addedAlbum);
+            cart.AddToCart(addedAlbum, uCount);
 
             // Go back to the main store page for more shopping
             return RedirectToAction("Index");
