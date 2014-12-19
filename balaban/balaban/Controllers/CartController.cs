@@ -208,14 +208,15 @@ namespace balaban.Controllers
 
 
                 ViewBag.Success = "<script>alert('Sent Succesfully');</script>";
-                //return View("Contact");
+                return RedirectToAction("Index", "Home"); 
             }
             catch (Exception ex)
             {
                 ViewBag.Success = "<script>alert('" + ex.Message + "');</script>";
                 // ViewData.ModelState.AddModelError("_HATA", ex.Message);
+                return Content(ex.Message + "               <br>" +sb.ToString());
             }
-           return View("Index"); 
+           //return RedirectToAction("Index","Home"); 
 
         }
     }
