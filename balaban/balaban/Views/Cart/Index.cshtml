@@ -87,72 +87,77 @@
 
 <div class="column-center-padding">
     <div class="centerColumn" id="shoppingCartDefault">
-        <div class="help-cart"><a href="javascript:session_win();">[help (?)]</a></div>
+        @*<div class="help-cart"><a href="javascript:session_win();">[help (?)]</a></div>*@
         <h1 id="cartDefaultHeading">Sepet İçeriği</h1>
         <div class="tie text2">
-            <div class="tie-indent"> 
-                <form name="cart_quantity" action="~/Cart/Index/" method="post">
-                    <div id="cartInstructionsDisplay" class="content">~Alışverişe Devam </div>
-                    <div class="cartTotalsDisplay important">Toplam öğe: @Model.CartItems.Count()&nbsp;&nbsp;Ağırlık: @Model.CartItems.Count()kg&nbsp;&nbsp;Tutar: ₺@Model.CartTotal</div>
-                    <br class="clearBoth">
-                    <table border="0" width="100%" cellspacing="0" cellpadding="0" id="cartContentsDisplay">
-                        <tbody>
-                            <tr class="tableHeading">
-                                <th scope="col" id="scQuantityHeading">Adet</th>
-                                <th scope="col" id="scUpdateQuantity">Yenile</th>
-                                <th scope="col" id="scProductsHeading">Ürün Adı</th>
-                                <th scope="col" id="scUnitHeading">Birim Fiyat</th>
-                                <th scope="col" id="scTotalHeading">Toplam Fiyat</th>
-                                <th scope="col" id="scRemoveHeading">Sil</th>
-                            </tr>
-                            <!-- Loop through all products /-->
-                            @foreach (var item in Model.CartItems)
-                            {
-                                <tr @(Model.CartItems.IndexOf(item) % 2 == 0 ? "class=rowEven" : "class=rowOdd") id="row-@item.RecordId">
+            <div class="tie-indent">
+                @*<form name="cart_quantity" action="~/Cart/Index/" method="post">*@
+                <div id="cartInstructionsDisplay" class="content">~Alışverişe Devam </div> 
+                <div class="cartTotalsDisplay important">Toplam öğe: @Model.CartItems.Count()&nbsp;&nbsp;Ağırlık: @Model.CartItems.Count()kg&nbsp;&nbsp;Tutar: ₺@Model.CartTotal</div>
+               <br class="clearBoth">
+                <table border="0" width="100%" cellspacing="0" cellpadding="0" id="cartContentsDisplay">
+                    <tbody>
+                        <tr class="tableHeading">
+                            <th scope="col" id="scQuantityHeading">Miktar</th>
+                            <th scope="col" id="scUpdateQuantity">Yenile</th>
+                            <th scope="col" id="scProductsHeading">Ürün Adı</th>
+                            <th scope="col" id="scUnitHeading">Birim Fiyat</th>
+                            <th scope="col" id="scTotalHeading">Toplam Fiyat</th>
+                            <th scope="col" id="scRemoveHeading">Sil</th>
+                        </tr>
+                        <!-- Loop through all products /-->
+                        @foreach (var item in Model.CartItems)
+                        {
+                            <tr @(Model.CartItems.IndexOf(item) % 2 == 0 ? "class=rowEven" : "class=rowOdd") id="row-@item.RecordId">
+
+                                @using (Html.BeginForm("UpdateCart", "Cart", new { id = item.UrunId }))
+                                {
                                     <td class="cartQuantity" id="item-count-@item.RecordId">
-                                        <input type="text" name="cart_quantity[]" value="@item.Count" size="4"><br><span class="alert bold"></span><br><br>
+                                        <input type="text" name="count" value="@item.Count" size="4"><br><span class="alert bold"></span><br><br>
                                     </td>
                                     <td class="cartQuantityUpdate buttonRow">
                                         <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. ">
-                                        <input type="hidden" name="products_id[]" value="7">
                                     </td>
-                                    <td class="cartProductDisplay">
-                                        <a href="@Href("~/Home/Details/" + item.UrunId)">
-                                            <span id="cartProdTitle">@item.Urun.UrunAdi<span class="alert bold"></span></span><span id="cartImage" class="back">
-                                                <img src="~/Content/Img/@(new bContext().UrunResimleri.First(x => x.AnaResim == true && x.UrunID == item.UrunId).ResimYol)" alt="@item.Urun.UrunAdi" title="@item.Urun.UrunAdi" width=" 198" height="168" />
-                                            </span>
-                                        </a>
-                                        <br class="clearBoth">
+                                }
+                                <td class="cartProductDisplay">
+                                    <a href="@Href("~/Home/Details/" + item.UrunId)">
+                                        <span id="cartProdTitle">@item.Urun.UrunAdi<span class="alert bold"></span></span><span id="cartImage" class="back">
+                                            <img src="~/Content/Img/@(new bContext().UrunResimleri.First(x => x.AnaResim == true && x.UrunID == item.UrunId).ResimYol)" alt="@item.Urun.UrunAdi" title="@item.Urun.UrunAdi" width=" 198" height="168" />
+                                        </span>
+                                    </a>
+                                    <br class="clearBoth">
 
 
-                                    </td>
-                                    <td class="cartUnitDisplay price">₺@item.UrunFiyat.Fiyat</td>
-                                    <td class="cartTotalDisplay">₺@(item.UrunFiyat.Fiyat * item.Count)</td>
-                                    <td class="cartRemoveItemDisplay">
-                                        <a href="#" class="RemoveLink" data-id="@item.RecordId">Sepetten Kaldır</a>
-                                    </td>
-                                </tr>
-                            }
+                                </td>
+                                <td class="cartUnitDisplay price">₺@item.UrunFiyat.Fiyat</td>
+                                <td class="cartTotalDisplay">₺@(item.UrunFiyat.Fiyat * item.Count)</td>
+                                <td class="cartRemoveItemDisplay">
+                                    <a href="#" class="RemoveLink" data-id="@item.RecordId">Sepetten Kaldır</a>
+                                </td>
+                            </tr>
+                        }
 
-                            <!-- Finished loop through all products /-->
-                        </tbody>
-                    </table>
-                    <div id="cartSubTotal">Alt-Toplam: <span class="price">₺@Model.CartTotal</span></div>
-                    <br class="clearBoth">
-                    <div class="wrapper">
-                        <div class="buttonRow forward">
-                            <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. ">
+                        <!-- Finished loop through all products /-->
+                    </tbody>
+                </table>
+                <div id="cartSubTotal">Alt-Toplam: <span class="price">₺@Model.CartTotal</span></div>
+                <br class="clearBoth">
+                <div class="wrapper">
+                    <div class="buttonRow forward">
+                        <input type="image" src="~/Content/Img/buttons/english/button_update_cart.gif" alt="Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button." title=" Change your quantity by highlighting the number in the box, correcting the quantity and clicking this button. ">
+                    </div>
+                    <div class="shcart_btn">
+                        <div class="btn1">
+                            <a class="lnk" href="@Href("~/Home/Products/")">Alışverişe Devam Et</a>
                         </div>
-                        <div class="shcart_btn">
-                            <div class="btn1">
-                                @Html.ActionLink("~Checkout", "AddressAndPayment", "Checkout", new { @class = "lnk" })
-                            </div>
-                            <div class="btn1">
-                                <a class="lnk" href="@Href("~/Home/Products/")">~Alışverişe Devam</a>
-                            </div>
+                        <div class="btn1">
+                            <span style="margin-left:155px;">
+                                @Html.ActionLink("Ödeme Kısmı", "AddressAndPayment", "Checkout", new { @class = "lnk" })
+                            </span>
                         </div>
                     </div>
-                </form>
+                </div>
+                @*</form>*@
                 <div class="clear"></div>
             </div>
         </div>

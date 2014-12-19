@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Web;
 using System.Web.Mvc;
@@ -51,6 +52,26 @@ namespace balaban.Controllers
             // Go back to the main store page for more shopping
             return RedirectToAction("Index");
         }
+
+        public ActionResult UpdateCart(string id, string count)
+        {
+            int uId, uCount = 0;
+            int.TryParse(id, out uId);
+            int.TryParse(count, out uCount);
+
+            //Retrieve the album from the database
+            var addedAlbum = storeDB.Urunler.Single(x => x.ID == uId);
+
+            // Add it to the shopping cart
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            cart.UpdateCart(addedAlbum, uCount);
+
+            // Go back to the main store page for more shopping
+            return RedirectToAction("Index");
+        }
+
+
         //
         // AJAX: /ShoppingCart/RemoveFromCart/5
         [HttpPost]
@@ -141,7 +162,61 @@ namespace balaban.Controllers
             }
             sb.AppendLine("    <tr><td width='20%'>Total</td><td width='20%'></td><td width='20%'></td><td width='20%' id='cart-total'>" + cart.GetTotal() + "</td></tr>");
             sb.AppendLine("</table>"); 
-            return Content(sb.ToString());
+            //return Content(sb.ToString());
+
+
+
+
+
+            //if (string.IsNullOrEmpty(mail) && string.IsNullOrEmpty(konu) && string.IsNullOrEmpty(ileti))
+            //    return View();
+            try
+            {
+                int port = 587;
+                int.TryParse(System.Configuration.ConfigurationManager.AppSettings["mailPort"], out port);
+                string mailServer = System.Configuration.ConfigurationManager.AppSettings["mailServer"];
+                string mailTo = System.Configuration.ConfigurationManager.AppSettings["mailTo"];
+                string mailUsername = System.Configuration.ConfigurationManager.AppSettings["mailUsername"];
+                string mailPassword = System.Configuration.ConfigurationManager.AppSettings["mailPassword"];
+                 
+
+
+                MailMessage msgMail = new MailMessage();
+
+                MailMessage myMessage = new MailMessage();
+                myMessage.From = new MailAddress(mailUsername, "Global Link");
+                myMessage.To.Add(mailTo);
+                myMessage.Subject ="Sipariş"  + " - " + DateTime.Now.Date.ToString().Split(' ')[0];
+                myMessage.IsBodyHtml = true;
+
+                myMessage.Body = sb.ToString() + "<br>";// +ileti.Replace("\r\n", "<br>");
+
+
+                SmtpClient mySmtpClient = new SmtpClient();
+                System.Net.NetworkCredential myCredential = new System.Net.NetworkCredential(mailUsername, mailPassword);
+                mySmtpClient.Host = mailServer;
+                mySmtpClient.UseDefaultCredentials = false;
+                mySmtpClient.Credentials = myCredential;
+                mySmtpClient.ServicePoint.MaxIdleTime = 1;
+                mySmtpClient.Timeout = (60 * 5 * 1000);//300000
+
+                //mySmtpClient.EnableSsl = true;
+
+                mySmtpClient.Send(myMessage);
+                myMessage.Dispose();
+
+
+
+                ViewBag.Success = "<script>alert('Sent Succesfully');</script>";
+                //return View("Contact");
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Success = "<script>alert('" + ex.Message + "');</script>";
+                // ViewData.ModelState.AddModelError("_HATA", ex.Message);
+            }
+           return View("Index"); 
+
         }
     }
 }

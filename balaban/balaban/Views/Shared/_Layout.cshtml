@@ -64,7 +64,7 @@
                     </div>
                     <div class="navigation">
                         @*@Html.ActionLink("Admin", "Index", "Dashboard", new { area = "Yonetim" }, null)*@
-                        &nbsp; | &nbsp; <a href="@Href("~/Account/Login/")">Log In</a>
+                        &nbsp; | &nbsp; @*<a href="@Href("~/Account/Login/")">Log In</a>*@
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="  ">
+                            <li class="  " style="display:none">
                                 <a href="#" class="btn followSelector">
                                     <span>
                                         <span>Bizi Takip Edin!</span>
@@ -233,16 +233,16 @@
             //    selectContainer: '.shareSelector',
             //    blur: true
             //});
-
+           // https://www.facebook.com/groups/220741838133651/?fref=ts
             $('.followSelector').socialProfiles({
                 animation: 'chain',
                 blur: true,
-                facebook: 'DNM',
+                facebook: 'Altınoluk burak kuruyemiş',
                 google: 'DNM',
                 twitter: 'DNM',
                 pinterest: 'v',
                 dribbble: 'DNM',
-                behance: 'DNM',
+                //behance: 'DNM',
                 scoutzie: 'DNM-DNM',
                 linkedin: 'tr.linkedin.com/in/DNM'
             });
